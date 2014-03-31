@@ -1,0 +1,17 @@
+{
+	"category" : "UFFI-VMPlugin",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"ArchitectureId",
+		"NativeCodeTrailerId",
+		"OperatingSystemId" ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		"enabled",
+		"lastError" ],
+	"name" : "UFFIPlugin",
+	"pools" : [
+		"UFFIConstants" ],
+	"super" : "InterpreterPlugin",
+	"type" : "normal" }
