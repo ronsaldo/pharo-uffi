@@ -1,8 +1,8 @@
 testing
 primitiveIsEnabled
 	<export: true>
+
 	| result |
-	
 	enabled 
 		ifTrue: [ result := interpreterProxy trueObject] 
 		ifFalse: [ result := interpreterProxy falseObject ].

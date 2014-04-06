@@ -1,4 +1,4 @@
-as yet unclassified
+setting up
 setTargetOS: anOSName
 	"
 	See UFFIConstants for reference.

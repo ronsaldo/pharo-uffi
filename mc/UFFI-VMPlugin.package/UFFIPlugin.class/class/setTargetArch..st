@@ -1,4 +1,4 @@
-as yet unclassified
+setting up
 setTargetArch: anArchName
 	"
 	See UFFIConstants for reference.

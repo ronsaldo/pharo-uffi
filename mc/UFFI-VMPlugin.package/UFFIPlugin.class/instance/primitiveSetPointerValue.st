@@ -8,7 +8,7 @@ primitiveSetPointerValue
 	"Read the primitive arguments"
 	interpreterProxy methodArgumentCount = 1
 		ifFalse: [ ^ interpreterProxy primitiveFailFor: PrimErrBadNumArgs ].
-	newValue := interpreterProxy stackIntegerValue: 0.
+	newValue := interpreterProxy stackValue: 0.
 	ptr := self cCoerce: (interpreterProxy firstIndexableField: (interpreterProxy stackObjectValue: 1)) to: 'uintptr_t*'.
 	
 	"Read the pointed element."
