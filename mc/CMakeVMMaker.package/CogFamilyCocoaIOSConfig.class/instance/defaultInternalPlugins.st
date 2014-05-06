@@ -30,4 +30,5 @@ defaultInternalPlugins
 		SurfacePlugin 
 		UnixAioPlugin
 		UnixOSProcessPlugin
+		LowcodeInterpreterPlugin
 		)

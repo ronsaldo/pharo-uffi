@@ -37,4 +37,5 @@ defaultInternalPlugins
 		StarSqueakPlugin
 		SurfacePlugin
 		UUIDPlugin
+		LowcodeInterpreterPlugin
 		)

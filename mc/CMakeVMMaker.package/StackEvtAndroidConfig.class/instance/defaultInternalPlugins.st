@@ -24,4 +24,5 @@ defaultInternalPlugins
 		SocketPlugin 
 		MiscPrimitivePlugin 
 		DeflatePlugin  "ZipPlugin"
+		UFFIPlugin
 		)

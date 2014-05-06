@@ -29,4 +29,5 @@ defaultInternalPlugins
 		SoundGenerationPlugin 
 		SoundPlugin 
 		StarSqueakPlugin 
-		SurfacePlugin)
+		SurfacePlugin
+		LowcodeInterpreterPlugin)

@@ -35,6 +35,7 @@
 		"configureJPEGReadWriter2Plugin:" : "Igor.Stasenko 12/25/2010 03:34",
 		"configureJoystickTabletPlugin:" : "EstebanLorenzano 1/2/2011 11:19",
 		"configureLocalePlugin:" : "EstebanLorenzano 1/2/2011 11:20",
+		"configureLowcodeInterpreterPlugin:" : "RonieSalgado 5/4/2014 19:29",
 		"configureMIDIPlugin:" : "EstebanLorenzano 1/2/2011 11:20",
 		"configureMpeg3Plugin:" : "Igor.Stasenko 1/15/2011 15:38",
 		"configurePlugin:with:" : "Igor.Stasenko 12/29/2010 15:41",

@@ -27,4 +27,5 @@ defaultInternalPlugins
 		SurfacePlugin
 		UUIDPlugin
 		ObjectiveCPlugin 
-		IOSPlugin)
+		IOSPlugin
+		LowcodeInterpreterPlugin)

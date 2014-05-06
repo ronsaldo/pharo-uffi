@@ -32,4 +32,5 @@ defaultInternalPlugins
 		StarSqueakPlugin 
 		SurfacePlugin	
 		LocalePlugin
+		LowcodeInterpreterPlugin
 		)
