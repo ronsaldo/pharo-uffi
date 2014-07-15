@@ -6,6 +6,16 @@
 
 #define MAX_REGISTERS 256
 
+/**
+ * Lowcode condition flags
+ */
+typedef struct LowcodeConditionFlags
+{
+    int equal;
+    int lessSigned;
+    int lessUnsigned;
+} LowcodeConditionFlags;
+
 /* Condition Codes */
 #define LOWCODE_COND_EQ 0	/* Equal */
 #define LOWCODE_COND_NE 1	/* Not Equal*/
@@ -23,68 +33,39 @@
 #define LOWCODE_COND_PS 13	/* Primitive Succeed */
 
 /**
- * Lowcode Register structure.
- */
-typedef union LowcodeIntegerRegister
-{
-    /* Integer access */
-    uint64_t uintValue;
-    int64_t intValue;
-
-    /* Fixed size integer access*/
-    uint64_t uint64Value;
-    int64_t int64Value;
-    uint32_t uint32Value;
-    int32_t int32Value;
-    uint16_t uint16Value;
-    int16_t int16Value;
-    uint8_t uint8Value;
-    int8_t int8Value;
-
-    /* Pointer */
-    uint8_t *pointerValue;
-    uintptr_t uintPointer;
-} LowcodeIntegerRegister;
-
-/**
- * Lowcode condition flags
- */
-typedef struct LowcodeConditionFlags
-{
-    int equal;
-	int lessSigned;
-	int lessUnsigned;
-} LowcodeConditionFlags;
-
-/**
- * Lowcode Float Register.
- */
-typedef double LowcodeFloatRegister;
-
-/**
- * Lowcode Oop Register.
- */
-typedef sqInt LowcodeOopRegister;
-
-/**
  * Lowcode interpreter.
  */
-sqInt LowcodePlugin_InterpretCodeIn(VirtualMachine *interpreterProxy, uint8_t *instructionStream, sqInt currentMethod);
+sqInt LowcodePlugin_InterpretCodeLiteralsReceiverArguments(VirtualMachine *interpreterProxy, uint8_t *instructionStream, sqInt literals, sqInt receiver, sqInt arguments);
 
 /**
  * Sets the condition flags using substraction between integers.
  */
-void Lowcode_setConditionFlagsBySubtractingIntegerWith(LowcodeConditionFlags *flags, int64_t first, int64_t second);
+void Lowcode_setConditionFlagsBySubtractingInteger32With(LowcodeConditionFlags *flags, int32_t first, int32_t second);
+
+/**
+ * Sets the condition flags using substraction between integers.
+ */
+void Lowcode_setConditionFlagsBySubtractingInteger64With(LowcodeConditionFlags *flags, int64_t first, int64_t second);
 
 /**
  * Sets the condition flags using subtraction between floats.
  */
-void Lowcode_setConditionFlagsBySubtractingFloatWith(LowcodeConditionFlags *flags, double first, double second);
+void Lowcode_setConditionFlagsBySubtractingFloat32With(LowcodeConditionFlags *flags, float first, float second);
+
+/**
+ * Sets the condition flags using subtraction between floats.
+ */
+void Lowcode_setConditionFlagsBySubtractingFloat64With(LowcodeConditionFlags *flags, double first, double second);
 
 /**
  * Sets the condition flags using a bitwise and.
  */
-void Lowcode_setConditionFlagsByAndingIntegerWith(LowcodeConditionFlags *flags, int64_t first, int64_t second);
+void Lowcode_setConditionFlagsByAndingInteger64With(LowcodeConditionFlags *flags, int64_t first, int64_t second);
+
+/**
+ * Sets the condition flags using a bitwise and.
+ */
+void Lowcode_setConditionFlagsByAndingInteger32With(LowcodeConditionFlags *flags, int32_t first, int32_t second);
 
 /**
  * Condition codes.

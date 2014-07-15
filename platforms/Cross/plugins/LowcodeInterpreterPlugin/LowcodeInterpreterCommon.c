@@ -3,7 +3,14 @@
 /**
  * Sets the condition flags using substraction between integers.
  */
-void Lowcode_setConditionFlagsBySubtractingIntegerWith(LowcodeConditionFlags *flags, int64_t first, int64_t second)
+void Lowcode_setConditionFlagsBySubtractingInteger64With(LowcodeConditionFlags *flags, int64_t first, int64_t second)
+{
+    flags->equal = first == second;
+	flags->lessSigned = first < second;
+    flags->lessUnsigned = ((uint64_t)first) < ((uint64_t)second);
+}
+
+void Lowcode_setConditionFlagsBySubtractingInteger32With(LowcodeConditionFlags *flags, int32_t first, int32_t second)
 {
     flags->equal = first == second;
 	flags->lessSigned = first < second;
@@ -13,7 +20,13 @@ void Lowcode_setConditionFlagsBySubtractingIntegerWith(LowcodeConditionFlags *fl
 /**
  * Sets the condition flags using subtraction between floats.
  */
-void Lowcode_setConditionFlagsBySubtractingFloatWith(LowcodeConditionFlags *flags, double first, double second)
+void Lowcode_setConditionFlagsBySubtractingFloat64With(LowcodeConditionFlags *flags, double first, double second)
+{
+    flags->equal = first == second;
+	flags->lessSigned = flags->lessUnsigned = first < second;
+}
+
+void Lowcode_setConditionFlagsBySubtractingFloat32With(LowcodeConditionFlags *flags, float first, float second)
 {
     flags->equal = first == second;
 	flags->lessSigned = flags->lessUnsigned = first < second;
@@ -22,7 +35,13 @@ void Lowcode_setConditionFlagsBySubtractingFloatWith(LowcodeConditionFlags *flag
 /**
  * Sets the condition flags using a bitwise and.
  */
-void Lowcode_setConditionFlagsByAndingIntegerWith(LowcodeConditionFlags *flags, int64_t first, int64_t second)
+void Lowcode_setConditionFlagsByAndingInteger64With(LowcodeConditionFlags *flags, int64_t first, int64_t second)
+{
+    flags->equal = first == second;
+	flags->lessSigned = flags->lessUnsigned = 0;
+}
+
+void Lowcode_setConditionFlagsByAndingInteger32With(LowcodeConditionFlags *flags, int32_t first, int32_t second)
 {
     flags->equal = first == second;
 	flags->lessSigned = flags->lessUnsigned = 0;
