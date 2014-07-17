@@ -1,174 +1,211 @@
-/** * WARNING: This file was automatically generated. DO NOT MODIFY. */#include <stdlib.h>#include <stdio.h>#include <string.h>#include <math.h>#include "LowcodeInterpreterPlugin.h"/* Sista bytecode decoding constants */#define SISTA_OPCODE_ONE_BYTE_LAST 223#define SISTA_OPCODE_TWO_BYTE_LAST 247#define SISTA_OPCODE_EXT_A 224#define SISTA_OPCODE_EXT_B 225/* Primitive types stack. */#define DEFAULT_PRIMITIVE_STACK_SIZE 256#define STACK_CHECK_REMAINING_CAPACITY(size) {\	if(primitiveStackCapacity - primitiveStackSize < size) { \		fprintf(stderr, "FATAL ERROR: Lowcode Primitive Stack Overflow\n"); \		abort();\	}\}#define STACK_CHECK_MINIMAL_SIZE(size) {\	if(primitiveStackSize < size) { \		fprintf(stderr, "FATAL ERROR: Lowcode Primitive Stack Underflow\n"); \		abort();\	}\}#define PUSH_VALUE_OF_TYPE(x, type) {\	STACK_CHECK_REMAINING_CAPACITY(sizeof(type));\	*((type*)(primitiveStack + primitiveStackSize) )= x;\	primitiveStackSize += sizeof(type);\}#define PUSH_INT32(x) PUSH_VALUE_OF_TYPE(x, int32_t)#define PUSH_INT64(x) PUSH_VALUE_OF_TYPE(x, int64_t)#define PUSH_FLOAT32(x) PUSH_VALUE_OF_TYPE(x, float)#define PUSH_FLOAT64(x) PUSH_VALUE_OF_TYPE(x, double)#define PUSH_POINTER(x) PUSH_VALUE_OF_TYPE(x, void*)#define POP_VALUE_OF_TYPE(dest, type) { \	STACK_CHECK_MINIMAL_SIZE(sizeof(type)); \	primitiveStackSize -= sizeof(type); \	dest = *((type*)(primitiveStack + primitiveStackSize)); \}#define POP_INT32_TO(x) POP_VALUE_OF_TYPE(x, int32_t)#define POP_INT64_TO(x) POP_VALUE_OF_TYPE(x, int64_t)#define POP_FLOAT32_TO(x) POP_VALUE_OF_TYPE(x, float)#define POP_FLOAT64_TO(x) POP_VALUE_OF_TYPE(x, double)#define POP_POINTER_TO(x) POP_VALUE_OF_TYPE(x, void*)/* Oop macros */#define POP_OOP_TO(x) {x = interpreterProxy->pop(1); oopStackSize--; }#define PUSH_OOP(x) { interpreterProxy->push(x); oopStackSize++; }#define PUSH_OOP_INTEGER(x) { interpreterProxy->pushInteger(x); oopStackSize++; }/* Special macros */#define LABEL_AT_TO(id, dest) { \	sqInt literalOop = interpreterProxy->stObjectat(literals, id + 1); \	CHECK_FAILED(); \	dest = instructionStream + interpreterProxy->integerValueOf(literalOop); \}/* Utility macros */#define CHECK_FAILED() { \	if(interpreterProxy->failed()) \		return interpreterProxy->primitiveFail(); \}#define RETURN_OOP(oop) return interpreterProxy->popthenPush(oopStackSize, oop);
+/** * WARNING: This file was automatically generated. DO NOT MODIFY. */#include <stdlib.h>#include <stdio.h>#include <string.h>#include <math.h>#include "LowcodeInterpreterPlugin.h"#include "LowcodeInterpreterPluginFFI.h"/* Sista bytecode decoding constants */#define SISTA_OPCODE_ONE_BYTE_LAST 223#define SISTA_OPCODE_TWO_BYTE_LAST 247#define SISTA_OPCODE_EXT_A 224#define SISTA_OPCODE_EXT_B 225/* Primitive types stack. */#define DEFAULT_PRIMITIVE_STACK_SIZE 256#define STACK_CHECK_REMAINING_CAPACITY(size) {\	if(primitiveStackCapacity - primitiveStackSize < size) { \		fprintf(stderr, "FATAL ERROR: Lowcode Primitive Stack Overflow\n"); \		abort();\	}\}#define STACK_CHECK_MINIMAL_SIZE(size) {\	if(primitiveStackSize < size) { \		fprintf(stderr, "FATAL ERROR: Lowcode Primitive Stack Underflow\n"); \		abort();\	} \}#define PUSH_VALUE_OF_TYPE(x, type) {\	STACK_CHECK_REMAINING_CAPACITY(sizeof(type));\	*((type*)(primitiveStack + primitiveStackSize) )= x;\	primitiveStackSize += sizeof(type);\}#define PUSH_INT32(x) PUSH_VALUE_OF_TYPE(x, int32_t)#define PUSH_INT64(x) PUSH_VALUE_OF_TYPE(x, int64_t)#define PUSH_FLOAT32(x) PUSH_VALUE_OF_TYPE(x, float)#define PUSH_FLOAT64(x) PUSH_VALUE_OF_TYPE(x, double)#define PUSH_POINTER(x) PUSH_VALUE_OF_TYPE(x, void*)#define POP_VALUE_OF_TYPE(dest, type) { \	STACK_CHECK_MINIMAL_SIZE(sizeof(type)); \	primitiveStackSize -= sizeof(type); \	dest = *((type*)(primitiveStack + primitiveStackSize)); \}#define POP_INT32_TO(x) POP_VALUE_OF_TYPE(x, int32_t)#define POP_INT64_TO(x) POP_VALUE_OF_TYPE(x, int64_t)#define POP_FLOAT32_TO(x) POP_VALUE_OF_TYPE(x, float)#define POP_FLOAT64_TO(x) POP_VALUE_OF_TYPE(x, double)#define POP_POINTER_TO(x) POP_VALUE_OF_TYPE(x, void*)/* Oop macros */#define POP_OOP_TO(x) { \	x = interpreterProxy->stackValue(0); \	interpreterProxy->pop(1);  \	oopStackSize--; \}#define PUSH_OOP(x) { \	interpreterProxy->push(x); \	oopStackSize++; \}#define PUSH_OOP_INTEGER(x) { \	interpreterProxy->pushInteger(x); \	oopStackSize++; \}/* Special macros */#define LABEL_AT_TO(id, dest) { \	sqInt literalOop = interpreterProxy->stObjectat(literals, id + 1); \	CHECK_FAILED(); \	dest = instructionStream + interpreterProxy->integerValueOf(literalOop); \}/* Utility macros */#define UNIMPLEMENTED() { \	fprintf(stderr, "Unimplemented Lowcode instruction at %s line %d\n", __FILE__, __LINE__); \	abort(); \}#define UNSUPPORTED() { \	fprintf(stderr, "Unimplemented Lowcode instruction at %s line %d\n", __FILE__, __LINE__); \	abort(); \}#define CHECK_FAILED() { \	if(interpreterProxy->failed()) \		return interpreterProxy->primitiveFail(); \}#define RETURN_OOP(oop) return interpreterProxy->popthenPush(oopStackSize, oop);
 /* Lowcode instructions opcode constants */
 #define OPCODE_PUSHZERO32 256
 #define OPCODE_PUSHONE32 257
-#define OPCODE_LOADEFFECTIVEADDRESS32 258
-#define OPCODE_LOADUINT8FROMMEMORY 259
-#define OPCODE_LOADUINT16FROMMEMORY 260
-#define OPCODE_LOADUINT32FROMMEMORY 261
-#define OPCODE_LOADUINT64FROMMEMORY 262
-#define OPCODE_LOADINT8FROMMEMORY 263
-#define OPCODE_LOADINT16FROMMEMORY 264
-#define OPCODE_LOADINT32FROMMEMORY 265
-#define OPCODE_LOADINT64FROMMEMORY 266
-#define OPCODE_LOADPOINTERFROMMEMORY 267
-#define OPCODE_LOADFLOAT32FROMMEMORY 268
-#define OPCODE_LOADFLOAT64FROMMEMORY 269
-#define OPCODE_STOREINT8TOMEMORY 270
-#define OPCODE_STOREINT16TOMEMORY 271
-#define OPCODE_STOREINT32TOMEMORY 272
-#define OPCODE_STOREINT64TOMEMORY 273
-#define OPCODE_STOREPOINTERTOMEMORY 274
-#define OPCODE_STOREFLOAT32TOMEMORY 275
-#define OPCODE_STOREFLOAT64TOMEMORY 276
-#define OPCODE_SIGNEXTEND32FROM8 277
-#define OPCODE_SIGNEXTEND32FROM16 278
-#define OPCODE_SIGNEXTEND64FROM8 279
-#define OPCODE_SIGNEXTEND64FROM16 280
-#define OPCODE_SIGNEXTEND64FROM32 281
-#define OPCODE_ZEROEXTEND32FROM8 282
-#define OPCODE_ZEROEXTEND32FROM16 283
-#define OPCODE_ZEROEXTEND64FROM8 284
-#define OPCODE_ZEROEXTEND64FROM16 285
-#define OPCODE_ZEROEXTEND64FROM32 286
-#define OPCODE_TRUNCATE32TO8 287
-#define OPCODE_TRUNCATE32TO16 288
-#define OPCODE_TRUNCATE64TO8 289
-#define OPCODE_TRUNCATE64TO16 290
-#define OPCODE_TRUNCATE64TO32 291
-#define OPCODE_UINT32TOFLOAT32 292
-#define OPCODE_UINT32TOFLOAT64 293
-#define OPCODE_INT32TOFLOAT32 294
-#define OPCODE_INT32TOFLOAT64 295
-#define OPCODE_UINT64TOFLOAT32 296
-#define OPCODE_UINT64TOFLOAT64 297
-#define OPCODE_INT64TOFLOAT32 298
-#define OPCODE_INT64TOFLOAT64 299
-#define OPCODE_FLOAT32TOINT32 300
-#define OPCODE_FLOAT64TOINT32 301
-#define OPCODE_FLOAT32TOINT64 302
-#define OPCODE_FLOAT64TOINT64 303
-#define OPCODE_ADD32 304
-#define OPCODE_SUB32 305
-#define OPCODE_MUL32 306
-#define OPCODE_UMUL32 307
-#define OPCODE_DIV32 308
-#define OPCODE_UDIV32 309
-#define OPCODE_REM32 310
-#define OPCODE_UREM32 311
-#define OPCODE_ADD64 312
-#define OPCODE_SUB64 313
-#define OPCODE_MUL64 314
-#define OPCODE_UMUL64 315
-#define OPCODE_DIV64 316
-#define OPCODE_UDIV64 317
-#define OPCODE_REM64 318
-#define OPCODE_UREM64 319
-#define OPCODE_NOT32 320
-#define OPCODE_AND32 321
-#define OPCODE_OR32 322
-#define OPCODE_XOR32 323
-#define OPCODE_LEFTSHIFT32 324
-#define OPCODE_RIGHTSHIFT32 325
-#define OPCODE_ARITHMETICRIGHTSHIFT32 326
-#define OPCODE_NOT64 327
-#define OPCODE_AND64 328
-#define OPCODE_OR64 329
-#define OPCODE_XOR64 330
-#define OPCODE_LEFTSHIFT64 331
-#define OPCODE_RIGHTSHIFT64 332
-#define OPCODE_ARITHMETICRIGHTSHIFT64 333
-#define OPCODE_FLOAT32ADD 334
-#define OPCODE_FLOAT32SUB 335
-#define OPCODE_FLOAT32MUL 336
-#define OPCODE_FLOAT32DIV 337
-#define OPCODE_FLOAT64ADD 338
-#define OPCODE_FLOAT64SUB 339
-#define OPCODE_FLOAT64MUL 340
-#define OPCODE_FLOAT64DIV 341
-#define OPCODE_PIN 342
-#define OPCODE_UNPIN 343
-#define OPCODE_OOPTOPOINTER 344
-#define OPCODE_POINTERTOOOP 345
-#define OPCODE_OOPTOBOOLEAN 346
-#define OPCODE_OOPSMALLINTTOINT32 347
-#define OPCODE_OOPTOINT32 348
-#define OPCODE_OOPTOUINT32 349
-#define OPCODE_OOPSMALLINTEGERTOINT64 350
-#define OPCODE_OOPTOINT64 351
-#define OPCODE_OOPTOUINT64 352
-#define OPCODE_OOPTOFLOAT32 353
-#define OPCODE_OOPTOFLOAT64 354
-#define OPCODE_BOOLEANTOOOP32 355
-#define OPCODE_SMALLINT32TOOOP 356
-#define OPCODE_INT32TOOOP 357
-#define OPCODE_UINT32TOOOP 358
-#define OPCODE_INT64TOOOP 359
-#define OPCODE_UINT64TOOOP 360
-#define OPCODE_FLOAT32TOOOP 361
-#define OPCODE_FLOAT64TOOOP 362
-#define OPCODE_FIRSTFIELDPTR 363
-#define OPCODE_FIRSTINDEXPTR 364
-#define OPCODE_COMPARE32 365
-#define OPCODE_COMPARE64 366
-#define OPCODE_FLOAT32COMPARE 367
-#define OPCODE_FLOAT64COMPARE 368
-#define OPCODE_TEST32 369
-#define OPCODE_TEST64 370
-#define OPCODE_JUMP 371
-#define OPCODE_BRANCHEQUAL 372
-#define OPCODE_BRANCHNOTEQUAL 373
-#define OPCODE_BRANCHLESS 374
-#define OPCODE_BRANCHLESSEQUAL 375
-#define OPCODE_BRANCHGREATER 376
-#define OPCODE_BRANCHGREATEQUAL 377
-#define OPCODE_BRANCHUNSIGNEDLESS 378
-#define OPCODE_BRANCHUNSIGNEDLESSEQUAL 379
-#define OPCODE_BRANCHUNSIGNEDGREATER 380
-#define OPCODE_BRANCHUNSIGNEDGREATEQUAL 381
-#define OPCODE_BRANCHOVERFLOW 382
-#define OPCODE_BRANCHNOTOVERFLOW 383
-#define OPCODE_BRANCHPRIMITIVEFAILED 384
-#define OPCODE_BRANCHPRIMITIVESUCCEED 385
-#define OPCODE_RETURNINT32 390
-#define OPCODE_RETURNINT64 391
-#define OPCODE_RETURNPOINTER 392
-#define OPCODE_RETURNFLOAT32 393
-#define OPCODE_RETURNFLOAT64 394
-#define OPCODE_LOCKVM 395
-#define OPCODE_UNLOCKVM 396
-#define OPCODE_COMPAREANDSWAP32 397
-#define OPCODE_ALLOCA32 398
-#define OPCODE_ALLOCA64 399
-#define OPCODE_MALLOC32 400
-#define OPCODE_MALLOC64 401
-#define OPCODE_FREE 402
-#define OPCODE_BEGINCALL 403
-#define OPCODE_CALLARGUMENTINT32 404
-#define OPCODE_CALLARGUMENTINT64 405
-#define OPCODE_CALLARGUMENTFLOAT32 406
-#define OPCODE_CALLARGUMENTFLOAT64 407
-#define OPCODE_PERFORMCALL 408
-#define OPCODE_PERFORMCALLINDIRECT 409
-#define OPCODE_ENDCALL 410
-#define OPCODE_ENDCALLNOCLEANUP 411
-#define OPCODE_PLAFTORMCODE 412
-#define OPCODE_LOCKREGISTERS 413
-#define OPCODE_UNLOCKREGISTERS 414
-#define OPCODE_MOVEINT32TOPHYSICAL 415
-#define OPCODE_MOVEINT64TOPHYSICAL 416
-#define OPCODE_MOVEPOINTERTOPHYSICAL 417
-#define OPCODE_MOVEFLOAT32TOPHYSICAL 418
-#define OPCODE_MOVEFLOAT64TOPHYSICAL 419
-#define OPCODE_PUSHPHYSICALINT32 420
-#define OPCODE_PUSHPHYSICALINT64 421
-#define OPCODE_PUSHPHYSICALPOINTER 422
-#define OPCODE_PUSHPHYSICALFLOAT32 423
-#define OPCODE_PUSHPHYSICALFLOAT64 424
-#define OPCODE_CALLPHYSICAL 425
-#define OPCODE_CALLINSTRUCTION 426
-sqInt LowcodePlugin_InterpretCodeLiteralsReceiverArguments(VirtualMachine *interpreterProxy, uint8_t *instructionStream, sqInt literals, sqInt receiver, sqInt arguments){	/* Allocate space for the primitive stack */	char* primitiveStack = alloca(DEFAULT_PRIMITIVE_STACK_SIZE);	size_t primitiveStackCapacity = DEFAULT_PRIMITIVE_STACK_SIZE;	size_t primitiveStackSize = 0;	/* Oop stack tracking */	size_t oopStackSize = interpreterProxy->methodArgumentCount() + 1;		/* Some counts */	size_t numberLiterals = interpreterProxy->stSizeOf(literals);	size_t numberOfArguments = interpreterProxy->stSizeOf(arguments);	/* Condition Flags */	LowcodeConditionFlags currentConditionFlags;		/* The current program counter. */	uint8_t *pc = instructionStream;	uint32_t extA = 0;	uint32_t extB = 0;	{		size_t i;		/* Push the receiver and arguments in the stack */		interpreterProxy->push(receiver);		for(i = 0; i < numberOfArguments; ++i)			interpreterProxy->push(interpreterProxy->stObjectat(arguments, i + 1));		oopStackSize += 1 + numberOfArguments;		CHECK_FAILED();	}		/* Execute all the instructions without verification */	for(;;)	{		/* Fetch the first Sista extended bytecode opcode. */		uint8_t sistaOpcode = *(pc++);		/* Sista instructions are variable sized */		if(sistaOpcode <= SISTA_OPCODE_ONE_BYTE_LAST)		{			switch(sistaOpcode)			{
-			/* 'pushReceiverVariable'*/
+#define OPCODE_PUSHZERO64 258
+#define OPCODE_PUSHONE64 259
+#define OPCODE_PUSHZEROFLOAT32 260
+#define OPCODE_PUSHONEFLOAT32 261
+#define OPCODE_PUSHZEROFLOAT64 262
+#define OPCODE_PUSHONEFLOAT64 263
+#define OPCODE_POINTEROFFSET32 264
+#define OPCODE_POINTEROFFSET64 265
+#define OPCODE_EFFECTIVEADDRESS32 266
+#define OPCODE_EFFECTIVEADDRESS64 267
+#define OPCODE_LOADUINT8FROMMEMORY 268
+#define OPCODE_LOADUINT16FROMMEMORY 269
+#define OPCODE_LOADUINT32FROMMEMORY 270
+#define OPCODE_LOADUINT64FROMMEMORY 271
+#define OPCODE_LOADINT8FROMMEMORY 272
+#define OPCODE_LOADINT16FROMMEMORY 273
+#define OPCODE_LOADINT32FROMMEMORY 274
+#define OPCODE_LOADINT64FROMMEMORY 275
+#define OPCODE_LOADPOINTERFROMMEMORY 276
+#define OPCODE_LOADFLOAT32FROMMEMORY 277
+#define OPCODE_LOADFLOAT64FROMMEMORY 278
+#define OPCODE_STOREINT8TOMEMORY 279
+#define OPCODE_STOREINT16TOMEMORY 280
+#define OPCODE_STOREINT32TOMEMORY 281
+#define OPCODE_STOREINT64TOMEMORY 282
+#define OPCODE_STOREPOINTERTOMEMORY 283
+#define OPCODE_STOREFLOAT32TOMEMORY 284
+#define OPCODE_STOREFLOAT64TOMEMORY 285
+#define OPCODE_LOADLOCALUINT8 286
+#define OPCODE_LOADLOCALUINT16 287
+#define OPCODE_LOADLOCALUINT32 288
+#define OPCODE_LOADLOCALUINT64 289
+#define OPCODE_LOADLOCALINT8 290
+#define OPCODE_LOADLOCALINT16 291
+#define OPCODE_LOADLOCALINT32 292
+#define OPCODE_LOADLOCALINT64 293
+#define OPCODE_LOADLOCALPOINTER 294
+#define OPCODE_LOADLOCALFLOAT32 295
+#define OPCODE_LOADLOCALFLOAT64 296
+#define OPCODE_STORELOCALINT8 297
+#define OPCODE_STORELOCALINT16 298
+#define OPCODE_STORELOCALINT32 299
+#define OPCODE_STORELOCALINT64 300
+#define OPCODE_STORELOCALPOINTER 301
+#define OPCODE_STORELOCALFLOAT32 302
+#define OPCODE_STORELOCALFLOAT64 303
+#define OPCODE_SIGNEXTEND32FROM8 304
+#define OPCODE_SIGNEXTEND32FROM16 305
+#define OPCODE_SIGNEXTEND64FROM8 306
+#define OPCODE_SIGNEXTEND64FROM16 307
+#define OPCODE_SIGNEXTEND64FROM32 308
+#define OPCODE_ZEROEXTEND32FROM8 309
+#define OPCODE_ZEROEXTEND32FROM16 310
+#define OPCODE_ZEROEXTEND64FROM8 311
+#define OPCODE_ZEROEXTEND64FROM16 312
+#define OPCODE_ZEROEXTEND64FROM32 313
+#define OPCODE_TRUNCATE32TO8 314
+#define OPCODE_TRUNCATE32TO16 315
+#define OPCODE_TRUNCATE64TO8 316
+#define OPCODE_TRUNCATE64TO16 317
+#define OPCODE_TRUNCATE64TO32 318
+#define OPCODE_UINT32TOFLOAT32 319
+#define OPCODE_UINT32TOFLOAT64 320
+#define OPCODE_INT32TOFLOAT32 321
+#define OPCODE_INT32TOFLOAT64 322
+#define OPCODE_UINT64TOFLOAT32 323
+#define OPCODE_UINT64TOFLOAT64 324
+#define OPCODE_INT64TOFLOAT32 325
+#define OPCODE_INT64TOFLOAT64 326
+#define OPCODE_FLOAT32TOINT32 327
+#define OPCODE_FLOAT64TOINT32 328
+#define OPCODE_FLOAT32TOINT64 329
+#define OPCODE_FLOAT64TOINT64 330
+#define OPCODE_ADD32 331
+#define OPCODE_SUB32 332
+#define OPCODE_MUL32 333
+#define OPCODE_UMUL32 334
+#define OPCODE_DIV32 335
+#define OPCODE_UDIV32 336
+#define OPCODE_REM32 337
+#define OPCODE_UREM32 338
+#define OPCODE_ADD64 339
+#define OPCODE_SUB64 340
+#define OPCODE_MUL64 341
+#define OPCODE_UMUL64 342
+#define OPCODE_DIV64 343
+#define OPCODE_UDIV64 344
+#define OPCODE_REM64 345
+#define OPCODE_UREM64 346
+#define OPCODE_NOT32 347
+#define OPCODE_AND32 348
+#define OPCODE_OR32 349
+#define OPCODE_XOR32 350
+#define OPCODE_LEFTSHIFT32 351
+#define OPCODE_RIGHTSHIFT32 352
+#define OPCODE_ARITHMETICRIGHTSHIFT32 353
+#define OPCODE_NOT64 354
+#define OPCODE_AND64 355
+#define OPCODE_OR64 356
+#define OPCODE_XOR64 357
+#define OPCODE_LEFTSHIFT64 358
+#define OPCODE_RIGHTSHIFT64 359
+#define OPCODE_ARITHMETICRIGHTSHIFT64 360
+#define OPCODE_FLOAT32ADD 361
+#define OPCODE_FLOAT32SUB 362
+#define OPCODE_FLOAT32MUL 363
+#define OPCODE_FLOAT32DIV 364
+#define OPCODE_FLOAT64ADD 365
+#define OPCODE_FLOAT64SUB 366
+#define OPCODE_FLOAT64MUL 367
+#define OPCODE_FLOAT64DIV 368
+#define OPCODE_PIN 369
+#define OPCODE_UNPIN 370
+#define OPCODE_OOPTOPOINTER 371
+#define OPCODE_OOPTOPOINTERREINTERPRET 372
+#define OPCODE_POINTERTOOOPREINTERPRER 373
+#define OPCODE_OOPTOBOOLEAN 374
+#define OPCODE_OOPSMALLINTTOINT32 375
+#define OPCODE_OOPTOINT32 376
+#define OPCODE_OOPTOUINT32 377
+#define OPCODE_OOPSMALLINTEGERTOINT64 378
+#define OPCODE_OOPTOINT64 379
+#define OPCODE_OOPTOUINT64 380
+#define OPCODE_OOPTOFLOAT32 381
+#define OPCODE_OOPTOFLOAT64 382
+#define OPCODE_BOOLEANTOOOP32 383
+#define OPCODE_SMALLINT32TOOOP 384
+#define OPCODE_INT32TOOOP 385
+#define OPCODE_UINT32TOOOP 386
+#define OPCODE_INT64TOOOP 387
+#define OPCODE_UINT64TOOOP 388
+#define OPCODE_FLOAT32TOOOP 389
+#define OPCODE_FLOAT64TOOOP 390
+#define OPCODE_FIRSTFIELDPTR 391
+#define OPCODE_FIRSTINDEXPTR 392
+#define OPCODE_COMPARE32 393
+#define OPCODE_COMPARE64 394
+#define OPCODE_FLOAT32COMPARE 395
+#define OPCODE_FLOAT64COMPARE 396
+#define OPCODE_TEST32 397
+#define OPCODE_TEST64 398
+#define OPCODE_JUMP 399
+#define OPCODE_BRANCHEQUAL 400
+#define OPCODE_BRANCHNOTEQUAL 401
+#define OPCODE_BRANCHLESS 402
+#define OPCODE_BRANCHLESSEQUAL 403
+#define OPCODE_BRANCHGREATER 404
+#define OPCODE_BRANCHGREATEQUAL 405
+#define OPCODE_BRANCHUNSIGNEDLESS 406
+#define OPCODE_BRANCHUNSIGNEDLESSEQUAL 407
+#define OPCODE_BRANCHUNSIGNEDGREATER 408
+#define OPCODE_BRANCHUNSIGNEDGREATEQUAL 409
+#define OPCODE_BRANCHOVERFLOW 410
+#define OPCODE_BRANCHNOTOVERFLOW 411
+#define OPCODE_BRANCHPRIMITIVEFAILED 412
+#define OPCODE_BRANCHPRIMITIVESUCCEED 413
+#define OPCODE_RETURNINT32 418
+#define OPCODE_RETURNINT64 419
+#define OPCODE_RETURNPOINTER 420
+#define OPCODE_RETURNFLOAT32 421
+#define OPCODE_RETURNFLOAT64 422
+#define OPCODE_LOCKVM 423
+#define OPCODE_UNLOCKVM 424
+#define OPCODE_COMPAREANDSWAP32 425
+#define OPCODE_ALLOCA32 426
+#define OPCODE_ALLOCA64 427
+#define OPCODE_MALLOC32 428
+#define OPCODE_MALLOC64 429
+#define OPCODE_FREE 430
+#define OPCODE_BEGINCALL 431
+#define OPCODE_CALLARGUMENTINT32 432
+#define OPCODE_CALLARGUMENTINT64 433
+#define OPCODE_CALLARGUMENTPOINTER 434
+#define OPCODE_CALLARGUMENTFLOAT32 435
+#define OPCODE_CALLARGUMENTFLOAT64 436
+#define OPCODE_PERFORMCALLINT32 437
+#define OPCODE_PERFORMCALLINT64 438
+#define OPCODE_PERFORMCALLPOINTER 439
+#define OPCODE_PERFORMCALLFLOAT32 440
+#define OPCODE_PERFORMCALLFLOAT64 441
+#define OPCODE_PERFORMCALLINDIRECTINT32 442
+#define OPCODE_PERFORMCALLINDIRECTINT64 443
+#define OPCODE_PERFORMCALLINDIRECTPOINTER 444
+#define OPCODE_PERFORMCALLINDIRECTFLOAT32 445
+#define OPCODE_PERFORMCALLINDIRECTFLOAT64 446
+#define OPCODE_ENDCALL 447
+#define OPCODE_ENDCALLNOCLEANUP 448
+#define OPCODE_PLAFTORMCODE 449
+#define OPCODE_LOCKREGISTERS 450
+#define OPCODE_UNLOCKREGISTERS 451
+#define OPCODE_MOVEINT32TOPHYSICAL 452
+#define OPCODE_MOVEINT64TOPHYSICAL 453
+#define OPCODE_MOVEPOINTERTOPHYSICAL 454
+#define OPCODE_MOVEFLOAT32TOPHYSICAL 455
+#define OPCODE_MOVEFLOAT64TOPHYSICAL 456
+#define OPCODE_PUSHPHYSICALINT32 457
+#define OPCODE_PUSHPHYSICALINT64 458
+#define OPCODE_PUSHPHYSICALPOINTER 459
+#define OPCODE_PUSHPHYSICALFLOAT32 460
+#define OPCODE_PUSHPHYSICALFLOAT64 461
+#define OPCODE_CALLPHYSICAL 462
+#define OPCODE_CALLINSTRUCTION 463
+sqInt LowcodePlugin_InterpretCodeLiteralsReceiverTemporalsStackFrame(VirtualMachine *interpreterProxy, uint8_t *instructionStream, sqInt literals, sqInt receiver, sqInt temporals, int stackFrameSize){	/* Allocate space for the primitive stack */	char* primitiveStack = (char*)alloca(DEFAULT_PRIMITIVE_STACK_SIZE);	size_t primitiveStackCapacity = DEFAULT_PRIMITIVE_STACK_SIZE;	size_t primitiveStackSize = 0;		/* Allocate space for the stack frame base. */	char* basePointer = (char*)alloca(stackFrameSize);	/* Oop stack tracking */	size_t oopStackSize = interpreterProxy->methodArgumentCount() + 1;		/* Some counts */	size_t numberLiterals = interpreterProxy->stSizeOf(literals);	size_t numberOfTemporals = interpreterProxy->stSizeOf(temporals);	/* Condition Flags */	LowcodeConditionFlags currentConditionFlags;		/* The current program counter. */	uint8_t *pc = instructionStream;	uint32_t extA = 0;	uint32_t extB = 0;		/* For calling*/	LOWCODE_FFI_COMMON();		/* Execute all the instructions without verification */	for(;;)	{		/* Fetch the first Sista extended bytecode opcode. */		uint8_t sistaOpcode = *(pc++);		/* Sista instructions are variable sized */		if(sistaOpcode <= SISTA_OPCODE_ONE_BYTE_LAST)		{			switch(sistaOpcode)			{
+			/* 'pushReceiverVariableSmallIndex'*/
 			case 0:
 			case 1:
 			case 2:
@@ -186,9 +223,9 @@
 			case 14:
 			case 15:
 			{
-            /* TODO: Implement this*/        
+            PUSH_OOP(interpreterProxy->fetchPointerofObject(sistaOpcode & 15, receiver));        
 			}				break;
-			/* 'pushLiteralVariable'*/
+			/* 'pushLiteralVariableSmallIndex'*/
 			case 16:
 			case 17:
 			case 18:
@@ -206,9 +243,9 @@
 			case 30:
 			case 31:
 			{
-            /* TODO: Implement this*/        
+            UNIMPLEMENTED();        
 			}				break;
-			/* 'pushLiteral'*/
+			/* 'pushLiteralSmallIndex'*/
 			case 32:
 			case 33:
 			case 34:
@@ -242,9 +279,9 @@
 			case 62:
 			case 63:
 			{
-            /* TODO: Implement this*/        
+            PUSH_OOP(interpreterProxy->fetchPointerofObject(sistaOpcode & 31, literals));        
 			}				break;
-			/* 'pushTemp'*/
+			/* 'pushTempSmallIndex'*/
 			case 64:
 			case 65:
 			case 66:
@@ -254,15 +291,15 @@
 			case 70:
 			case 71:
 			{
-            /* TODO: Implement this*/        
+            PUSH_OOP(interpreterProxy->fetchPointerofObject(sistaOpcode & 7, temporals));        
 			}				break;
-			/* 'pushTempP8'*/
+			/* 'pushTempSmallIndex2'*/
 			case 72:
 			case 73:
 			case 74:
 			case 75:
 			{
-            /* TODO: Implement this*/        
+            PUSH_OOP(interpreterProxy->fetchPointerofObject((sistaOpcode & 3) + 8, temporals));        
 			}				break;
 			/* 'pushReceiver'*/
 			case 76:
@@ -297,7 +334,7 @@
 			/* 'pushThisContext'*/
 			case 82:
 			{
-            /* Not Supported*/        
+            UNSUPPORTED();        
 			}				break;
 			/* 'dupTop'*/
 			case 83:
@@ -348,7 +385,47 @@
 				int32_t result;
             result = 1;        
 				PUSH_INT32(result);
-			}				break;			case OPCODE_LOADEFFECTIVEADDRESS32:			{
+			}				break;			case OPCODE_PUSHZERO64:			{
+				int64_t result;
+            result = 0;        
+				PUSH_INT64(result);
+			}				break;			case OPCODE_PUSHONE64:			{
+				int64_t result;
+            result = 1;        
+				PUSH_INT64(result);
+			}				break;			case OPCODE_PUSHZEROFLOAT32:			{
+				float result;
+            result = 0;        
+				PUSH_FLOAT32(result);
+			}				break;			case OPCODE_PUSHONEFLOAT32:			{
+				float result;
+            result = 1;        
+				PUSH_FLOAT32(result);
+			}				break;			case OPCODE_PUSHZEROFLOAT64:			{
+				double result;
+            result = 0;        
+				PUSH_FLOAT64(result);
+			}				break;			case OPCODE_PUSHONEFLOAT64:			{
+				double result;
+            result = 1;        
+				PUSH_FLOAT64(result);
+			}				break;			case OPCODE_POINTEROFFSET32:			{
+				void* base;
+				int32_t offset;
+				void* result;
+				POP_INT32_TO(offset);
+				POP_POINTER_TO(base);
+            result = ((char*)base) + offset;        
+				PUSH_POINTER(result);
+			}				break;			case OPCODE_POINTEROFFSET64:			{
+				void* base;
+				int64_t offset;
+				void* result;
+				POP_INT64_TO(offset);
+				POP_POINTER_TO(base);
+            result = ((char*)base) + offset;        
+				PUSH_POINTER(result);
+			}				break;			case OPCODE_EFFECTIVEADDRESS32:			{
 				void* base;
 				int32_t index;
 				int32_t scale;
@@ -357,6 +434,18 @@
 				POP_INT32_TO(offset);
 				POP_INT32_TO(scale);
 				POP_INT32_TO(index);
+				POP_POINTER_TO(base);
+            result = ((char*)base) + index*scale + offset;        
+				PUSH_POINTER(result);
+			}				break;			case OPCODE_EFFECTIVEADDRESS64:			{
+				void* base;
+				int64_t index;
+				int64_t scale;
+				int64_t offset;
+				void* result;
+				POP_INT64_TO(offset);
+				POP_INT64_TO(scale);
+				POP_INT64_TO(index);
 				POP_POINTER_TO(base);
             result = ((char*)base) + index*scale + offset;        
 				PUSH_POINTER(result);
@@ -468,6 +557,132 @@
 				POP_FLOAT64_TO(value);
 				POP_POINTER_TO(pointer);
             *((double*)pointer) = value;        
+			}				break;			case OPCODE_LOADLOCALUINT8:			{
+				uint32_t baseOffset;
+				int32_t value;
+				baseOffset = extA;
+				extA = 0;
+            value = (uint32_t)*((uint8_t*)(basePointer + baseOffset));        
+				PUSH_INT32(value);
+			}				break;			case OPCODE_LOADLOCALUINT16:			{
+				uint32_t baseOffset;
+				int32_t value;
+				baseOffset = extA;
+				extA = 0;
+            value = (uint32_t)*((uint16_t*)(basePointer + baseOffset));        
+				PUSH_INT32(value);
+			}				break;			case OPCODE_LOADLOCALUINT32:			{
+				uint32_t baseOffset;
+				int32_t value;
+				baseOffset = extA;
+				extA = 0;
+            value = (uint32_t)*((uint32_t*)(basePointer + baseOffset));        
+				PUSH_INT32(value);
+			}				break;			case OPCODE_LOADLOCALUINT64:			{
+				uint32_t baseOffset;
+				int64_t value;
+				baseOffset = extA;
+				extA = 0;
+            value = (uint64_t)*((uint64_t*)(basePointer + baseOffset));        
+				PUSH_INT64(value);
+			}				break;			case OPCODE_LOADLOCALINT8:			{
+				uint32_t baseOffset;
+				int32_t value;
+				baseOffset = extA;
+				extA = 0;
+            value = (int32_t)*((int8_t*)(basePointer + baseOffset));        
+				PUSH_INT32(value);
+			}				break;			case OPCODE_LOADLOCALINT16:			{
+				uint32_t baseOffset;
+				int32_t value;
+				baseOffset = extA;
+				extA = 0;
+            value = (int32_t)*((int16_t*)(basePointer + baseOffset));        
+				PUSH_INT32(value);
+			}				break;			case OPCODE_LOADLOCALINT32:			{
+				uint32_t baseOffset;
+				int32_t value;
+				baseOffset = extA;
+				extA = 0;
+            value = (int32_t)*((int32_t*)(basePointer + baseOffset));        
+				PUSH_INT32(value);
+			}				break;			case OPCODE_LOADLOCALINT64:			{
+				uint32_t baseOffset;
+				int64_t value;
+				baseOffset = extA;
+				extA = 0;
+            value = (int64_t)*((int64_t*)(basePointer + baseOffset));        
+				PUSH_INT64(value);
+			}				break;			case OPCODE_LOADLOCALPOINTER:			{
+				uint32_t baseOffset;
+				void* value;
+				baseOffset = extA;
+				extA = 0;
+            value = (void*)*((void**)(basePointer + baseOffset));        
+				PUSH_POINTER(value);
+			}				break;			case OPCODE_LOADLOCALFLOAT32:			{
+				uint32_t baseOffset;
+				float value;
+				baseOffset = extA;
+				extA = 0;
+            value = *((float*)(basePointer + baseOffset));        
+				PUSH_FLOAT32(value);
+			}				break;			case OPCODE_LOADLOCALFLOAT64:			{
+				uint32_t baseOffset;
+				double value;
+				baseOffset = extA;
+				extA = 0;
+            value = *((double*)(basePointer + baseOffset));        
+				PUSH_FLOAT64(value);
+			}				break;			case OPCODE_STORELOCALINT8:			{
+				uint32_t baseOffset;
+				int32_t value;
+				baseOffset = extA;
+				extA = 0;
+				POP_INT32_TO(value);
+            *((int8_t*)(basePointer + baseOffset)) = value;        
+			}				break;			case OPCODE_STORELOCALINT16:			{
+				uint32_t baseOffset;
+				int32_t value;
+				baseOffset = extA;
+				extA = 0;
+				POP_INT32_TO(value);
+            *((int16_t*)(basePointer + baseOffset)) = value;        
+			}				break;			case OPCODE_STORELOCALINT32:			{
+				uint32_t baseOffset;
+				int32_t value;
+				baseOffset = extA;
+				extA = 0;
+				POP_INT32_TO(value);
+            *((int32_t*)(basePointer + baseOffset)) = value;        
+			}				break;			case OPCODE_STORELOCALINT64:			{
+				uint32_t baseOffset;
+				int64_t value;
+				baseOffset = extA;
+				extA = 0;
+				POP_INT64_TO(value);
+            *((int64_t*)(basePointer + baseOffset)) = value;        
+			}				break;			case OPCODE_STORELOCALPOINTER:			{
+				uint32_t baseOffset;
+				void* value;
+				baseOffset = extA;
+				extA = 0;
+				POP_POINTER_TO(value);
+            *((void**)(basePointer + baseOffset)) = value;        
+			}				break;			case OPCODE_STORELOCALFLOAT32:			{
+				uint32_t baseOffset;
+				float value;
+				baseOffset = extA;
+				extA = 0;
+				POP_FLOAT32_TO(value);
+            *((float*)(basePointer + baseOffset)) = value;        
+			}				break;			case OPCODE_STORELOCALFLOAT64:			{
+				uint32_t baseOffset;
+				double value;
+				baseOffset = extA;
+				extA = 0;
+				POP_FLOAT64_TO(value);
+            *((double*)(basePointer + baseOffset)) = value;        
 			}				break;			case OPCODE_SIGNEXTEND32FROM8:			{
 				int32_t value;
 				int32_t result;
@@ -942,9 +1157,15 @@
 				sqInt object;
 				void* pointer;
 				POP_OOP_TO(object);
+            pointer = *((void**)interpreterProxy->firstIndexableField(object));        
+				PUSH_POINTER(pointer);
+			}				break;			case OPCODE_OOPTOPOINTERREINTERPRET:			{
+				sqInt object;
+				void* pointer;
+				POP_OOP_TO(object);
             pointer = (void*)object;        
 				PUSH_POINTER(pointer);
-			}				break;			case OPCODE_POINTERTOOOP:			{
+			}				break;			case OPCODE_POINTERTOOOPREINTERPRER:			{
 				void* pointer;
 				sqInt object;
 				POP_POINTER_TO(pointer);
@@ -1163,23 +1384,23 @@
 			}				break;			case OPCODE_RETURNINT32:			{
 				int32_t value;
 				POP_INT32_TO(value);
-            /* TODO: */        
+            RETURN_OOP(interpreterProxy->signed32BitIntegerFor(value));        
 			}				break;			case OPCODE_RETURNINT64:			{
 				int32_t value;
 				POP_INT32_TO(value);
-            /* TODO: */        
+            RETURN_OOP(interpreterProxy->signed64BitIntegerFor(value));        
 			}				break;			case OPCODE_RETURNPOINTER:			{
 				void* value;
 				POP_POINTER_TO(value);
-            /* TODO: */        
+            UNIMPLEMENTED();        
 			}				break;			case OPCODE_RETURNFLOAT32:			{
 				float value;
 				POP_FLOAT32_TO(value);
-            /* TODO: */        
+            RETURN_OOP(interpreterProxy->floatObjectOf(value));        
 			}				break;			case OPCODE_RETURNFLOAT64:			{
 				double value;
 				POP_FLOAT64_TO(value);
-            /* TODO: */        
+            RETURN_OOP(interpreterProxy->floatObjectOf(value));        
 			}				break;			case OPCODE_LOCKVM:			{
             /* TODO */        
 			}				break;			case OPCODE_UNLOCKVM:			{
@@ -1192,7 +1413,7 @@
 				POP_INT32_TO(oldValue);
 				POP_INT32_TO(newValue);
 				POP_POINTER_TO(check);
-            /* TODO */        
+            UNIMPLEMENTED();        
 				PUSH_INT32(value);
 			}				break;			case OPCODE_ALLOCA32:			{
 				int32_t size;
@@ -1225,109 +1446,183 @@
 			}				break;			case OPCODE_BEGINCALL:			{
 				uint32_t alignment;
 				alignment = extA;
-            /* TODO: */        
+				extA = 0;
+            BEGIN_CALL(alignment);        
 			}				break;			case OPCODE_CALLARGUMENTINT32:			{
 				int32_t value;
 				POP_INT32_TO(value);
-            /* TODO: */        
+            CALL_ARGUMENT_INT32(value);        
 			}				break;			case OPCODE_CALLARGUMENTINT64:			{
 				int32_t value;
 				POP_INT32_TO(value);
-            /* TODO: */        
+            CALL_ARGUMENT_INT64(value);        
+			}				break;			case OPCODE_CALLARGUMENTPOINTER:			{
+				void* value;
+				POP_POINTER_TO(value);
+            CALL_ARGUMENT_POINTER(value);        
 			}				break;			case OPCODE_CALLARGUMENTFLOAT32:			{
 				float value;
 				POP_FLOAT32_TO(value);
-            /* TODO: */        
+            CALL_ARGUMENT_FLOAT32(value);        
 			}				break;			case OPCODE_CALLARGUMENTFLOAT64:			{
 				double value;
 				POP_FLOAT64_TO(value);
-            /* TODO: */        
-			}				break;			case OPCODE_PERFORMCALL:			{
+            CALL_ARGUMENT_FLOAT64(value);        
+			}				break;			case OPCODE_PERFORMCALLINT32:			{
 				uint32_t function;
+				int32_t result;
 				function = extA;
-            /* TODO: */        
-			}				break;			case OPCODE_PERFORMCALLINDIRECT:			{
+				extA = 0;
+            DO_CALL_INT32((void**)(size_t)function, result);        
+				PUSH_INT32(result);
+			}				break;			case OPCODE_PERFORMCALLINT64:			{
+				uint32_t function;
+				int64_t result;
+				function = extA;
+				extA = 0;
+            DO_CALL_INT64((void**)(size_t)function, result);        
+				PUSH_INT64(result);
+			}				break;			case OPCODE_PERFORMCALLPOINTER:			{
+				uint32_t function;
+				void* result;
+				function = extA;
+				extA = 0;
+            DO_CALL_POINTER((void**)(size_t)function, result);        
+				PUSH_POINTER(result);
+			}				break;			case OPCODE_PERFORMCALLFLOAT32:			{
+				uint32_t function;
+				float result;
+				function = extA;
+				extA = 0;
+            DO_CALL_FLOAT32((void**)(size_t)function, result);        
+				PUSH_FLOAT32(result);
+			}				break;			case OPCODE_PERFORMCALLFLOAT64:			{
+				uint32_t function;
+				double result;
+				function = extA;
+				extA = 0;
+            DO_CALL_FLOAT64((void**)(size_t)function, result);        
+				PUSH_FLOAT64(result);
+			}				break;			case OPCODE_PERFORMCALLINDIRECTINT32:			{
 				void* function;
+				int32_t result;
 				POP_POINTER_TO(function);
-            /* TODO: */        
+            DO_CALL_INT32(function, result);        
+				PUSH_INT32(result);
+			}				break;			case OPCODE_PERFORMCALLINDIRECTINT64:			{
+				void* function;
+				int64_t result;
+				POP_POINTER_TO(function);
+            DO_CALL_INT64(function, result);        
+				PUSH_INT64(result);
+			}				break;			case OPCODE_PERFORMCALLINDIRECTPOINTER:			{
+				void* function;
+				void* result;
+				POP_POINTER_TO(function);
+            DO_CALL_POINTER(function, result);        
+				PUSH_POINTER(result);
+			}				break;			case OPCODE_PERFORMCALLINDIRECTFLOAT32:			{
+				void* function;
+				float result;
+				POP_POINTER_TO(function);
+            DO_CALL_FLOAT32(function, result);        
+				PUSH_FLOAT32(result);
+			}				break;			case OPCODE_PERFORMCALLINDIRECTFLOAT64:			{
+				void* function;
+				double result;
+				POP_POINTER_TO(function);
+            DO_CALL_FLOAT64(function, result);        
+				PUSH_FLOAT64(result);
 			}				break;			case OPCODE_ENDCALL:			{
-            /* TODO: */        
+            END_CALL();        
 			}				break;			case OPCODE_ENDCALLNOCLEANUP:			{
-            /* TODO: */        
+            END_CALL_NO_CLEANUP();        
 			}				break;			case OPCODE_PLAFTORMCODE:			{
 				int32_t code;
-            /* TODO */        
+            UNIMPLEMENTED();        
 				PUSH_INT32(code);
 			}				break;			case OPCODE_LOCKREGISTERS:			{
-            /* Cannot be done here */        
+            UNSUPPORTED();        
 			}				break;			case OPCODE_UNLOCKREGISTERS:			{
-            /* Cannot be done here */        
+            UNSUPPORTED();        
 			}				break;			case OPCODE_MOVEINT32TOPHYSICAL:			{
 				uint32_t registerID;
 				int32_t value;
 				registerID = extA;
+				extA = 0;
 				POP_INT32_TO(value);
-            /* Cannot be done here */        
+            UNSUPPORTED();        
 			}				break;			case OPCODE_MOVEINT64TOPHYSICAL:			{
 				uint32_t registerID;
 				int64_t value;
 				registerID = extA;
+				extA = 0;
 				POP_INT64_TO(value);
-            /* Cannot be done here */        
+            UNSUPPORTED();        
 			}				break;			case OPCODE_MOVEPOINTERTOPHYSICAL:			{
 				uint32_t registerID;
 				void* value;
 				registerID = extA;
+				extA = 0;
 				POP_POINTER_TO(value);
-            /* Cannot be done here */        
+            UNSUPPORTED();        
 			}				break;			case OPCODE_MOVEFLOAT32TOPHYSICAL:			{
 				uint32_t registerID;
 				float value;
 				registerID = extA;
+				extA = 0;
 				POP_FLOAT32_TO(value);
-            /* Cannot be done here */        
+            UNSUPPORTED();        
 			}				break;			case OPCODE_MOVEFLOAT64TOPHYSICAL:			{
 				uint32_t registerID;
 				double value;
 				registerID = extA;
+				extA = 0;
 				POP_FLOAT64_TO(value);
-            /* Cannot be done here */        
+            UNSUPPORTED();        
 			}				break;			case OPCODE_PUSHPHYSICALINT32:			{
 				uint32_t registerID;
 				int32_t value;
 				registerID = extA;
-            /* Cannot be done here */        
+				extA = 0;
+            UNSUPPORTED();        
 				PUSH_INT32(value);
 			}				break;			case OPCODE_PUSHPHYSICALINT64:			{
 				uint32_t registerID;
 				int64_t value;
 				registerID = extA;
-            /* Cannot be done here */        
+				extA = 0;
+            UNSUPPORTED();        
 				PUSH_INT64(value);
 			}				break;			case OPCODE_PUSHPHYSICALPOINTER:			{
 				uint32_t registerID;
 				void* value;
 				registerID = extA;
-            /* Cannot be done here */        
+				extA = 0;
+            UNSUPPORTED();        
 				PUSH_POINTER(value);
 			}				break;			case OPCODE_PUSHPHYSICALFLOAT32:			{
 				uint32_t registerID;
 				float value;
 				registerID = extA;
-            /* Cannot be done here */        
+				extA = 0;
+            UNSUPPORTED();        
 				PUSH_FLOAT32(value);
 			}				break;			case OPCODE_PUSHPHYSICALFLOAT64:			{
 				uint32_t registerID;
 				double value;
 				registerID = extA;
-            /* Cannot be done here */        
+				extA = 0;
+            UNSUPPORTED();        
 				PUSH_FLOAT64(value);
 			}				break;			case OPCODE_CALLPHYSICAL:			{
 				uint32_t registerID;
 				registerID = extA;
-            /* Cannot be done here */        
+				extA = 0;
+            UNSUPPORTED();        
 			}				break;			case OPCODE_CALLINSTRUCTION:			{
 				uint32_t function;
 				function = extA;
-            /* Cannot be done here */        
+				extA = 0;
+            UNSUPPORTED();        
 			}				break;			default:				/* Unsupported inline primitive. */				return interpreterProxy->primitiveFail();			}		}	}	/* Should never reach here. */	abort();	return 0;}

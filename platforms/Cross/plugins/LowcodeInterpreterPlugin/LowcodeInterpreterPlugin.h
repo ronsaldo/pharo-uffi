@@ -35,7 +35,7 @@ typedef struct LowcodeConditionFlags
 /**
  * Lowcode interpreter.
  */
-sqInt LowcodePlugin_InterpretCodeLiteralsReceiverArguments(VirtualMachine *interpreterProxy, uint8_t *instructionStream, sqInt literals, sqInt receiver, sqInt arguments);
+sqInt LowcodePlugin_InterpretCodeLiteralsReceiverTemporalsStackFrame(VirtualMachine *interpreterProxy, uint8_t *instructionStream, sqInt literals, sqInt receiver, sqInt temporals, int stackFrameSize);
 
 /**
  * Sets the condition flags using substraction between integers.
