@@ -212,6 +212,13 @@ llvm::Type *llvmOperandTypeMap(OperandType::Type type)
 }
 
 using namespace Lowcode;
+
+struct LowcodeLLVMCompiledMethodHandle
+{
+    uint32_t sessionCode;
+    LowcodeCompiledMethod *compiledMethod;
+};
+
 extern "C" sqInt LowcodeLLVM_CompileLiteralsTemporalsArgumentsStackFrameSizeInstructionsInstructionsSize
     (VirtualMachine *interpreterProxy,
     sqInt literals,
@@ -237,18 +244,77 @@ extern "C" sqInt LowcodeLLVM_CompileLiteralsTemporalsArgumentsStackFrameSizeInst
     if(!compiledMethod)
         return interpreterProxy->primitiveFail();
 
+    // Get the handle object class.
+    sqInt compiledMethodHandleClass = interpreterProxy->stackObjectValue(interpreterProxy->methodArgumentCount());
+    if(interpreterProxy->failed())
+        return interpreterProxy->primitiveFail();
+
+    // Create the handle object
+    sqInt compiledMethodHandleOop = interpreterProxy->instantiateClassindexableSize(compiledMethodHandleClass, sizeof(LowcodeLLVMCompiledMethodHandle));
+    if(interpreterProxy->failed())
+        return interpreterProxy->primitiveFail();
+
+    // Get the handle data pointer.
+    LowcodeLLVMCompiledMethodHandle *handle = reinterpret_cast<LowcodeLLVMCompiledMethodHandle*>
+        (interpreterProxy->firstIndexableField(compiledMethodHandleOop));
+    if(interpreterProxy->failed())
+        return interpreterProxy->primitiveFail();
+
+    // Store the handle data and return.
+    handle->sessionCode = LowcodeLLVMContext::get().getSessionIdentifier();
+    handle->compiledMethod = compiledMethod;
+    
+    return interpreterProxy->popthenPush(interpreterProxy->methodArgumentCount() + 1, compiledMethodHandleOop);
+}
+
+extern "C" sqInt LowcodeLLVM_DestroyCompiledMethod(VirtualMachine *interpreterProxy, sqInt handleOop)
+{
+    // Get the handle pointer
+    LowcodeLLVMCompiledMethodHandle *handle = reinterpret_cast<LowcodeLLVMCompiledMethodHandle*>
+        (interpreterProxy->firstIndexableField(handleOop));
+    if(interpreterProxy->failed())
+        return interpreterProxy->primitiveFail();
+
+    // Check the session code.
+    if(handle->sessionCode != LowcodeLLVMContext::get().getSessionIdentifier())
+        return interpreterProxy->primitiveFailFor(LowcodeErrorSessionChanged);
+
+    // Delete the compiled method.
+    delete handle->compiledMethod;
+    return 0;
+}
+
+extern "C" sqInt LowcodeLLVM_DumpCompiledMethod(VirtualMachine *interpreterProxy, sqInt handleOop)
+{
+    // Get the handle pointer
+    LowcodeLLVMCompiledMethodHandle *handle = reinterpret_cast<LowcodeLLVMCompiledMethodHandle*>
+        (interpreterProxy->firstIndexableField(handleOop));
+    if(interpreterProxy->failed())
+        return interpreterProxy->primitiveFail();
+
+    // Check the session code.
+    if(handle->sessionCode != LowcodeLLVMContext::get().getSessionIdentifier())
+        return interpreterProxy->primitiveFailFor(LowcodeErrorSessionChanged);
+
     // Dump the compiled method function.
-    compiledMethod->getFunction()->dump();
+    handle->compiledMethod->getFunction()->dump();
+    return 0;
+}
 
-    // Return the compiled method handle.
-    sqInt compiledMethodHandle;
-    if(sizeof(void*) == 4)
-        compiledMethodHandle = interpreterProxy->positive32BitIntegerFor((uintptr_t)compiledMethod);
-    else if(sizeof(void*) == 8)
-        compiledMethodHandle = interpreterProxy->positive64BitIntegerFor((uintptr_t)compiledMethod);
-    if(interpreterProxy->failed()) // Very Bad luck in this moment.
-        return 0;
+extern "C" sqInt LowcodeLLVM_CallCompiledMethod(VirtualMachine *interpreterProxy, sqInt handleOop)
+{
+    // Get the handle pointer
+    LowcodeLLVMCompiledMethodHandle *handle = reinterpret_cast<LowcodeLLVMCompiledMethodHandle*>
+        (interpreterProxy->firstIndexableField(handleOop));
+    if(interpreterProxy->failed())
+        return interpreterProxy->primitiveFail();
 
-    return interpreterProxy->popthenPush(interpreterProxy->methodArgumentCount() + 1, compiledMethodHandle);
+    // Check the session code.
+    if(handle->sessionCode != LowcodeLLVMContext::get().getSessionIdentifier())
+        return interpreterProxy->primitiveFailFor(LowcodeErrorSessionChanged);
+
+    // Call the compiled method function.
+    return handle->compiledMethod->callPrimitive();
+
 }
 

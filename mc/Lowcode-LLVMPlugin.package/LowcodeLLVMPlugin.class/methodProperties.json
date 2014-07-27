@@ -3,4 +3,7 @@
 		"hasHeaderFile" : "RonieSalgado 7/25/2014 02:20" },
 	"instance" : {
 		"primitiveCompileLowcodeMethod" : "RonieSalgado 7/25/2014 18:43",
-		"primitiveIsSupported" : "RonieSalgado 7/25/2014 02:21" } }
+		"primitiveDestroyCompiledMethod" : "RonieSalgado 7/26/2014 20:42",
+		"primitiveDumpCompiledMethod" : "RonieSalgado 7/26/2014 20:42",
+		"primitiveIsSupported" : "RonieSalgado 7/25/2014 02:21",
+		"primitiveLowcodeCall" : "RonieSalgado 7/26/2014 22:37" } }

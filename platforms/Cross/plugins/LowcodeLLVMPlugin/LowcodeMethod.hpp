@@ -230,10 +230,16 @@ public:
      */
     sqInt *getLiteralsPointer();
 
+    /**
+     * This methods calls the compiled version of the primitive.
+     */
+    sqInt callPrimitive();
+
 private:
     VirtualMachine *interpreterProxy;
     llvm::Function *function;
     sqInt literals;
+    void *compiledFunction;
 };
 
 }

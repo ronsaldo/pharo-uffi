@@ -43,7 +43,11 @@ bool LowcodeBasicBlock::validate(LowcodeValidationStack &stack)
     {
         // Only the last instruction can be a branching or a terminator.
         if(seenBranchingOrTerminator)
-            return false;
+        {
+            // This must be unreachable code.
+            instructions.erase(instructions.begin() + i, instructions.end());
+            break;
+        }
 
         // Fetch the instruction
         Instruction *instruction = instructions[i];
@@ -124,14 +128,15 @@ void LowcodeBasicBlock::compileBlock(LowcodeValueStack &prevStack, llvm::BasicBl
         // Trigger sucessors compilation, if this is a branching instruction.
         if(instruction->isJump())
         {
-            instruction->getJumpBlock()->compileBlock(stack, llvmBasicBlock);
+            instruction->getJumpBlock()->compileBlock(stack, builder.GetInsertBlock());
         }
         else if(instruction->isBranch())
         {
             LowcodeValueStack branchStack = stack;
             LowcodeValueStack nextStack = stack;
-            instruction->getBranchBlock()->compileBlock(branchStack, llvmBasicBlock);
-            instruction->getNextBlock()->compileBlock(nextStack, llvmBasicBlock);
+            llvm::BasicBlock *incomingBlock = builder.GetInsertBlock();
+            instruction->getBranchBlock()->compileBlock(branchStack, incomingBlock);
+            instruction->getNextBlock()->compileBlock(nextStack, incomingBlock);
         }
     }
 }

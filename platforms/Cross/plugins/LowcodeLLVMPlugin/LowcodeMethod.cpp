@@ -102,8 +102,6 @@ LowcodeCompiledMethod *LowcodeMethod::compile()
     LowcodeValueStack stack;
     basicBlocks[0]->compileBlock(stack, prologueBlock);
 
-    function->dump();
-
     // Assume generation of valid functions.
     llvm::verifyFunction(*function);
 
@@ -132,7 +130,6 @@ void LowcodeMethod::compilePrologue()
     llvm::Type *oopType = LowcodeLLVMContext::get().getOopType();
 
     // Allocate space for the temporals.
-
     for(size_t i = 0; i < numberOfTemporals; ++i)
         temporals.push_back(builder.CreateAlloca(oopType));
 
@@ -149,7 +146,7 @@ void LowcodeMethod::compilePrologue()
     // Fetch the arguments.
     for(size_t i = 0; i < numberOfArguments; ++i)
     {
-        llvm::Value *argumentValue = llvmInterpreterProxy->stackValue(i);
+        llvm::Value *argumentValue = llvmInterpreterProxy->stackValue(numberOfArguments - i - 1);
         builder.CreateStore(argumentValue, temporals[i]);
     }
 
@@ -189,6 +186,7 @@ LlvmInterpreterProxy *LowcodeMethod::getLlvmInterpreterProxy()
 
 llvm::Value *LowcodeMethod::getTemporalAt(int index)
 {
+    assert(index < temporals.size());
     return temporals[index];
 }
 
@@ -277,7 +275,7 @@ void LowcodeMethod::returnOop(llvm::Value *value)
 void LowcodeMethod::beginCall(size_t alignment)
 {
     assert(!insideCallBlock);
-    if(!insideCallBlock)
+    if(insideCallBlock)
         abort(); // Should never reach here. This should be catched by the validation process
 
     insideCallBlock = true;
@@ -302,7 +300,7 @@ void LowcodeMethod::callArgumentInt64(llvm::Value *value)
 void LowcodeMethod::callArgumentPointer(llvm::Value *value)
 {
     assert(insideCallBlock);
-    assert(value->getType() == builder.getInt64Ty());
+    assert(value->getType() == builder.getInt8PtrTy());
     callArguments.push_back(value);
 }
 
@@ -338,13 +336,15 @@ void LowcodeMethod::callArgumentStructure(size_t structureSize, llvm::Value *val
 
 llvm::Value *LowcodeMethod::performCall(llvm::Type* returnType, uintptr_t functionPointer)
 {
-    // Fetch the literals oop value
+    // Create the function pointer constant.
     llvm::Type *pointerType = builder.getInt8PtrTy();
     llvm::Type *uintptr = LowcodeLLVMContext::get().getUIntPtrType();
-    llvm::Value *literalsPointer = llvm::ConstantExpr::getIntToPtr(
-                        llvm::ConstantInt::get(uintptr, (uintptr_t)compiledMethod->getLiteralsPointer()),
+    llvm::Value *functionPointerValue = llvm::ConstantExpr::getIntToPtr(
+                        llvm::ConstantInt::get(uintptr, functionPointer),
                         pointerType);
 
+    // Perform the call.
+    return performCallIndirect(returnType, functionPointerValue);
 }
 
 llvm::Value *LowcodeMethod::performCallIndirect(llvm::Type* returnType, llvm::Value *functionPointer)
@@ -389,11 +389,13 @@ LowcodeCompiledMethod::LowcodeCompiledMethod(VirtualMachine *interpreterProxy, l
     : interpreterProxy(interpreterProxy), function(function), literals(literals)
 {
     interpreterProxy->addGCRoot(&this->literals);
+    compiledFunction = NULL;
 }
 
 LowcodeCompiledMethod::~LowcodeCompiledMethod()
 {
     interpreterProxy->removeGCRoot(&this->literals);
+    function->eraseFromParent();
 }
 
 llvm::Function *LowcodeCompiledMethod::getFunction()
@@ -404,6 +406,23 @@ llvm::Function *LowcodeCompiledMethod::getFunction()
 sqInt *LowcodeCompiledMethod::getLiteralsPointer()
 {
     return &this->literals;
+}
+
+sqInt LowcodeCompiledMethod::callPrimitive()
+{
+    // Ensure the function is compiled.
+    if(!compiledFunction)
+    {
+        llvm::ExecutionEngine *ee = LowcodeLLVMContext::get().getExecutionEngine();
+        compiledFunction = ee->getPointerToFunction(function);
+    }
+
+    // Cast the primitive function.
+    typedef sqInt (*PrimitiveFunction)();
+    PrimitiveFunction casted = (PrimitiveFunction)compiledFunction;
+
+    // Call the casted function.
+    return casted();
 }
 
 /**
@@ -645,7 +664,7 @@ LowcodeMethod *LowcodeMethod::decodeLowcodeMethod(VirtualMachine *interpreterPro
     if(!result->validate())
     {
         delete result;
-        fprintf(stderr, "Failed to validate Lowcode method\n");
+        fprintf(stderr, "Failed to validate Lowcode method instructions\n");
         return NULL;
     }
 

@@ -21,6 +21,15 @@ namespace Lowcode
 {
 
 /**
+ * Those are the primitive failure error codes used by Lowcode.
+ */
+enum LowcodeErrorCodes
+{
+    LowcodeErrorBase = 600,
+    LowcodeErrorSessionChanged
+};
+
+/**
  * Lowcode LLVM context
  * This is used as a context for the Lowcode llvm related generation.
  */

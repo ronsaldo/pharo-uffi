@@ -20,6 +20,21 @@ sqInt LowcodeLLVM_CompileLiteralsTemporalsArgumentsStackFrameSizeInstructionsIns
     const uint8_t *rawInstructions,
     size_t rawInstructionsSize);
 
+/**
+ * This function is used to destroy Lowcode LLVM compiled method
+ */
+sqInt LowcodeLLVM_DestroyCompiledMethod(VirtualMachine *interpreterProxy, sqInt handleOop);
+
+/**
+ * This function is used to dump the LLVM IR of a lowcode compiled method
+ */
+sqInt LowcodeLLVM_DumpCompiledMethod(VirtualMachine *interpreterProxy, sqInt handleOop);
+
+/**
+ * This function is used to call the LLVM compiled function
+ */
+sqInt LowcodeLLVM_CallCompiledMethod(VirtualMachine *interpreterProxy, sqInt handleOop);
+
 #ifdef __cplusplus
 }
 #endif

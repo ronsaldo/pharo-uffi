@@ -1966,7 +1966,7 @@
 	case 14:
 	case 15:
 		{
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getLlvmInterpreterProxy()->fetchPointerofObject(getOpcode() & 15, getReceiverOopValue());        
 			stack.pushOop(object);
 		}
@@ -1989,7 +1989,7 @@
 	case 30:
 	case 31:
 		{
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             abort(); /* Should be implemented */        
 			stack.pushOop(object);
 		}
@@ -2028,7 +2028,7 @@
 	case 62:
 	case 63:
 		{
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getLlvmInterpreterProxy()->fetchPointerofObject(getOpcode() & 31, getLiteralsOopValue());        
 			stack.pushOop(object);
 		}
@@ -2043,7 +2043,7 @@
 	case 70:
 	case 71:
 		{
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = builder.CreateLoad(getTemporalAt(getOpcode() & 7));        
 			stack.pushOop(object);
 		}
@@ -2054,7 +2054,7 @@
 	case 74:
 	case 75:
 		{
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = builder.CreateLoad(getTemporalAt((getOpcode() & 7) + 8));        
 			stack.pushOop(object);
 		}
@@ -2062,7 +2062,7 @@
 	/* pushReceiver */
 	case 76:
 		{
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getReceiverOopValue();        
 			stack.pushOop(object);
 		}
@@ -2070,7 +2070,7 @@
 	/* pushTrue */
 	case 77:
 		{
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getTrueOopValue();        
 			stack.pushOop(object);
 		}
@@ -2078,7 +2078,7 @@
 	/* pushFalse */
 	case 78:
 		{
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getFalseOopValue();        
 			stack.pushOop(object);
 		}
@@ -2086,7 +2086,7 @@
 	/* pushNil */
 	case 79:
 		{
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getNilOopValue();        
 			stack.pushOop(object);
 		}
@@ -2094,7 +2094,7 @@
 	/* pushZero */
 	case 80:
 		{
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getZeroOopValue();        
 			stack.pushOop(object);
 		}
@@ -2102,7 +2102,7 @@
 	/* pushOne */
 	case 81:
 		{
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getOneOopValue();        
 			stack.pushOop(object);
 		}
@@ -2110,7 +2110,7 @@
 	/* pushThisContext */
 	case 82:
 		{
-			llvm::Value *object;
+			llvm::Value *object = NULL;
 abort();
 			stack.pushOop(object);
 		}
@@ -2119,8 +2119,8 @@ abort();
 	case 83:
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *dup1;
-			llvm::Value *dup2;
+			llvm::Value *dup1 = NULL;
+			llvm::Value *dup2 = NULL;
             dup1 = object;            dup2 = object;        
 			stack.pushOop(dup1);
 			stack.pushOop(dup2);
@@ -2167,7 +2167,7 @@ abort();
 	case 119:
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *objectClass;
+			llvm::Value *objectClass = NULL;
             objectClass = getLlvmInterpreterProxy()->fetchClassOf(object);            checkFailed();        
 			stack.pushOop(objectClass);
 		}
@@ -2196,8 +2196,8 @@ abort();
 	default:		abort();	}}// Lowcode instruction compilation.void LowcodeInstruction::compile(LowcodeValueStack &stack, llvm::IRBuilder<> &builder){ 	switch(getOpcode())	{	case 256: /* duplicateInt32 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *dup1;
-			llvm::Value *dup2;
+			llvm::Value *dup1 = NULL;
+			llvm::Value *dup2 = NULL;
             dup1 = value;            dup2 = value;        
 			stack.pushInt32(dup1);
 			stack.pushInt32(dup2);
@@ -2206,8 +2206,8 @@ abort();
 	case 257: /* duplicateInt64 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *dup1;
-			llvm::Value *dup2;
+			llvm::Value *dup1 = NULL;
+			llvm::Value *dup2 = NULL;
             dup1 = value;            dup2 = value;        
 			stack.pushInt64(dup1);
 			stack.pushInt64(dup2);
@@ -2216,8 +2216,8 @@ abort();
 	case 258: /* duplicatePointer */
 		{
 			llvm::Value *value = stack.popPointer();
-			llvm::Value *dup1;
-			llvm::Value *dup2;
+			llvm::Value *dup1 = NULL;
+			llvm::Value *dup2 = NULL;
             dup1 = value;            dup2 = value;        
 			stack.pushPointer(dup1);
 			stack.pushPointer(dup2);
@@ -2226,8 +2226,8 @@ abort();
 	case 259: /* duplicateFloat32 */
 		{
 			llvm::Value *value = stack.popFloat32();
-			llvm::Value *dup1;
-			llvm::Value *dup2;
+			llvm::Value *dup1 = NULL;
+			llvm::Value *dup2 = NULL;
             dup1 = value;            dup2 = value;        
 			stack.pushFloat32(dup1);
 			stack.pushFloat32(dup2);
@@ -2236,8 +2236,8 @@ abort();
 	case 260: /* duplicateFloat64 */
 		{
 			llvm::Value *value = stack.popFloat64();
-			llvm::Value *dup1;
-			llvm::Value *dup2;
+			llvm::Value *dup1 = NULL;
+			llvm::Value *dup2 = NULL;
             dup1 = value;            dup2 = value;        
 			stack.pushFloat64(dup1);
 			stack.pushFloat64(dup2);
@@ -2275,28 +2275,28 @@ abort();
 		break;
 	case 266: /* pushZero32 */
 		{
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.getInt32(0);        
 			stack.pushInt32(result);
 		}
 		break;
 	case 267: /* pushOne32 */
 		{
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.getInt32(1);        
 			stack.pushInt32(result);
 		}
 		break;
 	case 268: /* pushZero64 */
 		{
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.getInt64(0);        
 			stack.pushInt64(result);
 		}
 		break;
 	case 269: /* pushOne64 */
 		{
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.getInt64(1);        
 			stack.pushInt64(result);
 		}
@@ -2304,7 +2304,7 @@ abort();
 	case 270: /* pushConstantUInt32 */
 		{
 			uint64_t constant = getExtendA();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.getInt32(constant);        
 			stack.pushInt32(result);
 		}
@@ -2312,49 +2312,49 @@ abort();
 	case 271: /* pushConstantUInt64 */
 		{
 			uint64_t constant = getExtendA();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.getInt64(0);        
 			stack.pushInt64(result);
 		}
 		break;
 	case 272: /* pushZeroFloat32 */
 		{
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = llvm::ConstantFP::get(builder.getFloatTy(), 0);        
 			stack.pushFloat32(result);
 		}
 		break;
 	case 273: /* pushOneFloat32 */
 		{
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = llvm::ConstantFP::get(builder.getFloatTy(), 1);        
 			stack.pushFloat32(result);
 		}
 		break;
 	case 274: /* pushZeroFloat64 */
 		{
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = llvm::ConstantFP::get(builder.getDoubleTy(), 0);        
 			stack.pushFloat64(result);
 		}
 		break;
 	case 275: /* pushOneFloat64 */
 		{
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = llvm::ConstantFP::get(builder.getDoubleTy(), 1);        
 			stack.pushFloat64(result);
 		}
 		break;
 	case 276: /* pushNullPointer */
 		{
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = llvm::ConstantPointerNull::get(builder.getInt8PtrTy());        
 			stack.pushPointer(result);
 		}
 		break;
 	case 277: /* pushSessionIdentifier */
 		{
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = builder.getInt32(LowcodeLLVMContext::get().getSessionIdentifier());        
 			stack.pushInt32(value);
 		}
@@ -2362,7 +2362,7 @@ abort();
 	case 278: /* checkSessionIdentifier */
 		{
 			uint64_t expectedSession = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = builder.getInt32(expectedSession == LowcodeLLVMContext::get().getSessionIdentifier());        
 			stack.pushInt32(value);
 		}
@@ -2371,7 +2371,7 @@ abort();
 		{
 			llvm::Value *offset = stack.popInt32();
 			llvm::Value *base = stack.popPointer();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateGEP(base, offset);        
 			stack.pushPointer(result);
 		}
@@ -2380,7 +2380,7 @@ abort();
 		{
 			llvm::Value *offset = stack.popInt64();
 			llvm::Value *base = stack.popPointer();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateGEP(base, offset);        
 			stack.pushPointer(result);
 		}
@@ -2391,7 +2391,7 @@ abort();
 			llvm::Value *scale = stack.popInt32();
 			llvm::Value *index = stack.popInt32();
 			llvm::Value *base = stack.popPointer();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             llvm::Value *newOffset = builder.CreateAdd(offset, builder.CreateMul(scale, index));            result = builder.CreateGEP(base, newOffset);        
 			stack.pushPointer(result);
 		}
@@ -2402,7 +2402,7 @@ abort();
 			llvm::Value *scale = stack.popInt64();
 			llvm::Value *index = stack.popInt64();
 			llvm::Value *base = stack.popPointer();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             llvm::Value *newOffset = builder.CreateAdd(offset, builder.CreateMul(scale, index));            result = builder.CreateGEP(base, newOffset);        
 			stack.pushPointer(result);
 		}
@@ -2410,7 +2410,7 @@ abort();
 	case 283: /* loadUInt8FromMemory */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = builder.CreateZExt(builder.CreateLoad(pointer), builder.getInt32Ty());        
 			stack.pushInt32(value);
 		}
@@ -2418,31 +2418,31 @@ abort();
 	case 284: /* loadUInt16FromMemory */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *value;
-            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getInt16PtrTy(builder.getContext()));            value = builder.CreateZExt(builder.CreateLoad(castedPointer), builder.getInt32Ty());        
+			llvm::Value *value = NULL;
+            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getInt16PtrTy(builder.getContext()));            value = builder.CreateZExt(builder.CreateLoad(castedPointer), builder.getInt32Ty());        
 			stack.pushInt32(value);
 		}
 		break;
 	case 285: /* loadUInt32FromMemory */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *value;
-            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getInt32PtrTy(builder.getContext()));            value = builder.CreateLoad(castedPointer);        
+			llvm::Value *value = NULL;
+            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getInt32PtrTy(builder.getContext()));            value = builder.CreateLoad(castedPointer);        
 			stack.pushInt32(value);
 		}
 		break;
 	case 286: /* loadUInt64FromMemory */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *value;
-            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getInt64PtrTy(builder.getContext()));            value = builder.CreateLoad(castedPointer);        
+			llvm::Value *value = NULL;
+            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getInt64PtrTy(builder.getContext()));            value = builder.CreateLoad(castedPointer);        
 			stack.pushInt64(value);
 		}
 		break;
 	case 287: /* loadInt8FromMemory */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = builder.CreateSExt(builder.CreateLoad(pointer), builder.getInt32Ty());        
 			stack.pushInt32(value);
 		}
@@ -2450,48 +2450,48 @@ abort();
 	case 288: /* loadInt16FromMemory */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *value;
-            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getInt16PtrTy(builder.getContext()));            value = builder.CreateSExt(builder.CreateLoad(castedPointer), builder.getInt32Ty());        
+			llvm::Value *value = NULL;
+            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getInt16PtrTy(builder.getContext()));            value = builder.CreateSExt(builder.CreateLoad(castedPointer), builder.getInt32Ty());        
 			stack.pushInt32(value);
 		}
 		break;
 	case 289: /* loadInt32FromMemory */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *value;
-            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getInt32PtrTy(builder.getContext()));            value = builder.CreateLoad(castedPointer);        
+			llvm::Value *value = NULL;
+            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getInt32PtrTy(builder.getContext()));            value = builder.CreateLoad(castedPointer);        
 			stack.pushInt32(value);
 		}
 		break;
 	case 290: /* loadInt64FromMemory */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *value;
-            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getInt64PtrTy(builder.getContext()));            value = builder.CreateLoad(castedPointer);        
+			llvm::Value *value = NULL;
+            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getInt64PtrTy(builder.getContext()));            value = builder.CreateLoad(castedPointer);        
 			stack.pushInt64(value);
 		}
 		break;
 	case 291: /* loadPointerFromMemory */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *value;
-            llvm::Type *pointerType = llvm::PointerType::getUnqual(llvm::Type::getInt8PtrTy(builder.getContext()));            llvm::Value *castedPointer = builder.CreatePointerCast(value, pointerType);            value = builder.CreateLoad(castedPointer);        
+			llvm::Value *value = NULL;
+            llvm::Type *pointerType = llvm::PointerType::getUnqual(llvm::Type::getInt8PtrTy(builder.getContext()));            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, pointerType);            value = builder.CreateLoad(castedPointer);        
 			stack.pushPointer(value);
 		}
 		break;
 	case 292: /* loadFloat32FromMemory */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *value;
-            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getFloatPtrTy(builder.getContext()));            value = builder.CreateLoad(castedPointer);        
+			llvm::Value *value = NULL;
+            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getFloatPtrTy(builder.getContext()));            value = builder.CreateLoad(castedPointer);        
 			stack.pushFloat32(value);
 		}
 		break;
 	case 293: /* loadFloat64FromMemory */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *value;
-            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getDoublePtrTy(builder.getContext()));            value = builder.CreateLoad(castedPointer);        
+			llvm::Value *value = NULL;
+            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getDoublePtrTy(builder.getContext()));            value = builder.CreateLoad(castedPointer);        
 			stack.pushFloat64(value);
 		}
 		break;
@@ -2506,48 +2506,48 @@ abort();
 		{
 			llvm::Value *value = stack.popInt32();
 			llvm::Value *pointer = stack.popPointer();
-            llvm::Value *castedValue = builder.CreateTrunc(value, builder.getInt16Ty());            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getInt16PtrTy(builder.getContext()));            builder.CreateStore(castedValue, castedPointer);        
+            llvm::Value *castedValue = builder.CreateTrunc(value, builder.getInt16Ty());            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getInt16PtrTy(builder.getContext()));            builder.CreateStore(castedValue, castedPointer);        
 		}
 		break;
 	case 296: /* storeInt32ToMemory */
 		{
 			llvm::Value *value = stack.popInt32();
 			llvm::Value *pointer = stack.popPointer();
-            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getInt32PtrTy(builder.getContext()));            builder.CreateStore(value, castedPointer);        
+            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getInt32PtrTy(builder.getContext()));            builder.CreateStore(value, castedPointer);        
 		}
 		break;
 	case 297: /* storeInt64ToMemory */
 		{
 			llvm::Value *value = stack.popInt64();
 			llvm::Value *pointer = stack.popPointer();
-            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getInt64PtrTy(builder.getContext()));            builder.CreateStore(value, castedPointer);        
+            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getInt64PtrTy(builder.getContext()));            builder.CreateStore(value, castedPointer);        
 		}
 		break;
 	case 298: /* storePointerToMemory */
 		{
 			llvm::Value *value = stack.popPointer();
 			llvm::Value *memoryPointer = stack.popPointer();
-            llvm::Type *pointerType = llvm::PointerType::getUnqual(llvm::Type::getInt8PtrTy(builder.getContext()));            llvm::Value *castedPointer = builder.CreatePointerCast(value, pointerType);            builder.CreateStore(value, castedPointer);        
+            llvm::Type *pointerType = llvm::PointerType::getUnqual(llvm::Type::getInt8PtrTy(builder.getContext()));            llvm::Value *castedPointer = builder.CreatePointerCast(memoryPointer, pointerType);            builder.CreateStore(value, castedPointer);        
 		}
 		break;
 	case 299: /* storeFloat32ToMemory */
 		{
 			llvm::Value *value = stack.popFloat32();
 			llvm::Value *pointer = stack.popPointer();
-            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getFloatPtrTy(builder.getContext()));            builder.CreateStore(value, castedPointer);        
+            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getFloatPtrTy(builder.getContext()));            builder.CreateStore(value, castedPointer);        
 		}
 		break;
 	case 300: /* storeFloat64ToMemory */
 		{
 			llvm::Value *value = stack.popFloat64();
 			llvm::Value *pointer = stack.popPointer();
-            llvm::Value *castedPointer = builder.CreatePointerCast(value, llvm::Type::getDoublePtrTy(builder.getContext()));            builder.CreateStore(value, castedPointer);        
+            llvm::Value *castedPointer = builder.CreatePointerCast(pointer, llvm::Type::getDoublePtrTy(builder.getContext()));            builder.CreateStore(value, castedPointer);        
 		}
 		break;
 	case 301: /* loadLocalAddress */
 		{
 			uint64_t baseOffset = getExtendA();
-			llvm::Value *pointer;
+			llvm::Value *pointer = NULL;
             pointer = getLocalPointer(baseOffset);        
 			stack.pushPointer(pointer);
 		}
@@ -2555,7 +2555,7 @@ abort();
 	case 302: /* loadLocalUInt8 */
 		{
 			uint64_t baseOffset = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             llvm::Value *pointer = getLocalPointerCasted(baseOffset, builder.getInt8Ty());            value = builder.CreateZExt(builder.CreateLoad(pointer), builder.getInt32Ty());        
 			stack.pushInt32(value);
 		}
@@ -2563,7 +2563,7 @@ abort();
 	case 303: /* loadLocalUInt16 */
 		{
 			uint64_t baseOffset = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             llvm::Value *pointer = getLocalPointerCasted(baseOffset, builder.getInt16Ty());            value = builder.CreateZExt(builder.CreateLoad(pointer), builder.getInt32Ty());        
 			stack.pushInt32(value);
 		}
@@ -2571,7 +2571,7 @@ abort();
 	case 304: /* loadLocalUInt32 */
 		{
 			uint64_t baseOffset = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             llvm::Value *pointer = getLocalPointerCasted(baseOffset, builder.getInt32Ty());            value = builder.CreateLoad(pointer);        
 			stack.pushInt32(value);
 		}
@@ -2579,7 +2579,7 @@ abort();
 	case 305: /* loadLocalUInt64 */
 		{
 			uint64_t baseOffset = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             llvm::Value *pointer = getLocalPointerCasted(baseOffset, builder.getInt64Ty());            value = builder.CreateLoad(pointer);        
 			stack.pushInt64(value);
 		}
@@ -2587,7 +2587,7 @@ abort();
 	case 306: /* loadLocalInt8 */
 		{
 			uint64_t baseOffset = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             llvm::Value *pointer = getLocalPointerCasted(baseOffset, builder.getInt8Ty());            value = builder.CreateSExt(builder.CreateLoad(pointer), builder.getInt32Ty());        
 			stack.pushInt32(value);
 		}
@@ -2595,7 +2595,7 @@ abort();
 	case 307: /* loadLocalInt16 */
 		{
 			uint64_t baseOffset = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             llvm::Value *pointer = getLocalPointerCasted(baseOffset, builder.getInt16Ty());            value = builder.CreateSExt(builder.CreateLoad(pointer), builder.getInt32Ty());        
 			stack.pushInt32(value);
 		}
@@ -2603,7 +2603,7 @@ abort();
 	case 308: /* loadLocalInt32 */
 		{
 			uint64_t baseOffset = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             llvm::Value *pointer = getLocalPointerCasted(baseOffset, builder.getInt32Ty());            value = builder.CreateLoad(pointer);        
 			stack.pushInt32(value);
 		}
@@ -2611,7 +2611,7 @@ abort();
 	case 309: /* loadLocalInt64 */
 		{
 			uint64_t baseOffset = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             llvm::Value *pointer = getLocalPointerCasted(baseOffset, builder.getInt64Ty());            value = builder.CreateLoad(pointer);        
 			stack.pushInt64(value);
 		}
@@ -2619,7 +2619,7 @@ abort();
 	case 310: /* loadLocalPointer */
 		{
 			uint64_t baseOffset = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             llvm::Value *pointer = getLocalPointerCasted(baseOffset, builder.getInt8PtrTy());            value = builder.CreateLoad(pointer);        
 			stack.pushPointer(value);
 		}
@@ -2627,7 +2627,7 @@ abort();
 	case 311: /* loadLocalFloat32 */
 		{
 			uint64_t baseOffset = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             llvm::Value *pointer = getLocalPointerCasted(baseOffset, builder.getFloatTy());            value = builder.CreateLoad(pointer);        
 			stack.pushFloat32(value);
 		}
@@ -2635,7 +2635,7 @@ abort();
 	case 312: /* loadLocalFloat64 */
 		{
 			uint64_t baseOffset = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             llvm::Value *pointer = getLocalPointerCasted(baseOffset, builder.getDoubleTy());            value = builder.CreateLoad(pointer);        
 			stack.pushFloat64(value);
 		}
@@ -2692,7 +2692,7 @@ abort();
 	case 320: /* signExtend32From8 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             llvm::Value *small = builder.CreateTrunc(value, builder.getInt8Ty());            result = builder.CreateSExt(small, builder.getInt32Ty());        
 			stack.pushInt32(result);
 		}
@@ -2700,7 +2700,7 @@ abort();
 	case 321: /* signExtend32From16 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             llvm::Value *small = builder.CreateTrunc(value, builder.getInt16Ty());            result = builder.CreateSExt(small, builder.getInt32Ty());        
 			stack.pushInt32(result);
 		}
@@ -2708,7 +2708,7 @@ abort();
 	case 322: /* signExtend64From8 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             llvm::Value *small = builder.CreateTrunc(value, builder.getInt8Ty());            result = builder.CreateSExt(small, builder.getInt64Ty());        
 			stack.pushInt64(result);
 		}
@@ -2716,7 +2716,7 @@ abort();
 	case 323: /* signExtend64From16 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             llvm::Value *small = builder.CreateTrunc(value, builder.getInt16Ty());            result = builder.CreateSExt(small, builder.getInt64Ty());        
 			stack.pushInt64(result);
 		}
@@ -2724,7 +2724,7 @@ abort();
 	case 324: /* signExtend64From32 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             llvm::Value *small = builder.CreateTrunc(value, builder.getInt32Ty());            result = builder.CreateSExt(small, builder.getInt64Ty());        
 			stack.pushInt64(result);
 		}
@@ -2732,7 +2732,7 @@ abort();
 	case 325: /* zeroExtend32From8 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             llvm::Value *small = builder.CreateTrunc(value, builder.getInt8Ty());            result = builder.CreateZExt(small, builder.getInt32Ty());        
 			stack.pushInt32(result);
 		}
@@ -2740,7 +2740,7 @@ abort();
 	case 326: /* zeroExtend32From16 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             llvm::Value *small = builder.CreateTrunc(value, builder.getInt16Ty());            result = builder.CreateZExt(small, builder.getInt32Ty());        
 			stack.pushInt32(result);
 		}
@@ -2748,7 +2748,7 @@ abort();
 	case 327: /* zeroExtend64From8 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             llvm::Value *small = builder.CreateTrunc(value, builder.getInt8Ty());            result = builder.CreateZExt(small, builder.getInt64Ty());        
 			stack.pushInt64(result);
 		}
@@ -2756,7 +2756,7 @@ abort();
 	case 328: /* zeroExtend64From16 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             llvm::Value *small = builder.CreateTrunc(value, builder.getInt16Ty());            result = builder.CreateZExt(small, builder.getInt64Ty());        
 			stack.pushInt64(result);
 		}
@@ -2764,7 +2764,7 @@ abort();
 	case 329: /* zeroExtend64From32 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             llvm::Value *small = builder.CreateTrunc(value, builder.getInt32Ty());            result = builder.CreateZExt(small, builder.getInt64Ty());        
 			stack.pushInt64(result);
 		}
@@ -2772,7 +2772,7 @@ abort();
 	case 330: /* truncate32To8 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateAnd(value, 0xFF);        
 			stack.pushInt32(result);
 		}
@@ -2780,7 +2780,7 @@ abort();
 	case 331: /* truncate32To16 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateAnd(value, 0xFFFF);        
 			stack.pushInt32(result);
 		}
@@ -2788,7 +2788,7 @@ abort();
 	case 332: /* truncate64To8 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateAnd(value, 0xFF);        
 			stack.pushInt64(result);
 		}
@@ -2796,7 +2796,7 @@ abort();
 	case 333: /* truncate64To16 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateAnd(value, 0xFFFF);        
 			stack.pushInt64(result);
 		}
@@ -2804,7 +2804,7 @@ abort();
 	case 334: /* truncate64To32 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateAnd(value, 0xFFFFFFFF);        
 			stack.pushInt64(result);
 		}
@@ -2812,7 +2812,7 @@ abort();
 	case 335: /* uint32ToFloat32 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateUIToFP(value, builder.getFloatTy());        
 			stack.pushFloat32(result);
 		}
@@ -2820,7 +2820,7 @@ abort();
 	case 336: /* uint32ToFloat64 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateUIToFP(value, builder.getDoubleTy());        
 			stack.pushFloat64(result);
 		}
@@ -2828,7 +2828,7 @@ abort();
 	case 337: /* int32ToFloat32 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateSIToFP(value, builder.getFloatTy());        
 			stack.pushFloat32(result);
 		}
@@ -2836,7 +2836,7 @@ abort();
 	case 338: /* int32ToFloat64 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateSIToFP(value, builder.getDoubleTy());        
 			stack.pushFloat64(result);
 		}
@@ -2844,7 +2844,7 @@ abort();
 	case 339: /* uint64ToFloat32 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateUIToFP(value, builder.getFloatTy());        
 			stack.pushFloat32(result);
 		}
@@ -2852,7 +2852,7 @@ abort();
 	case 340: /* uint64ToFloat64 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateUIToFP(value, builder.getDoubleTy());        
 			stack.pushFloat64(result);
 		}
@@ -2860,7 +2860,7 @@ abort();
 	case 341: /* int64ToFloat32 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateSIToFP(value, builder.getFloatTy());        
 			stack.pushFloat64(result);
 		}
@@ -2868,7 +2868,7 @@ abort();
 	case 342: /* int64ToFloat64 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateSIToFP(value, builder.getDoubleTy());        
 			stack.pushFloat64(result);
 		}
@@ -2876,7 +2876,7 @@ abort();
 	case 343: /* float32ToInt32 */
 		{
 			llvm::Value *value = stack.popFloat32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateFPToSI(value, builder.getInt32Ty());        
 			stack.pushInt32(result);
 		}
@@ -2884,7 +2884,7 @@ abort();
 	case 344: /* float64ToInt32 */
 		{
 			llvm::Value *value = stack.popFloat64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateFPToSI(value, builder.getInt32Ty());        
 			stack.pushInt32(result);
 		}
@@ -2892,7 +2892,7 @@ abort();
 	case 345: /* float32ToInt64 */
 		{
 			llvm::Value *value = stack.popFloat32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateFPToSI(value, builder.getInt64Ty());        
 			stack.pushInt64(result);
 		}
@@ -2900,7 +2900,7 @@ abort();
 	case 346: /* float64ToInt64 */
 		{
 			llvm::Value *value = stack.popFloat64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateFPToSI(value, builder.getInt64Ty());        
 			stack.pushInt64(result);
 		}
@@ -2908,7 +2908,7 @@ abort();
 	case 347: /* pointerToInt32 */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreatePtrToInt(pointer, builder.getInt32Ty());        
 			stack.pushInt32(result);
 		}
@@ -2916,7 +2916,7 @@ abort();
 	case 348: /* pointerToInt64 */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreatePtrToInt(pointer, builder.getInt64Ty());        
 			stack.pushInt64(result);
 		}
@@ -2924,7 +2924,7 @@ abort();
 	case 349: /* int32ToPointer */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateIntToPtr(value, builder.getInt8PtrTy());        
 			stack.pushPointer(result);
 		}
@@ -2932,7 +2932,7 @@ abort();
 	case 350: /* int64ToPointer */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreatePtrToInt(value, builder.getInt8PtrTy());        
 			stack.pushPointer(result);
 		}
@@ -2941,7 +2941,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateAdd(first, second);        
 			stack.pushInt32(result);
 		}
@@ -2950,7 +2950,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateSub(first, second);        
 			stack.pushInt32(result);
 		}
@@ -2958,7 +2958,7 @@ abort();
 	case 353: /* neg32 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateNeg(value);        
 			stack.pushInt32(result);
 		}
@@ -2967,7 +2967,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateMul(first, second);        
 			stack.pushInt32(result);
 		}
@@ -2976,7 +2976,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateMul(first, second);        
 			stack.pushInt32(result);
 		}
@@ -2985,7 +2985,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateSDiv(first, second);        
 			stack.pushInt32(result);
 		}
@@ -2994,7 +2994,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateUDiv(first, second);        
 			stack.pushInt32(result);
 		}
@@ -3003,7 +3003,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateSRem(first, second);        
 			stack.pushInt32(result);
 		}
@@ -3012,7 +3012,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateURem(first, second);        
 			stack.pushInt32(result);
 		}
@@ -3021,7 +3021,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateAdd(first, second);        
 			stack.pushInt64(result);
 		}
@@ -3030,7 +3030,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateSub(first, second);        
 			stack.pushInt64(result);
 		}
@@ -3038,7 +3038,7 @@ abort();
 	case 362: /* neg64 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateNeg(value);        
 			stack.pushInt64(result);
 		}
@@ -3047,7 +3047,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateMul(first, second);        
 			stack.pushInt64(result);
 		}
@@ -3056,7 +3056,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateMul(first, second);        
 			stack.pushInt64(result);
 		}
@@ -3065,7 +3065,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateSDiv(first, second);        
 			stack.pushInt64(result);
 		}
@@ -3074,7 +3074,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateUDiv(first, second);        
 			stack.pushInt64(result);
 		}
@@ -3083,7 +3083,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateSRem(first, second);        
 			stack.pushInt64(result);
 		}
@@ -3092,7 +3092,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateURem(first, second);        
 			stack.pushInt64(result);
 		}
@@ -3100,7 +3100,7 @@ abort();
 	case 369: /* not32 */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateNot(value);        
 			stack.pushInt32(result);
 		}
@@ -3109,7 +3109,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateAnd(first, second);        
 			stack.pushInt32(result);
 		}
@@ -3118,7 +3118,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateOr(first, second);        
 			stack.pushInt32(result);
 		}
@@ -3127,7 +3127,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateXor(first, second);        
 			stack.pushInt32(result);
 		}
@@ -3136,7 +3136,7 @@ abort();
 		{
 			llvm::Value *shiftAmount = stack.popInt32();
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateShl(value, shiftAmount);        
 			stack.pushInt32(result);
 		}
@@ -3145,7 +3145,7 @@ abort();
 		{
 			llvm::Value *shiftAmount = stack.popInt32();
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateLShr(value, shiftAmount);        
 			stack.pushInt32(result);
 		}
@@ -3154,7 +3154,7 @@ abort();
 		{
 			llvm::Value *shiftAmount = stack.popInt32();
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateAShr(value, shiftAmount);        
 			stack.pushInt32(result);
 		}
@@ -3162,7 +3162,7 @@ abort();
 	case 376: /* not64 */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateNot(value);        
 			stack.pushInt64(result);
 		}
@@ -3171,7 +3171,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateAnd(first, second);        
 			stack.pushInt64(result);
 		}
@@ -3180,7 +3180,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateOr(first, second);        
 			stack.pushInt64(result);
 		}
@@ -3189,7 +3189,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateXor(first, second);        
 			stack.pushInt64(result);
 		}
@@ -3198,7 +3198,7 @@ abort();
 		{
 			llvm::Value *shiftAmount = stack.popInt64();
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateShl(value, shiftAmount);        
 			stack.pushInt64(result);
 		}
@@ -3207,7 +3207,7 @@ abort();
 		{
 			llvm::Value *shiftAmount = stack.popInt64();
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateLShr(value, shiftAmount);        
 			stack.pushInt64(result);
 		}
@@ -3216,7 +3216,7 @@ abort();
 		{
 			llvm::Value *shiftAmount = stack.popInt64();
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateAShr(value, shiftAmount);        
 			stack.pushInt64(result);
 		}
@@ -3225,7 +3225,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateFAdd(first, second);        
 			stack.pushFloat32(result);
 		}
@@ -3234,7 +3234,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateFSub(first, second);        
 			stack.pushFloat32(result);
 		}
@@ -3243,7 +3243,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateFMul(first, second);        
 			stack.pushFloat32(result);
 		}
@@ -3252,7 +3252,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateFDiv(first, second);        
 			stack.pushFloat32(result);
 		}
@@ -3261,7 +3261,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateFAdd(first, second);        
 			stack.pushFloat64(result);
 		}
@@ -3270,7 +3270,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateFSub(first, second);        
 			stack.pushFloat64(result);
 		}
@@ -3279,7 +3279,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateFMul(first, second);        
 			stack.pushFloat64(result);
 		}
@@ -3288,7 +3288,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
-			llvm::Value *result;
+			llvm::Value *result = NULL;
             result = builder.CreateFDiv(first, second);        
 			stack.pushFloat64(result);
 		}
@@ -3308,7 +3308,7 @@ abort();
 	case 393: /* oopToPointer */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *pointer;
+			llvm::Value *pointer = NULL;
             llvm::Value *indexablePtr = getLlvmInterpreterProxy()->firstIndexableField(object);            llvm::Type *ptrType = llvm::PointerType::getUnqual(builder.getInt8PtrTy());            pointer = builder.CreateLoad(builder.CreatePointerCast(indexablePtr, ptrType));        
 			stack.pushPointer(pointer);
 		}
@@ -3316,7 +3316,7 @@ abort();
 	case 394: /* oopToPointerReinterpret */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *pointer;
+			llvm::Value *pointer = NULL;
             pointer = builder.CreateIntToPtr(object, builder.getInt8PtrTy());        
 			stack.pushPointer(pointer);
 		}
@@ -3325,7 +3325,7 @@ abort();
 		{
 			llvm::Value *pointerClassLiteral = getLiteralAt(getExtendA());
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getLlvmInterpreterProxy()->instantiateClassindexableSize(pointerClassLiteral, sizeof(void*));            checkFailed();            llvm::Value *content = getLlvmInterpreterProxy()->firstIndexableField(object);            llvm::Type *pointerType = llvm::PointerType::getUnqual(builder.getInt8PtrTy());            builder.CreateStore(pointer, builder.CreatePointerCast(content, pointerType));        
 			stack.pushOop(object);
 		}
@@ -3333,7 +3333,7 @@ abort();
 	case 396: /* pointerToOopReinterprer */
 		{
 			llvm::Value *pointer = stack.popPointer();
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = builder.CreatePtrToInt(pointer, LowcodeLLVMContext::get().getSqIntType());        
 			stack.pushOop(object);
 		}
@@ -3341,7 +3341,7 @@ abort();
 	case 397: /* instantiateOop */
 		{
 			llvm::Value *classOop = stack.popOop();
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getLlvmInterpreterProxy()->instantiateClassindexableSize(classOop, 0);        
 			stack.pushOop(object);
 		}
@@ -3350,7 +3350,7 @@ abort();
 		{
 			uint64_t indexableSize = getExtendA();
 			llvm::Value *classOop = stack.popOop();
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getLlvmInterpreterProxy()->instantiateClassindexableSize(classOop, indexableSize);        
 			stack.pushOop(object);
 		}
@@ -3359,7 +3359,7 @@ abort();
 		{
 			llvm::Value *indexableSize = stack.popInt32();
 			llvm::Value *classOop = stack.popOop();
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getLlvmInterpreterProxy()->instantiateClassindexableSize(classOop, indexableSize);        
 			stack.pushOop(object);
 		}
@@ -3367,87 +3367,87 @@ abort();
 	case 400: /* oopToBoolean32 */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
-            object = builder.CreateIntCast(getLlvmInterpreterProxy()->booleanValueOf(object), builder.getInt32Ty(), false);        
+			llvm::Value *value = NULL;
+            value = builder.CreateIntCast(getLlvmInterpreterProxy()->booleanValueOf(object), builder.getInt32Ty(), false);        
 			stack.pushInt32(value);
 		}
 		break;
 	case 401: /* oopToBoolean64 */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
-            object = builder.CreateIntCast(getLlvmInterpreterProxy()->booleanValueOf(object), builder.getInt64Ty(), false);        
+			llvm::Value *value = NULL;
+            value = builder.CreateIntCast(getLlvmInterpreterProxy()->booleanValueOf(object), builder.getInt64Ty(), false);        
 			stack.pushInt64(value);
 		}
 		break;
 	case 402: /* oopSmallIntegerToInt32 */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
-            object = builder.CreateIntCast(getLlvmInterpreterProxy()->integerValueOf(object), builder.getInt32Ty(), false);        
+			llvm::Value *value = NULL;
+            value = builder.CreateIntCast(getLlvmInterpreterProxy()->integerValueOf(object), builder.getInt32Ty(), false);        
 			stack.pushInt32(value);
 		}
 		break;
 	case 403: /* oopToInt32 */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
-            object = builder.CreateIntCast(getLlvmInterpreterProxy()->signed32BitValueOf(object), builder.getInt32Ty(), false);        
+			llvm::Value *value = NULL;
+            value = builder.CreateIntCast(getLlvmInterpreterProxy()->signed32BitValueOf(object), builder.getInt32Ty(), false);        
 			stack.pushInt32(value);
 		}
 		break;
 	case 404: /* oopToUInt32 */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
-            object = builder.CreateIntCast(getLlvmInterpreterProxy()->positive32BitValueOf(object), builder.getInt32Ty(), false);        
+			llvm::Value *value = NULL;
+            value = builder.CreateIntCast(getLlvmInterpreterProxy()->positive32BitValueOf(object), builder.getInt32Ty(), false);        
 			stack.pushInt32(value);
 		}
 		break;
 	case 405: /* oopSmallIntegerToInt64 */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
-            object = builder.CreateIntCast(getLlvmInterpreterProxy()->integerValueOf(object), builder.getInt64Ty(), false);        
+			llvm::Value *value = NULL;
+            value = builder.CreateIntCast(getLlvmInterpreterProxy()->integerValueOf(object), builder.getInt64Ty(), false);        
 			stack.pushInt64(value);
 		}
 		break;
 	case 406: /* oopToInt64 */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
-            object = builder.CreateIntCast(getLlvmInterpreterProxy()->signed64BitValueOf(object), builder.getInt64Ty(), false);        
+			llvm::Value *value = NULL;
+            value = builder.CreateIntCast(getLlvmInterpreterProxy()->signed64BitValueOf(object), builder.getInt64Ty(), false);        
 			stack.pushInt64(value);
 		}
 		break;
 	case 407: /* oopToUInt64 */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
-            object = builder.CreateIntCast(getLlvmInterpreterProxy()->positive64BitValueOf(object), builder.getInt64Ty(), false);        
+			llvm::Value *value = NULL;
+            value = builder.CreateIntCast(getLlvmInterpreterProxy()->positive64BitValueOf(object), builder.getInt64Ty(), false);        
 			stack.pushInt64(value);
 		}
 		break;
 	case 408: /* oopToFloat32 */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
-            object = builder.CreateFPCast(getLlvmInterpreterProxy()->floatValueOf(object), builder.getFloatTy());        
+			llvm::Value *value = NULL;
+            value = builder.CreateFPCast(getLlvmInterpreterProxy()->floatValueOf(object), builder.getFloatTy());        
 			stack.pushFloat32(value);
 		}
 		break;
 	case 409: /* oopToFloat64 */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
-            object = getLlvmInterpreterProxy()->floatValueOf(object);        
+			llvm::Value *value = NULL;
+            value = getLlvmInterpreterProxy()->floatValueOf(object);        
 			stack.pushFloat64(value);
 		}
 		break;
 	case 410: /* boolean32ToOop */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             llvm::Value *cond = builder.CreateICmpNE(value, builder.getInt32(0));            object = builder.CreateSelect(cond, getTrueOopValue(), getFalseOopValue());        
 			stack.pushOop(object);
 		}
@@ -3455,7 +3455,7 @@ abort();
 	case 411: /* boolean64ToOop */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             llvm::Value *cond = builder.CreateICmpNE(value, builder.getInt64(0));            object = builder.CreateSelect(cond, getTrueOopValue(), getFalseOopValue());        
 			stack.pushOop(object);
 		}
@@ -3463,7 +3463,7 @@ abort();
 	case 412: /* smallInt32ToOop */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getLlvmInterpreterProxy()->integerObjectOf(value);        
 			stack.pushOop(object);
 		}
@@ -3471,7 +3471,7 @@ abort();
 	case 413: /* int32ToOop */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getLlvmInterpreterProxy()->signed32BitIntegerFor(value);        
 			stack.pushOop(object);
 		}
@@ -3479,7 +3479,7 @@ abort();
 	case 414: /* uint32ToOop */
 		{
 			llvm::Value *value = stack.popInt32();
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getLlvmInterpreterProxy()->positive32BitIntegerFor(value);        
 			stack.pushOop(object);
 		}
@@ -3487,7 +3487,7 @@ abort();
 	case 415: /* int64ToOop */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getLlvmInterpreterProxy()->signed64BitIntegerFor(value);        
 			stack.pushOop(object);
 		}
@@ -3495,7 +3495,7 @@ abort();
 	case 416: /* uint64ToOop */
 		{
 			llvm::Value *value = stack.popInt64();
-			llvm::Value *object;
+			llvm::Value *object = NULL;
             object = getLlvmInterpreterProxy()->positive64BitIntegerFor(value);        
 			stack.pushOop(object);
 		}
@@ -3503,16 +3503,16 @@ abort();
 	case 417: /* float32ToOop */
 		{
 			llvm::Value *value = stack.popFloat32();
-			llvm::Value *object;
-            object = builder.CreateFPCast(getLlvmInterpreterProxy()->floatObjectOf(value), builder.getFloatTy());        
+			llvm::Value *object = NULL;
+            object = getLlvmInterpreterProxy()->floatObjectOf(builder.CreateFPCast(value, builder.getDoubleTy()));        
 			stack.pushOop(object);
 		}
 		break;
 	case 418: /* float64ToOop */
 		{
 			llvm::Value *value = stack.popFloat64();
-			llvm::Value *object;
-            object = getLlvmInterpreterProxy()->signed32BitIntegerFor(value);        
+			llvm::Value *object = NULL;
+            object = getLlvmInterpreterProxy()->floatObjectOf(value);        
 			stack.pushOop(object);
 		}
 		break;
@@ -3520,7 +3520,7 @@ abort();
 		{
 			uint64_t fieldIndex = getExtendA();
 			llvm::Value *object = stack.popOop();
-			llvm::Value *field;
+			llvm::Value *field = NULL;
             field = getLlvmInterpreterProxy()->fetchPointerofObject(fieldIndex, object);        
 			stack.pushOop(field);
 		}
@@ -3537,7 +3537,7 @@ abort();
 		{
 			llvm::Value *fieldIndex = stack.popInt32();
 			llvm::Value *object = stack.popOop();
-			llvm::Value *field;
+			llvm::Value *field = NULL;
             field = getLlvmInterpreterProxy()->fetchPointerofObject(fieldIndex, object);        
 			stack.pushOop(field);
 		}
@@ -3553,7 +3553,7 @@ abort();
 	case 423: /* firstFieldPointer */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *pointer;
+			llvm::Value *pointer = NULL;
             pointer = getLlvmInterpreterProxy()->firstFixedField(object);        
 			stack.pushPointer(pointer);
 		}
@@ -3561,7 +3561,7 @@ abort();
 	case 424: /* firstIndexableFieldPointer */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *pointer;
+			llvm::Value *pointer = NULL;
             pointer = getLlvmInterpreterProxy()->firstIndexableField(object);        
 			stack.pushPointer(pointer);
 		}
@@ -3569,7 +3569,7 @@ abort();
 	case 425: /* byteSizeOf */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = getLlvmInterpreterProxy()->byteSizeOf(object);        
 			stack.pushInt32(value);
 		}
@@ -3577,7 +3577,7 @@ abort();
 	case 426: /* isBytes */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = builder.CreateIntCast(getLlvmInterpreterProxy()->isBytes(object), builder.getInt32Ty(), false);        
 			stack.pushInt32(value);
 		}
@@ -3585,7 +3585,7 @@ abort();
 	case 427: /* isFloatObject */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = builder.CreateIntCast(getLlvmInterpreterProxy()->isFloatObject(object), builder.getInt32Ty(), false);        
 			stack.pushInt32(value);
 		}
@@ -3593,7 +3593,7 @@ abort();
 	case 428: /* isIndexable */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = builder.CreateIntCast(getLlvmInterpreterProxy()->isIndexable(object), builder.getInt32Ty(), false);        
 			stack.pushInt32(value);
 		}
@@ -3601,7 +3601,7 @@ abort();
 	case 429: /* isIntegerObject */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = builder.CreateIntCast(getLlvmInterpreterProxy()->isIntegerObject(object), builder.getInt32Ty(), false);        
 			stack.pushInt32(value);
 		}
@@ -3609,7 +3609,7 @@ abort();
 	case 430: /* isWords */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = builder.CreateIntCast(getLlvmInterpreterProxy()->isWords(object), builder.getInt32Ty(), false);        
 			stack.pushInt32(value);
 		}
@@ -3617,7 +3617,7 @@ abort();
 	case 431: /* isWordsOrBytes */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = builder.CreateIntCast(getLlvmInterpreterProxy()->isWordsOrBytes(object), builder.getInt32Ty(), false);        
 			stack.pushInt32(value);
 		}
@@ -3625,7 +3625,7 @@ abort();
 	case 432: /* isPointers */
 		{
 			llvm::Value *object = stack.popOop();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = builder.CreateIntCast(getLlvmInterpreterProxy()->isPointers(object), builder.getInt32Ty(), false);        
 			stack.pushInt32(value);
 		}
@@ -3634,7 +3634,7 @@ abort();
 		{
 			llvm::Value *second = stack.popPointer();
 			llvm::Value *first = stack.popPointer();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpEQ(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3643,7 +3643,7 @@ abort();
 		{
 			llvm::Value *second = stack.popPointer();
 			llvm::Value *first = stack.popPointer();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpNE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3652,7 +3652,7 @@ abort();
 		{
 			llvm::Value *second = stack.popOop();
 			llvm::Value *first = stack.popOop();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpEQ(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3661,7 +3661,7 @@ abort();
 		{
 			llvm::Value *second = stack.popOop();
 			llvm::Value *first = stack.popOop();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpNE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3670,7 +3670,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpEQ(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3679,7 +3679,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpNE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3688,7 +3688,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpSLT(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3697,7 +3697,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpSLE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3706,7 +3706,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpSGT(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3715,7 +3715,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpSGE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3724,7 +3724,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpULT(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3733,7 +3733,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpULE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3742,7 +3742,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpUGT(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3751,7 +3751,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpUGE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3760,7 +3760,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpEQ(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3769,7 +3769,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpNE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3778,7 +3778,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpSLT(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3787,7 +3787,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpSLE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3796,7 +3796,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpSGT(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3805,7 +3805,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpSGE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3814,7 +3814,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpULT(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3823,7 +3823,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpULE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3832,7 +3832,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpUGT(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3841,7 +3841,7 @@ abort();
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateICmpUGE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3850,7 +3850,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateFCmpOEQ(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3859,7 +3859,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateFCmpONE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3868,7 +3868,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateFCmpOLT(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3877,7 +3877,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateFCmpOLE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3886,7 +3886,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateFCmpOGT(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3895,7 +3895,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateFCmpOGE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3904,7 +3904,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateFCmpOEQ(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3913,7 +3913,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateFCmpONE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3922,7 +3922,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateFCmpOLT(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3931,7 +3931,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateFCmpOLE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3940,7 +3940,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateFCmpOGT(first, second));        
 			stack.pushInt32(value);
 		}
@@ -3949,7 +3949,7 @@ abort();
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = condToInt32(builder.CreateFCmpOGE(first, second));        
 			stack.pushInt32(value);
 		}
@@ -4029,7 +4029,7 @@ abort();
 		{
 			llvm::Value *pointerClassLiteral = getLiteralAt(getExtendA());
 			llvm::Value *pointer = stack.popPointer();
-abort();
+            // Instantiate the object.            llvm::Value *object = getLlvmInterpreterProxy()->instantiateClassindexableSize(pointerClassLiteral, sizeof(void*));            checkFailed();                        // Get the field pointer.            llvm::Value *firstFieldPtr = getLlvmInterpreterProxy()->firstIndexableField(object);            checkFailed();            // Store the pointer value.            llvm::Type *pointerType = llvm::PointerType::getUnqual(builder.getInt8PtrTy());            builder.CreateStore(pointer, builder.CreatePointerCast(firstFieldPtr, pointerType));            // Return the object.            returnOop(object);        
 		}
 		break;
 	case 486: /* returnFloat32AsOop */
@@ -4070,7 +4070,7 @@ abort();
 			llvm::Value *newValue = stack.popInt32();
 			llvm::Value *oldValue = stack.popInt32();
 			llvm::Value *check = stack.popPointer();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
             value = builder.CreateAtomicCmpXchg(check, oldValue, newValue, llvm::Monotonic);        
 			stack.pushInt32(value);
 		}
@@ -4078,7 +4078,7 @@ abort();
 	case 493: /* alloca32 */
 		{
 			llvm::Value *size = stack.popInt32();
-			llvm::Value *pointer;
+			llvm::Value *pointer = NULL;
             pointer = builder.CreateAlloca(builder.getInt8Ty(), size);        
 			stack.pushPointer(pointer);
 		}
@@ -4086,7 +4086,7 @@ abort();
 	case 494: /* alloca64 */
 		{
 			llvm::Value *size = stack.popInt64();
-			llvm::Value *pointer;
+			llvm::Value *pointer = NULL;
             pointer = builder.CreateAlloca(builder.getInt8Ty(), size);        
 			stack.pushPointer(pointer);
 		}
@@ -4094,7 +4094,7 @@ abort();
 	case 495: /* malloc32 */
 		{
 			llvm::Value *size = stack.popInt32();
-			llvm::Value *pointer;
+			llvm::Value *pointer = NULL;
             pointer = builder.CreateCall(getMallocFunction(), size);        
 			stack.pushPointer(pointer);
 		}
@@ -4102,7 +4102,7 @@ abort();
 	case 496: /* malloc64 */
 		{
 			llvm::Value *size = stack.popInt64();
-			llvm::Value *pointer;
+			llvm::Value *pointer = NULL;
             pointer = builder.CreateCall(getMallocFunction(), size);        
 			stack.pushPointer(pointer);
 		}
@@ -4183,80 +4183,80 @@ abort();
 	case 508: /* performCallInt32 */
 		{
 			uint64_t function = getExtendA();
-			llvm::Value *result;
-            performCall(builder.getInt32Ty(), function);        
+			llvm::Value *result = NULL;
+            result = performCall(builder.getInt32Ty(), function);        
 			stack.pushInt32(result);
 		}
 		break;
 	case 509: /* performCallInt64 */
 		{
 			uint64_t function = getExtendA();
-			llvm::Value *result;
-            performCall(builder.getInt64Ty(), function);        
+			llvm::Value *result = NULL;
+            result = performCall(builder.getInt64Ty(), function);        
 			stack.pushInt64(result);
 		}
 		break;
 	case 510: /* performCallPointer */
 		{
 			uint64_t function = getExtendA();
-			llvm::Value *result;
-            performCall(builder.getInt8PtrTy(), function);        
+			llvm::Value *result = NULL;
+            result = performCall(builder.getInt8PtrTy(), function);        
 			stack.pushPointer(result);
 		}
 		break;
 	case 511: /* performCallFloat32 */
 		{
 			uint64_t function = getExtendA();
-			llvm::Value *result;
-            performCall(builder.getFloatTy(), function);        
+			llvm::Value *result = NULL;
+            result = performCall(builder.getFloatTy(), function);        
 			stack.pushFloat32(result);
 		}
 		break;
 	case 512: /* performCallFloat64 */
 		{
 			uint64_t function = getExtendA();
-			llvm::Value *result;
-            performCall(builder.getDoubleTy(), function);        
+			llvm::Value *result = NULL;
+            result = performCall(builder.getDoubleTy(), function);        
 			stack.pushFloat64(result);
 		}
 		break;
 	case 513: /* performCallIndirectInt32 */
 		{
 			llvm::Value *function = stack.popPointer();
-			llvm::Value *result;
-            performCallIndirect(builder.getInt32Ty(), function);        
+			llvm::Value *result = NULL;
+            result = performCallIndirect(builder.getInt32Ty(), function);        
 			stack.pushInt32(result);
 		}
 		break;
 	case 514: /* performCallIndirectInt64 */
 		{
 			llvm::Value *function = stack.popPointer();
-			llvm::Value *result;
-            performCallIndirect(builder.getInt64Ty(), function);        
+			llvm::Value *result = NULL;
+            result = performCallIndirect(builder.getInt64Ty(), function);        
 			stack.pushInt64(result);
 		}
 		break;
 	case 515: /* performCallIndirectPointer */
 		{
 			llvm::Value *function = stack.popPointer();
-			llvm::Value *result;
-            performCallIndirect(builder.getInt8PtrTy(), function);        
+			llvm::Value *result = NULL;
+            result = performCallIndirect(builder.getInt8PtrTy(), function);        
 			stack.pushPointer(result);
 		}
 		break;
 	case 516: /* performCallIndirectFloat32 */
 		{
 			llvm::Value *function = stack.popPointer();
-			llvm::Value *result;
-            performCallIndirect(builder.getFloatTy(), function);        
+			llvm::Value *result = NULL;
+            result = performCallIndirect(builder.getFloatTy(), function);        
 			stack.pushFloat32(result);
 		}
 		break;
 	case 517: /* performCallIndirectFloat64 */
 		{
 			llvm::Value *function = stack.popPointer();
-			llvm::Value *result;
-            performCallIndirect(builder.getDoubleTy(), function);        
+			llvm::Value *result = NULL;
+            result = performCallIndirect(builder.getDoubleTy(), function);        
 			stack.pushFloat64(result);
 		}
 		break;
@@ -4272,7 +4272,7 @@ abort();
 		break;
 	case 520: /* plaftormCode */
 		{
-			llvm::Value *code;
+			llvm::Value *code = NULL;
 abort();
 			stack.pushInt32(code);
 		}
@@ -4325,7 +4325,7 @@ abort();
 	case 528: /* pushPhysicalInt32 */
 		{
 			uint64_t registerID = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
 abort();
 			stack.pushInt32(value);
 		}
@@ -4333,7 +4333,7 @@ abort();
 	case 529: /* pushPhysicalInt64 */
 		{
 			uint64_t registerID = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
 abort();
 			stack.pushInt64(value);
 		}
@@ -4341,7 +4341,7 @@ abort();
 	case 530: /* pushPhysicalPointer */
 		{
 			uint64_t registerID = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
 abort();
 			stack.pushPointer(value);
 		}
@@ -4349,7 +4349,7 @@ abort();
 	case 531: /* pushPhysicalFloat32 */
 		{
 			uint64_t registerID = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
 abort();
 			stack.pushFloat32(value);
 		}
@@ -4357,7 +4357,7 @@ abort();
 	case 532: /* pushPhysicalFloat64 */
 		{
 			uint64_t registerID = getExtendA();
-			llvm::Value *value;
+			llvm::Value *value = NULL;
 abort();
 			stack.pushFloat64(value);
 		}
