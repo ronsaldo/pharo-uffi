@@ -116,12 +116,22 @@ void Instruction::callArgumentStructure(size_t structureSize, llvm::Value *value
 
 llvm::Value *Instruction::performCall(llvm::Type* returnType, uintptr_t functionPointer)
 {
-    ownerBlock->getLowcodeMethod()->performCall(returnType, functionPointer);
+    return ownerBlock->getLowcodeMethod()->performCall(returnType, functionPointer);
+}
+
+llvm::Value *Instruction::performCallStructure(llvm::Value *resultPointer, size_t structureSize, uintptr_t function)
+{
+    return ownerBlock->getLowcodeMethod()->performCallStructure(resultPointer, structureSize, function);
 }
 
 llvm::Value *Instruction::performCallIndirect(llvm::Type* returnType, llvm::Value *functionPointer)
 {
-    ownerBlock->getLowcodeMethod()->performCallIndirect(returnType, functionPointer);
+    return ownerBlock->getLowcodeMethod()->performCallIndirect(returnType, functionPointer);
+}
+
+llvm::Value *Instruction::performCallIndirectStructure(llvm::Value *resultPointer, size_t structureSize, llvm::Value *functionPointer)
+{
+    return ownerBlock->getLowcodeMethod()->performCallIndirectStructure(resultPointer, structureSize, functionPointer);
 }
 
 void Instruction::endCall()

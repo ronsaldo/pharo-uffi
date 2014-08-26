@@ -91,190 +91,188 @@
 #define OPCODE_FLOAT64TOINT32 344
 #define OPCODE_FLOAT32TOINT64 345
 #define OPCODE_FLOAT64TOINT64 346
-#define OPCODE_POINTERTOINT32 347
-#define OPCODE_POINTERTOINT64 348
-#define OPCODE_INT32TOPOINTER 349
-#define OPCODE_INT64TOPOINTER 350
-#define OPCODE_ADD32 351
-#define OPCODE_SUB32 352
-#define OPCODE_NEG32 353
-#define OPCODE_MUL32 354
-#define OPCODE_UMUL32 355
-#define OPCODE_DIV32 356
-#define OPCODE_UDIV32 357
-#define OPCODE_REM32 358
-#define OPCODE_UREM32 359
-#define OPCODE_ADD64 360
-#define OPCODE_SUB64 361
-#define OPCODE_NEG64 362
-#define OPCODE_MUL64 363
-#define OPCODE_UMUL64 364
-#define OPCODE_DIV64 365
-#define OPCODE_UDIV64 366
-#define OPCODE_REM64 367
-#define OPCODE_UREM64 368
-#define OPCODE_NOT32 369
-#define OPCODE_AND32 370
-#define OPCODE_OR32 371
-#define OPCODE_XOR32 372
-#define OPCODE_LEFTSHIFT32 373
-#define OPCODE_RIGHTSHIFT32 374
-#define OPCODE_ARITHMETICRIGHTSHIFT32 375
-#define OPCODE_NOT64 376
-#define OPCODE_AND64 377
-#define OPCODE_OR64 378
-#define OPCODE_XOR64 379
-#define OPCODE_LEFTSHIFT64 380
-#define OPCODE_RIGHTSHIFT64 381
-#define OPCODE_ARITHMETICRIGHTSHIFT64 382
-#define OPCODE_FLOAT32ADD 383
-#define OPCODE_FLOAT32SUB 384
-#define OPCODE_FLOAT32MUL 385
-#define OPCODE_FLOAT32DIV 386
-#define OPCODE_FLOAT64ADD 387
-#define OPCODE_FLOAT64SUB 388
-#define OPCODE_FLOAT64MUL 389
-#define OPCODE_FLOAT64DIV 390
-#define OPCODE_PIN 391
-#define OPCODE_UNPIN 392
-#define OPCODE_OOPTOPOINTER 393
-#define OPCODE_OOPTOPOINTERREINTERPRET 394
-#define OPCODE_POINTERTOOOP 395
-#define OPCODE_POINTERTOOOPREINTERPRER 396
-#define OPCODE_INSTANTIATEOOP 397
-#define OPCODE_INSTANTIATEINDEXABLEOOP 398
-#define OPCODE_INSTANTIATEINDEXABLE32OOP 399
-#define OPCODE_OOPTOBOOLEAN32 400
-#define OPCODE_OOPTOBOOLEAN64 401
-#define OPCODE_OOPSMALLINTEGERTOINT32 402
-#define OPCODE_OOPTOINT32 403
-#define OPCODE_OOPTOUINT32 404
-#define OPCODE_OOPSMALLINTEGERTOINT64 405
-#define OPCODE_OOPTOINT64 406
-#define OPCODE_OOPTOUINT64 407
-#define OPCODE_OOPTOFLOAT32 408
-#define OPCODE_OOPTOFLOAT64 409
-#define OPCODE_BOOLEAN32TOOOP 410
-#define OPCODE_BOOLEAN64TOOOP 411
-#define OPCODE_SMALLINT32TOOOP 412
-#define OPCODE_INT32TOOOP 413
-#define OPCODE_UINT32TOOOP 414
-#define OPCODE_INT64TOOOP 415
-#define OPCODE_UINT64TOOOP 416
-#define OPCODE_FLOAT32TOOOP 417
-#define OPCODE_FLOAT64TOOOP 418
-#define OPCODE_LOADOBJECTFIELD 419
-#define OPCODE_STOREOBJECTFIELD 420
-#define OPCODE_LOADOBJECTAT 421
-#define OPCODE_STOREOBJECTFIELDAT 422
-#define OPCODE_FIRSTFIELDPOINTER 423
-#define OPCODE_FIRSTINDEXABLEFIELDPOINTER 424
-#define OPCODE_BYTESIZEOF 425
-#define OPCODE_ISBYTES 426
-#define OPCODE_ISFLOATOBJECT 427
-#define OPCODE_ISINDEXABLE 428
-#define OPCODE_ISINTEGEROBJECT 429
-#define OPCODE_ISWORDS 430
-#define OPCODE_ISWORDSORBYTES 431
-#define OPCODE_ISPOINTERS 432
-#define OPCODE_POINTEREQUAL 433
-#define OPCODE_POINTERNOTEQUAL 434
-#define OPCODE_OOPEQUAL 435
-#define OPCODE_OOPNOTEQUAL 436
-#define OPCODE_INT32EQUAL 437
-#define OPCODE_INT32NOTEQUAL 438
-#define OPCODE_INT32LESS 439
-#define OPCODE_INT32LESSEQUAL 440
-#define OPCODE_INT32GREAT 441
-#define OPCODE_INT32GREATEQUAL 442
-#define OPCODE_UINT32LESS 443
-#define OPCODE_UINT32LESSEQUAL 444
-#define OPCODE_UINT32GREAT 445
-#define OPCODE_UINT32GREATEQUAL 446
-#define OPCODE_INT64EQUAL 447
-#define OPCODE_INT64NOTEQUAL 448
-#define OPCODE_INT64LESS 449
-#define OPCODE_INT64LESSEQUAL 450
-#define OPCODE_INT64GREAT 451
-#define OPCODE_INT64GREATEQUAL 452
-#define OPCODE_UINT64LESS 453
-#define OPCODE_UINT64LESSEQUAL 454
-#define OPCODE_UINT64GREAT 455
-#define OPCODE_UINT64GREATEQUAL 456
-#define OPCODE_FLOAT32EQUAL 457
-#define OPCODE_FLOAT32NOTEQUAL 458
-#define OPCODE_FLOAT32LESS 459
-#define OPCODE_FLOAT32LESSEQUAL 460
-#define OPCODE_FLOAT32GREAT 461
-#define OPCODE_FLOAT32GREATEQUAL 462
-#define OPCODE_FLOAT64EQUAL 463
-#define OPCODE_FLOAT64NOTEQUAL 464
-#define OPCODE_FLOAT64LESS 465
-#define OPCODE_FLOAT64LESSEQUAL 466
-#define OPCODE_FLOAT64GREAT 467
-#define OPCODE_FLOAT64GREATEQUAL 468
-#define OPCODE_JUMP 469
-#define OPCODE_BRANCHTRUE32 470
-#define OPCODE_BRANCHFALSE32 471
-#define OPCODE_BRANCHTRUE64 472
-#define OPCODE_BRANCHFALSE64 473
-#define OPCODE_RETURNSMALLINTEGER 478
-#define OPCODE_RETURNBOOLEAN32ASOOP 479
-#define OPCODE_RETURNBOOLEAN64ASOOP 480
-#define OPCODE_RETURNINT32ASOOP 481
-#define OPCODE_RETURNINT64ASOOP 482
-#define OPCODE_RETURNUINT32ASOOP 483
-#define OPCODE_RETURNUINT64ASOOP 484
-#define OPCODE_RETURNPOINTERASOOP 485
-#define OPCODE_RETURNFLOAT32ASOOP 486
-#define OPCODE_RETURNFLOAT64ASOOP 487
-#define OPCODE_FAIL 488
-#define OPCODE_FAILWITHCODE 489
-#define OPCODE_LOCKVM 490
-#define OPCODE_UNLOCKVM 491
-#define OPCODE_COMPAREANDSWAP32 492
-#define OPCODE_ALLOCA32 493
-#define OPCODE_ALLOCA64 494
-#define OPCODE_MALLOC32 495
-#define OPCODE_MALLOC64 496
-#define OPCODE_FREE 497
-#define OPCODE_MEMCPYFIXED 498
-#define OPCODE_MEMCPY32 499
-#define OPCODE_MEMCPY64 500
-#define OPCODE_BEGINCALL 501
-#define OPCODE_CALLARGUMENTINT32 502
-#define OPCODE_CALLARGUMENTINT64 503
-#define OPCODE_CALLARGUMENTPOINTER 504
-#define OPCODE_CALLARGUMENTSTRUCTURE 505
-#define OPCODE_CALLARGUMENTFLOAT32 506
-#define OPCODE_CALLARGUMENTFLOAT64 507
-#define OPCODE_PERFORMCALLINT32 508
-#define OPCODE_PERFORMCALLINT64 509
-#define OPCODE_PERFORMCALLPOINTER 510
-#define OPCODE_PERFORMCALLFLOAT32 511
-#define OPCODE_PERFORMCALLFLOAT64 512
-#define OPCODE_PERFORMCALLINDIRECTINT32 513
-#define OPCODE_PERFORMCALLINDIRECTINT64 514
-#define OPCODE_PERFORMCALLINDIRECTPOINTER 515
-#define OPCODE_PERFORMCALLINDIRECTFLOAT32 516
-#define OPCODE_PERFORMCALLINDIRECTFLOAT64 517
-#define OPCODE_ENDCALL 518
-#define OPCODE_ENDCALLNOCLEANUP 519
-#define OPCODE_PLAFTORMCODE 520
-#define OPCODE_LOCKREGISTERS 521
-#define OPCODE_UNLOCKREGISTERS 522
-#define OPCODE_MOVEINT32TOPHYSICAL 523
-#define OPCODE_MOVEINT64TOPHYSICAL 524
-#define OPCODE_MOVEPOINTERTOPHYSICAL 525
-#define OPCODE_MOVEFLOAT32TOPHYSICAL 526
-#define OPCODE_MOVEFLOAT64TOPHYSICAL 527
-#define OPCODE_PUSHPHYSICALINT32 528
-#define OPCODE_PUSHPHYSICALINT64 529
-#define OPCODE_PUSHPHYSICALPOINTER 530
-#define OPCODE_PUSHPHYSICALFLOAT32 531
-#define OPCODE_PUSHPHYSICALFLOAT64 532
-#define OPCODE_CALLPHYSICAL 533
-#define OPCODE_CALLINSTRUCTION 534
+#define OPCODE_FLOAT32TOUINT32 347
+#define OPCODE_FLOAT64TOUINT32 348
+#define OPCODE_FLOAT32TOUINT64 349
+#define OPCODE_FLOAT64TOUINT64 350
+#define OPCODE_FLOAT32TOFLOAT64 351
+#define OPCODE_FLOAT64TOFLOAT32 352
+#define OPCODE_POINTERTOINT32 353
+#define OPCODE_POINTERTOINT64 354
+#define OPCODE_INT32TOPOINTER 355
+#define OPCODE_INT64TOPOINTER 356
+#define OPCODE_ADD32 357
+#define OPCODE_SUB32 358
+#define OPCODE_NEG32 359
+#define OPCODE_MUL32 360
+#define OPCODE_UMUL32 361
+#define OPCODE_DIV32 362
+#define OPCODE_UDIV32 363
+#define OPCODE_REM32 364
+#define OPCODE_UREM32 365
+#define OPCODE_ADD64 366
+#define OPCODE_SUB64 367
+#define OPCODE_NEG64 368
+#define OPCODE_MUL64 369
+#define OPCODE_UMUL64 370
+#define OPCODE_DIV64 371
+#define OPCODE_UDIV64 372
+#define OPCODE_REM64 373
+#define OPCODE_UREM64 374
+#define OPCODE_NOT32 375
+#define OPCODE_AND32 376
+#define OPCODE_OR32 377
+#define OPCODE_XOR32 378
+#define OPCODE_LEFTSHIFT32 379
+#define OPCODE_RIGHTSHIFT32 380
+#define OPCODE_ARITHMETICRIGHTSHIFT32 381
+#define OPCODE_NOT64 382
+#define OPCODE_AND64 383
+#define OPCODE_OR64 384
+#define OPCODE_XOR64 385
+#define OPCODE_LEFTSHIFT64 386
+#define OPCODE_RIGHTSHIFT64 387
+#define OPCODE_ARITHMETICRIGHTSHIFT64 388
+#define OPCODE_FLOAT32ADD 389
+#define OPCODE_FLOAT32SUB 390
+#define OPCODE_FLOAT32MUL 391
+#define OPCODE_FLOAT32DIV 392
+#define OPCODE_FLOAT64ADD 393
+#define OPCODE_FLOAT64SUB 394
+#define OPCODE_FLOAT64MUL 395
+#define OPCODE_FLOAT64DIV 396
+#define OPCODE_PIN 397
+#define OPCODE_UNPIN 398
+#define OPCODE_OOPTOPOINTER 399
+#define OPCODE_OOPTOPOINTERREINTERPRET 400
+#define OPCODE_POINTERTOOOP 401
+#define OPCODE_POINTERTOOOPREINTERPRER 402
+#define OPCODE_INSTANTIATEOOP 403
+#define OPCODE_INSTANTIATEINDEXABLEOOP 404
+#define OPCODE_INSTANTIATEINDEXABLE32OOP 405
+#define OPCODE_OOPTOBOOLEAN32 406
+#define OPCODE_OOPTOBOOLEAN64 407
+#define OPCODE_OOPSMALLINTEGERTOINT32 408
+#define OPCODE_OOPTOINT32 409
+#define OPCODE_OOPTOUINT32 410
+#define OPCODE_OOPSMALLINTEGERTOINT64 411
+#define OPCODE_OOPTOINT64 412
+#define OPCODE_OOPTOUINT64 413
+#define OPCODE_OOPTOFLOAT32 414
+#define OPCODE_OOPTOFLOAT64 415
+#define OPCODE_BOOLEAN32TOOOP 416
+#define OPCODE_BOOLEAN64TOOOP 417
+#define OPCODE_SMALLINT32TOOOP 418
+#define OPCODE_INT32TOOOP 419
+#define OPCODE_UINT32TOOOP 420
+#define OPCODE_INT64TOOOP 421
+#define OPCODE_UINT64TOOOP 422
+#define OPCODE_FLOAT32TOOOP 423
+#define OPCODE_FLOAT64TOOOP 424
+#define OPCODE_LOADOBJECTFIELD 425
+#define OPCODE_STOREOBJECTFIELD 426
+#define OPCODE_LOADOBJECTAT 427
+#define OPCODE_STOREOBJECTFIELDAT 428
+#define OPCODE_FIRSTFIELDPOINTER 429
+#define OPCODE_FIRSTINDEXABLEFIELDPOINTER 430
+#define OPCODE_BYTESIZEOF 431
+#define OPCODE_ISBYTES 432
+#define OPCODE_ISFLOATOBJECT 433
+#define OPCODE_ISINDEXABLE 434
+#define OPCODE_ISINTEGEROBJECT 435
+#define OPCODE_ISWORDS 436
+#define OPCODE_ISWORDSORBYTES 437
+#define OPCODE_ISPOINTERS 438
+#define OPCODE_POINTEREQUAL 439
+#define OPCODE_POINTERNOTEQUAL 440
+#define OPCODE_OOPEQUAL 441
+#define OPCODE_OOPNOTEQUAL 442
+#define OPCODE_INT32EQUAL 443
+#define OPCODE_INT32NOTEQUAL 444
+#define OPCODE_INT32LESS 445
+#define OPCODE_INT32LESSEQUAL 446
+#define OPCODE_INT32GREAT 447
+#define OPCODE_INT32GREATEQUAL 448
+#define OPCODE_UINT32LESS 449
+#define OPCODE_UINT32LESSEQUAL 450
+#define OPCODE_UINT32GREAT 451
+#define OPCODE_UINT32GREATEQUAL 452
+#define OPCODE_INT64EQUAL 453
+#define OPCODE_INT64NOTEQUAL 454
+#define OPCODE_INT64LESS 455
+#define OPCODE_INT64LESSEQUAL 456
+#define OPCODE_INT64GREAT 457
+#define OPCODE_INT64GREATEQUAL 458
+#define OPCODE_UINT64LESS 459
+#define OPCODE_UINT64LESSEQUAL 460
+#define OPCODE_UINT64GREAT 461
+#define OPCODE_UINT64GREATEQUAL 462
+#define OPCODE_FLOAT32EQUAL 463
+#define OPCODE_FLOAT32NOTEQUAL 464
+#define OPCODE_FLOAT32LESS 465
+#define OPCODE_FLOAT32LESSEQUAL 466
+#define OPCODE_FLOAT32GREAT 467
+#define OPCODE_FLOAT32GREATEQUAL 468
+#define OPCODE_FLOAT64EQUAL 469
+#define OPCODE_FLOAT64NOTEQUAL 470
+#define OPCODE_FLOAT64LESS 471
+#define OPCODE_FLOAT64LESSEQUAL 472
+#define OPCODE_FLOAT64GREAT 473
+#define OPCODE_FLOAT64GREATEQUAL 474
+#define OPCODE_JUMP 475
+#define OPCODE_BRANCHTRUE32 476
+#define OPCODE_BRANCHFALSE32 477
+#define OPCODE_BRANCHTRUE64 478
+#define OPCODE_BRANCHFALSE64 479
+#define OPCODE_FAIL 484
+#define OPCODE_FAILWITHCODE 485
+#define OPCODE_LOCKVM 486
+#define OPCODE_UNLOCKVM 487
+#define OPCODE_COMPAREANDSWAP32 488
+#define OPCODE_ALLOCA32 489
+#define OPCODE_ALLOCA64 490
+#define OPCODE_MALLOC32 491
+#define OPCODE_MALLOC64 492
+#define OPCODE_FREE 493
+#define OPCODE_MEMCPYFIXED 494
+#define OPCODE_MEMCPY32 495
+#define OPCODE_MEMCPY64 496
+#define OPCODE_BEGINCALL 497
+#define OPCODE_CALLARGUMENTINT32 498
+#define OPCODE_CALLARGUMENTINT64 499
+#define OPCODE_CALLARGUMENTPOINTER 500
+#define OPCODE_CALLARGUMENTSTRUCTURE 501
+#define OPCODE_CALLARGUMENTFLOAT32 502
+#define OPCODE_CALLARGUMENTFLOAT64 503
+#define OPCODE_PERFORMCALLINT32 504
+#define OPCODE_PERFORMCALLINT64 505
+#define OPCODE_PERFORMCALLPOINTER 506
+#define OPCODE_PERFORMCALLSTRUCTURE 507
+#define OPCODE_PERFORMCALLFLOAT32 508
+#define OPCODE_PERFORMCALLFLOAT64 509
+#define OPCODE_PERFORMCALLINDIRECTINT32 510
+#define OPCODE_PERFORMCALLINDIRECTINT64 511
+#define OPCODE_PERFORMCALLINDIRECTPOINTER 512
+#define OPCODE_PERFORMCALLINDIRECTSTRUCTURE 513
+#define OPCODE_PERFORMCALLINDIRECTFLOAT32 514
+#define OPCODE_PERFORMCALLINDIRECTFLOAT64 515
+#define OPCODE_ENDCALL 516
+#define OPCODE_ENDCALLNOCLEANUP 517
+#define OPCODE_PLAFTORMCODE 518
+#define OPCODE_LOCKREGISTERS 519
+#define OPCODE_UNLOCKREGISTERS 520
+#define OPCODE_MOVEINT32TOPHYSICAL 521
+#define OPCODE_MOVEINT64TOPHYSICAL 522
+#define OPCODE_MOVEPOINTERTOPHYSICAL 523
+#define OPCODE_MOVEFLOAT32TOPHYSICAL 524
+#define OPCODE_MOVEFLOAT64TOPHYSICAL 525
+#define OPCODE_PUSHPHYSICALINT32 526
+#define OPCODE_PUSHPHYSICALINT64 527
+#define OPCODE_PUSHPHYSICALPOINTER 528
+#define OPCODE_PUSHPHYSICALFLOAT32 529
+#define OPCODE_PUSHPHYSICALFLOAT64 530
+#define OPCODE_CALLPHYSICAL 531
+#define OPCODE_CALLINSTRUCTION 532
 static int Lowcode_sessionInitialized = 0;static uint32_t Lowcode_sessionIdentifier; /* Must be keep uninitialized for more randomness */static void Lowcode_initializeSession() { 	uint32_t *p = (uint32_t*)malloc(4);	/* Produce a random value for the session identifier */	Lowcode_sessionIdentifier ^= ((uint32_t)((size_t)p)) ^ (uint32_t)time(NULL) ^ *p;	free(p);	Lowcode_sessionInitialized = 1;}	sqInt LowcodePlugin_InterpretCodeLiteralsReceiverTemporalsStackFrame(VirtualMachine *interpreterProxy, uint8_t *instructionStream, sqInt literals, sqInt receiver, sqInt temporals, int stackFrameSize){	/* Allocate space for the primitive stack */	char* primitiveStack = (char*)alloca(DEFAULT_PRIMITIVE_STACK_SIZE);	size_t primitiveStackCapacity = DEFAULT_PRIMITIVE_STACK_SIZE;	size_t primitiveStackSize = 0;		/* Allocate space for the stack frame base. */	char* basePointer = (char*)alloca(stackFrameSize);	/* Oop stack tracking */	size_t oopStackSize = interpreterProxy->methodArgumentCount() + 1;		/* Some counts */	size_t numberLiterals = interpreterProxy->stSizeOf(literals);	size_t numberOfTemporals = interpreterProxy->stSizeOf(temporals);	/* The current program counter. */	uint8_t *pc = instructionStream;	uint32_t extA = 0;	uint32_t extB = 0;		/* For calling*/	LOWCODE_FFI_COMMON();		/* Execute all the instructions without verification */	for(;;)	{		/* Fetch the first Sista extended bytecode opcode. */		uint8_t sistaOpcode = *(pc++);		/* Sista instructions are variable sized */		if(sistaOpcode <= SISTA_OPCODE_ONE_BYTE_LAST)		{			switch(sistaOpcode)			{
 			/* 'pushReceiverVariableSmallIndex'*/
 			case 0:
@@ -445,7 +443,7 @@
 			/* 'sendSpecialMessageClass'*/
 			case 119:
 			{
-            sqInt object;            sqInt classObject;            POP_OOP_TO(object);            classObject = interpreterProxy->fetchClassOf(object);            CHECK_FAILED();            PUSH_OOP(classObject);        
+            sqInt object;            sqInt objectClass;            POP_OOP_TO(object);            objectClass = interpreterProxy->fetchClassOf(object);            CHECK_FAILED();            PUSH_OOP(objectClass);        
 			}				break;
 			/* 'popAndStoreTemp'*/
 			case 208:
@@ -892,9 +890,9 @@
             result = (int16_t)value;        
 				PUSH_INT64(result);
 			}				break;			case OPCODE_SIGNEXTEND64FROM32:			{
-				int64_t value;
+				int32_t value;
 				int64_t result;
-				POP_INT64_TO(value);
+				POP_INT32_TO(value);
             result = (int32_t)value;        
 				PUSH_INT64(result);
 			}				break;			case OPCODE_ZEROEXTEND32FROM8:			{
@@ -922,9 +920,9 @@
             result = (uint16_t)value;        
 				PUSH_INT64(result);
 			}				break;			case OPCODE_ZEROEXTEND64FROM32:			{
-				int64_t value;
+				int32_t value;
 				int64_t result;
-				POP_INT64_TO(value);
+				POP_INT32_TO(value);
             result = (uint32_t)value;        
 				PUSH_INT64(result);
 			}				break;			case OPCODE_TRUNCATE32TO8:			{
@@ -941,22 +939,22 @@
 				PUSH_INT32(result);
 			}				break;			case OPCODE_TRUNCATE64TO8:			{
 				int64_t value;
-				int64_t result;
+				int32_t result;
 				POP_INT64_TO(value);
             result = (uint8_t)value;        
-				PUSH_INT64(result);
+				PUSH_INT32(result);
 			}				break;			case OPCODE_TRUNCATE64TO16:			{
 				int64_t value;
-				int64_t result;
+				int32_t result;
 				POP_INT64_TO(value);
             result = (uint16_t)value;        
-				PUSH_INT64(result);
+				PUSH_INT32(result);
 			}				break;			case OPCODE_TRUNCATE64TO32:			{
 				int64_t value;
-				int64_t result;
+				int32_t result;
 				POP_INT64_TO(value);
             result = (uint32_t)value;        
-				PUSH_INT64(result);
+				PUSH_INT32(result);
 			}				break;			case OPCODE_UINT32TOFLOAT32:			{
 				int32_t value;
 				float result;
@@ -1029,6 +1027,42 @@
 				POP_FLOAT64_TO(value);
             result = (int64_t)value;        
 				PUSH_INT64(result);
+			}				break;			case OPCODE_FLOAT32TOUINT32:			{
+				float value;
+				int32_t result;
+				POP_FLOAT32_TO(value);
+            result = (uint32_t)value;        
+				PUSH_INT32(result);
+			}				break;			case OPCODE_FLOAT64TOUINT32:			{
+				double value;
+				int32_t result;
+				POP_FLOAT64_TO(value);
+            result = (uint32_t)value;        
+				PUSH_INT32(result);
+			}				break;			case OPCODE_FLOAT32TOUINT64:			{
+				float value;
+				int64_t result;
+				POP_FLOAT32_TO(value);
+            result = (uint64_t)value;        
+				PUSH_INT64(result);
+			}				break;			case OPCODE_FLOAT64TOUINT64:			{
+				double value;
+				int64_t result;
+				POP_FLOAT64_TO(value);
+            result = (uint64_t)value;        
+				PUSH_INT64(result);
+			}				break;			case OPCODE_FLOAT32TOFLOAT64:			{
+				float value;
+				double result;
+				POP_FLOAT32_TO(value);
+            result = value;        
+				PUSH_FLOAT64(result);
+			}				break;			case OPCODE_FLOAT64TOFLOAT32:			{
+				double value;
+				float result;
+				POP_FLOAT64_TO(value);
+            result = (float)value;        
+				PUSH_FLOAT32(result);
 			}				break;			case OPCODE_POINTERTOINT32:			{
 				void* pointer;
 				int32_t result;
@@ -1946,48 +1980,6 @@
 				LABEL_AT_TO(extA, dest);				extA = 0;
 				POP_INT32_TO(cond);
             if(!cond)                pc = dest;        
-			}				break;			case OPCODE_RETURNSMALLINTEGER:			{
-				int32_t value;
-				POP_INT32_TO(value);
-            RETURN_OOP(interpreterProxy->integerObjectOf(value));        
-			}				break;			case OPCODE_RETURNBOOLEAN32ASOOP:			{
-				int32_t value;
-				POP_INT32_TO(value);
-            RETURN_OOP(value ? interpreterProxy->trueObject() : interpreterProxy->falseObject());        
-			}				break;			case OPCODE_RETURNBOOLEAN64ASOOP:			{
-				int64_t value;
-				POP_INT64_TO(value);
-            RETURN_OOP(value ? interpreterProxy->trueObject() : interpreterProxy->falseObject());        
-			}				break;			case OPCODE_RETURNINT32ASOOP:			{
-				int32_t value;
-				POP_INT32_TO(value);
-            RETURN_OOP(interpreterProxy->signed32BitIntegerFor(value));        
-			}				break;			case OPCODE_RETURNINT64ASOOP:			{
-				int64_t value;
-				POP_INT64_TO(value);
-            RETURN_OOP(interpreterProxy->signed64BitIntegerFor(value));        
-			}				break;			case OPCODE_RETURNUINT32ASOOP:			{
-				int32_t value;
-				POP_INT32_TO(value);
-            RETURN_OOP(interpreterProxy->positive32BitIntegerFor(value));        
-			}				break;			case OPCODE_RETURNUINT64ASOOP:			{
-				int64_t value;
-				POP_INT64_TO(value);
-            RETURN_OOP(interpreterProxy->positive64BitIntegerFor(value));        
-			}				break;			case OPCODE_RETURNPOINTERASOOP:			{
-				sqInt pointerClassLiteral;
-				void* pointer;
-				LITERAL_AT_TO(extA, pointerClassLiteral);				extA = 0;
-				POP_POINTER_TO(pointer);
-            {                sqInt object = interpreterProxy->instantiateClassindexableSize(pointerClassLiteral, sizeof(void*));                CHECK_FAILED();                *((void**)interpreterProxy->firstIndexableField(object)) = pointer;                RETURN_OOP(object);            }        
-			}				break;			case OPCODE_RETURNFLOAT32ASOOP:			{
-				float value;
-				POP_FLOAT32_TO(value);
-            RETURN_OOP(interpreterProxy->floatObjectOf(value));        
-			}				break;			case OPCODE_RETURNFLOAT64ASOOP:			{
-				double value;
-				POP_FLOAT64_TO(value);
-            RETURN_OOP(interpreterProxy->floatObjectOf(value));        
 			}				break;			case OPCODE_FAIL:			{
             return interpreterProxy->primitiveFail();        
 			}				break;			case OPCODE_FAILWITHCODE:			{
@@ -2001,11 +1993,11 @@
             /* TODO */        
 			}				break;			case OPCODE_COMPAREANDSWAP32:			{
 				void* check;
-				int32_t newValue;
 				int32_t oldValue;
+				int32_t newValue;
 				int32_t value;
-				POP_INT32_TO(oldValue);
 				POP_INT32_TO(newValue);
+				POP_INT32_TO(oldValue);
 				POP_POINTER_TO(check);
             UNIMPLEMENTED();        
 				PUSH_INT32(value);
@@ -2115,6 +2107,18 @@
 				extA = 0;
             DO_CALL_POINTER((void**)(size_t)function, result);        
 				PUSH_POINTER(result);
+			}				break;			case OPCODE_PERFORMCALLSTRUCTURE:			{
+				uint32_t function;
+				uint32_t structureSize;
+				void* result;
+				void* resultPointer;
+				function = extA;
+				extA = 0;
+				structureSize = extB;
+				extB = 0;
+				POP_POINTER_TO(result);
+            CALL_ARGUMENT_POINTER(result);            DO_CALL_STRUCTURE((void**)(size_t)function, resultPointer, structureSize);        
+				PUSH_POINTER(resultPointer);
 			}				break;			case OPCODE_PERFORMCALLFLOAT32:			{
 				uint32_t function;
 				float result;
@@ -2147,6 +2151,17 @@
 				POP_POINTER_TO(function);
             DO_CALL_POINTER(function, result);        
 				PUSH_POINTER(result);
+			}				break;			case OPCODE_PERFORMCALLINDIRECTSTRUCTURE:			{
+				uint32_t structureSize;
+				void* function;
+				void* result;
+				void* resultPointer;
+				structureSize = extA;
+				extA = 0;
+				POP_POINTER_TO(result);
+				POP_POINTER_TO(function);
+            CALL_ARGUMENT_POINTER(result);            DO_CALL_STRUCTURE((void**)(size_t)function, resultPointer, structureSize);        
+				PUSH_POINTER(resultPointer);
 			}				break;			case OPCODE_PERFORMCALLINDIRECTFLOAT32:			{
 				void* function;
 				float result;

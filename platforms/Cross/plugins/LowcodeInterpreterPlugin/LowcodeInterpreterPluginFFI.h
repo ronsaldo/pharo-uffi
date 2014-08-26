@@ -21,6 +21,7 @@ the following macros:
     DO_CALL_POINTER(function, result);
     DO_CALL_FLOAT32(function, result);
     DO_CALL_FLOAT64(function, result);
+    DO_CALL_STRUCTURE(function, result, structureSize);
     END_CALL();
     END_CALL_NO_CLEANUP();
 */

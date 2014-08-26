@@ -25,6 +25,7 @@
 #define DO_CALL_POINTER(function, result) result = ((void* (*)()) function) ()
 #define DO_CALL_FLOAT32(function, result) result = ((float (*)()) function) ()
 #define DO_CALL_FLOAT64(function, result) result = ((double (*)()) function) ()
+#define DO_CALL_STRUCTURE(function, result, structureSize) DO_CALL_POINTER(function, result)
 
 #define END_CALL() SET_STACK_POINTER(storedSP)
 #define END_CALL_NO_CLEANUP() SET_STACK_POINTER(storedSP)

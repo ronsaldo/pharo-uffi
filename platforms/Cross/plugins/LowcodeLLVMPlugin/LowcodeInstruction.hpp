@@ -280,7 +280,9 @@ protected:
     void callArgumentFloat64(llvm::Value *value);
     void callArgumentStructure(size_t structureSize, llvm::Value *value);
     llvm::Value *performCall(llvm::Type* returnType, uintptr_t functionPointer);
+    llvm::Value *performCallStructure(llvm::Value *resultPointer, size_t structureSize, uintptr_t function);
     llvm::Value *performCallIndirect(llvm::Type* returnType, llvm::Value *functionPointer);
+    llvm::Value *performCallIndirectStructure(llvm::Value *resultPointer, size_t structureSize, llvm::Value *functionPointer);
 
     void endCall();
     void endCallNoCleanup();

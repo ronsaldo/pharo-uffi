@@ -324,373 +324,369 @@
 			return InstructionKind::Operation;
 		case 346: /* float64ToInt64 */
 			return InstructionKind::Operation;
-		case 347: /* pointerToInt32 */
+		case 347: /* float32ToUInt32 */
 			return InstructionKind::Operation;
-		case 348: /* pointerToInt64 */
+		case 348: /* float64ToUInt32 */
 			return InstructionKind::Operation;
-		case 349: /* int32ToPointer */
+		case 349: /* float32ToUInt64 */
 			return InstructionKind::Operation;
-		case 350: /* int64ToPointer */
+		case 350: /* float64ToUInt64 */
 			return InstructionKind::Operation;
-		case 351: /* add32 */
+		case 351: /* float32ToFloat64 */
 			return InstructionKind::Operation;
-		case 352: /* sub32 */
+		case 352: /* float64ToFloat32 */
 			return InstructionKind::Operation;
-		case 353: /* neg32 */
+		case 353: /* pointerToInt32 */
 			return InstructionKind::Operation;
-		case 354: /* mul32 */
+		case 354: /* pointerToInt64 */
 			return InstructionKind::Operation;
-		case 355: /* umul32 */
+		case 355: /* int32ToPointer */
 			return InstructionKind::Operation;
-		case 356: /* div32 */
+		case 356: /* int64ToPointer */
 			return InstructionKind::Operation;
-		case 357: /* udiv32 */
+		case 357: /* add32 */
 			return InstructionKind::Operation;
-		case 358: /* rem32 */
+		case 358: /* sub32 */
 			return InstructionKind::Operation;
-		case 359: /* urem32 */
+		case 359: /* neg32 */
 			return InstructionKind::Operation;
-		case 360: /* add64 */
+		case 360: /* mul32 */
 			return InstructionKind::Operation;
-		case 361: /* sub64 */
+		case 361: /* umul32 */
 			return InstructionKind::Operation;
-		case 362: /* neg64 */
+		case 362: /* div32 */
 			return InstructionKind::Operation;
-		case 363: /* mul64 */
+		case 363: /* udiv32 */
 			return InstructionKind::Operation;
-		case 364: /* umul64 */
+		case 364: /* rem32 */
 			return InstructionKind::Operation;
-		case 365: /* div64 */
+		case 365: /* urem32 */
 			return InstructionKind::Operation;
-		case 366: /* udiv64 */
+		case 366: /* add64 */
 			return InstructionKind::Operation;
-		case 367: /* rem64 */
+		case 367: /* sub64 */
 			return InstructionKind::Operation;
-		case 368: /* urem64 */
+		case 368: /* neg64 */
 			return InstructionKind::Operation;
-		case 369: /* not32 */
+		case 369: /* mul64 */
 			return InstructionKind::Operation;
-		case 370: /* and32 */
+		case 370: /* umul64 */
 			return InstructionKind::Operation;
-		case 371: /* or32 */
+		case 371: /* div64 */
 			return InstructionKind::Operation;
-		case 372: /* xor32 */
+		case 372: /* udiv64 */
 			return InstructionKind::Operation;
-		case 373: /* leftShift32 */
+		case 373: /* rem64 */
 			return InstructionKind::Operation;
-		case 374: /* rightShift32 */
+		case 374: /* urem64 */
 			return InstructionKind::Operation;
-		case 375: /* arithmeticRightShift32 */
+		case 375: /* not32 */
 			return InstructionKind::Operation;
-		case 376: /* not64 */
+		case 376: /* and32 */
 			return InstructionKind::Operation;
-		case 377: /* and64 */
+		case 377: /* or32 */
 			return InstructionKind::Operation;
-		case 378: /* or64 */
+		case 378: /* xor32 */
 			return InstructionKind::Operation;
-		case 379: /* xor64 */
+		case 379: /* leftShift32 */
 			return InstructionKind::Operation;
-		case 380: /* leftShift64 */
+		case 380: /* rightShift32 */
 			return InstructionKind::Operation;
-		case 381: /* rightShift64 */
+		case 381: /* arithmeticRightShift32 */
 			return InstructionKind::Operation;
-		case 382: /* arithmeticRightShift64 */
+		case 382: /* not64 */
 			return InstructionKind::Operation;
-		case 383: /* float32Add */
+		case 383: /* and64 */
 			return InstructionKind::Operation;
-		case 384: /* float32Sub */
+		case 384: /* or64 */
 			return InstructionKind::Operation;
-		case 385: /* float32Mul */
+		case 385: /* xor64 */
 			return InstructionKind::Operation;
-		case 386: /* float32Div */
+		case 386: /* leftShift64 */
 			return InstructionKind::Operation;
-		case 387: /* float64Add */
+		case 387: /* rightShift64 */
 			return InstructionKind::Operation;
-		case 388: /* float64Sub */
+		case 388: /* arithmeticRightShift64 */
 			return InstructionKind::Operation;
-		case 389: /* float64Mul */
+		case 389: /* float32Add */
 			return InstructionKind::Operation;
-		case 390: /* float64Div */
+		case 390: /* float32Sub */
 			return InstructionKind::Operation;
-		case 391: /* pin */
+		case 391: /* float32Mul */
 			return InstructionKind::Operation;
-		case 392: /* unpin */
+		case 392: /* float32Div */
 			return InstructionKind::Operation;
-		case 393: /* oopToPointer */
+		case 393: /* float64Add */
 			return InstructionKind::Operation;
-		case 394: /* oopToPointerReinterpret */
+		case 394: /* float64Sub */
 			return InstructionKind::Operation;
-		case 395: /* pointerToOop */
+		case 395: /* float64Mul */
 			return InstructionKind::Operation;
-		case 396: /* pointerToOopReinterprer */
+		case 396: /* float64Div */
 			return InstructionKind::Operation;
-		case 397: /* instantiateOop */
+		case 397: /* pin */
 			return InstructionKind::Operation;
-		case 398: /* instantiateIndexableOop */
+		case 398: /* unpin */
 			return InstructionKind::Operation;
-		case 399: /* instantiateIndexable32Oop */
+		case 399: /* oopToPointer */
 			return InstructionKind::Operation;
-		case 400: /* oopToBoolean32 */
+		case 400: /* oopToPointerReinterpret */
 			return InstructionKind::Operation;
-		case 401: /* oopToBoolean64 */
+		case 401: /* pointerToOop */
 			return InstructionKind::Operation;
-		case 402: /* oopSmallIntegerToInt32 */
+		case 402: /* pointerToOopReinterprer */
 			return InstructionKind::Operation;
-		case 403: /* oopToInt32 */
+		case 403: /* instantiateOop */
 			return InstructionKind::Operation;
-		case 404: /* oopToUInt32 */
+		case 404: /* instantiateIndexableOop */
 			return InstructionKind::Operation;
-		case 405: /* oopSmallIntegerToInt64 */
+		case 405: /* instantiateIndexable32Oop */
 			return InstructionKind::Operation;
-		case 406: /* oopToInt64 */
+		case 406: /* oopToBoolean32 */
 			return InstructionKind::Operation;
-		case 407: /* oopToUInt64 */
+		case 407: /* oopToBoolean64 */
 			return InstructionKind::Operation;
-		case 408: /* oopToFloat32 */
+		case 408: /* oopSmallIntegerToInt32 */
 			return InstructionKind::Operation;
-		case 409: /* oopToFloat64 */
+		case 409: /* oopToInt32 */
 			return InstructionKind::Operation;
-		case 410: /* boolean32ToOop */
+		case 410: /* oopToUInt32 */
 			return InstructionKind::Operation;
-		case 411: /* boolean64ToOop */
+		case 411: /* oopSmallIntegerToInt64 */
 			return InstructionKind::Operation;
-		case 412: /* smallInt32ToOop */
+		case 412: /* oopToInt64 */
 			return InstructionKind::Operation;
-		case 413: /* int32ToOop */
+		case 413: /* oopToUInt64 */
 			return InstructionKind::Operation;
-		case 414: /* uint32ToOop */
+		case 414: /* oopToFloat32 */
 			return InstructionKind::Operation;
-		case 415: /* int64ToOop */
+		case 415: /* oopToFloat64 */
 			return InstructionKind::Operation;
-		case 416: /* uint64ToOop */
+		case 416: /* boolean32ToOop */
 			return InstructionKind::Operation;
-		case 417: /* float32ToOop */
+		case 417: /* boolean64ToOop */
 			return InstructionKind::Operation;
-		case 418: /* float64ToOop */
+		case 418: /* smallInt32ToOop */
 			return InstructionKind::Operation;
-		case 419: /* loadObjectField */
+		case 419: /* int32ToOop */
 			return InstructionKind::Operation;
-		case 420: /* storeObjectField */
+		case 420: /* uint32ToOop */
 			return InstructionKind::Operation;
-		case 421: /* loadObjectAt */
+		case 421: /* int64ToOop */
 			return InstructionKind::Operation;
-		case 422: /* storeObjectFieldAt */
+		case 422: /* uint64ToOop */
 			return InstructionKind::Operation;
-		case 423: /* firstFieldPointer */
+		case 423: /* float32ToOop */
 			return InstructionKind::Operation;
-		case 424: /* firstIndexableFieldPointer */
+		case 424: /* float64ToOop */
 			return InstructionKind::Operation;
-		case 425: /* byteSizeOf */
+		case 425: /* loadObjectField */
 			return InstructionKind::Operation;
-		case 426: /* isBytes */
+		case 426: /* storeObjectField */
 			return InstructionKind::Operation;
-		case 427: /* isFloatObject */
+		case 427: /* loadObjectAt */
 			return InstructionKind::Operation;
-		case 428: /* isIndexable */
+		case 428: /* storeObjectFieldAt */
 			return InstructionKind::Operation;
-		case 429: /* isIntegerObject */
+		case 429: /* firstFieldPointer */
 			return InstructionKind::Operation;
-		case 430: /* isWords */
+		case 430: /* firstIndexableFieldPointer */
 			return InstructionKind::Operation;
-		case 431: /* isWordsOrBytes */
+		case 431: /* byteSizeOf */
 			return InstructionKind::Operation;
-		case 432: /* isPointers */
+		case 432: /* isBytes */
 			return InstructionKind::Operation;
-		case 433: /* pointerEqual */
+		case 433: /* isFloatObject */
 			return InstructionKind::Operation;
-		case 434: /* pointerNotEqual */
+		case 434: /* isIndexable */
 			return InstructionKind::Operation;
-		case 435: /* oopEqual */
+		case 435: /* isIntegerObject */
 			return InstructionKind::Operation;
-		case 436: /* oopNotEqual */
+		case 436: /* isWords */
 			return InstructionKind::Operation;
-		case 437: /* int32Equal */
+		case 437: /* isWordsOrBytes */
 			return InstructionKind::Operation;
-		case 438: /* int32NotEqual */
+		case 438: /* isPointers */
 			return InstructionKind::Operation;
-		case 439: /* int32Less */
+		case 439: /* pointerEqual */
 			return InstructionKind::Operation;
-		case 440: /* int32LessEqual */
+		case 440: /* pointerNotEqual */
 			return InstructionKind::Operation;
-		case 441: /* int32Great */
+		case 441: /* oopEqual */
 			return InstructionKind::Operation;
-		case 442: /* int32GreatEqual */
+		case 442: /* oopNotEqual */
 			return InstructionKind::Operation;
-		case 443: /* uint32Less */
+		case 443: /* int32Equal */
 			return InstructionKind::Operation;
-		case 444: /* uint32LessEqual */
+		case 444: /* int32NotEqual */
 			return InstructionKind::Operation;
-		case 445: /* uint32Great */
+		case 445: /* int32Less */
 			return InstructionKind::Operation;
-		case 446: /* uint32GreatEqual */
+		case 446: /* int32LessEqual */
 			return InstructionKind::Operation;
-		case 447: /* int64Equal */
+		case 447: /* int32Great */
 			return InstructionKind::Operation;
-		case 448: /* int64NotEqual */
+		case 448: /* int32GreatEqual */
 			return InstructionKind::Operation;
-		case 449: /* int64Less */
+		case 449: /* uint32Less */
 			return InstructionKind::Operation;
-		case 450: /* int64LessEqual */
+		case 450: /* uint32LessEqual */
 			return InstructionKind::Operation;
-		case 451: /* int64Great */
+		case 451: /* uint32Great */
 			return InstructionKind::Operation;
-		case 452: /* int64GreatEqual */
+		case 452: /* uint32GreatEqual */
 			return InstructionKind::Operation;
-		case 453: /* uint64Less */
+		case 453: /* int64Equal */
 			return InstructionKind::Operation;
-		case 454: /* uint64LessEqual */
+		case 454: /* int64NotEqual */
 			return InstructionKind::Operation;
-		case 455: /* uint64Great */
+		case 455: /* int64Less */
 			return InstructionKind::Operation;
-		case 456: /* uint64GreatEqual */
+		case 456: /* int64LessEqual */
 			return InstructionKind::Operation;
-		case 457: /* float32Equal */
+		case 457: /* int64Great */
 			return InstructionKind::Operation;
-		case 458: /* float32NotEqual */
+		case 458: /* int64GreatEqual */
 			return InstructionKind::Operation;
-		case 459: /* float32Less */
+		case 459: /* uint64Less */
 			return InstructionKind::Operation;
-		case 460: /* float32LessEqual */
+		case 460: /* uint64LessEqual */
 			return InstructionKind::Operation;
-		case 461: /* float32Great */
+		case 461: /* uint64Great */
 			return InstructionKind::Operation;
-		case 462: /* float32GreatEqual */
+		case 462: /* uint64GreatEqual */
 			return InstructionKind::Operation;
-		case 463: /* float64Equal */
+		case 463: /* float32Equal */
 			return InstructionKind::Operation;
-		case 464: /* float64NotEqual */
+		case 464: /* float32NotEqual */
 			return InstructionKind::Operation;
-		case 465: /* float64Less */
+		case 465: /* float32Less */
 			return InstructionKind::Operation;
-		case 466: /* float64LessEqual */
+		case 466: /* float32LessEqual */
 			return InstructionKind::Operation;
-		case 467: /* float64Great */
+		case 467: /* float32Great */
 			return InstructionKind::Operation;
-		case 468: /* float64GreatEqual */
+		case 468: /* float32GreatEqual */
 			return InstructionKind::Operation;
-		case 469: /* jump */
+		case 469: /* float64Equal */
+			return InstructionKind::Operation;
+		case 470: /* float64NotEqual */
+			return InstructionKind::Operation;
+		case 471: /* float64Less */
+			return InstructionKind::Operation;
+		case 472: /* float64LessEqual */
+			return InstructionKind::Operation;
+		case 473: /* float64Great */
+			return InstructionKind::Operation;
+		case 474: /* float64GreatEqual */
+			return InstructionKind::Operation;
+		case 475: /* jump */
 			return InstructionKind::Jump;
-		case 470: /* branchTrue32 */
+		case 476: /* branchTrue32 */
 			return InstructionKind::Branch;
-		case 471: /* branchFalse32 */
+		case 477: /* branchFalse32 */
 			return InstructionKind::Branch;
-		case 472: /* branchTrue64 */
+		case 478: /* branchTrue64 */
 			return InstructionKind::Branch;
-		case 473: /* branchFalse64 */
+		case 479: /* branchFalse64 */
 			return InstructionKind::Branch;
-		case 478: /* returnSmallInteger */
+		case 484: /* fail */
 			return InstructionKind::Terminator;
-		case 479: /* returnBoolean32AsOop */
+		case 485: /* failWithCode */
 			return InstructionKind::Terminator;
-		case 480: /* returnBoolean64AsOop */
-			return InstructionKind::Terminator;
-		case 481: /* returnInt32AsOop */
-			return InstructionKind::Terminator;
-		case 482: /* returnInt64AsOop */
-			return InstructionKind::Terminator;
-		case 483: /* returnUInt32AsOop */
-			return InstructionKind::Terminator;
-		case 484: /* returnUInt64AsOop */
-			return InstructionKind::Terminator;
-		case 485: /* returnPointerAsOop */
-			return InstructionKind::Terminator;
-		case 486: /* returnFloat32AsOop */
-			return InstructionKind::Terminator;
-		case 487: /* returnFloat64AsOop */
-			return InstructionKind::Terminator;
-		case 488: /* fail */
-			return InstructionKind::Terminator;
-		case 489: /* failWithCode */
-			return InstructionKind::Terminator;
-		case 490: /* lockVM */
+		case 486: /* lockVM */
 			return InstructionKind::Operation;
-		case 491: /* unlockVM */
+		case 487: /* unlockVM */
 			return InstructionKind::Operation;
-		case 492: /* compareAndSwap32 */
+		case 488: /* compareAndSwap32 */
 			return InstructionKind::Operation;
-		case 493: /* alloca32 */
+		case 489: /* alloca32 */
 			return InstructionKind::Operation;
-		case 494: /* alloca64 */
+		case 490: /* alloca64 */
 			return InstructionKind::Operation;
-		case 495: /* malloc32 */
+		case 491: /* malloc32 */
 			return InstructionKind::Operation;
-		case 496: /* malloc64 */
+		case 492: /* malloc64 */
 			return InstructionKind::Operation;
-		case 497: /* free */
+		case 493: /* free */
 			return InstructionKind::Operation;
-		case 498: /* memcpyFixed */
+		case 494: /* memcpyFixed */
 			return InstructionKind::Operation;
-		case 499: /* memcpy32 */
+		case 495: /* memcpy32 */
 			return InstructionKind::Operation;
-		case 500: /* memcpy64 */
+		case 496: /* memcpy64 */
 			return InstructionKind::Operation;
-		case 501: /* beginCall */
+		case 497: /* beginCall */
 			return InstructionKind::Operation;
-		case 502: /* callArgumentInt32 */
+		case 498: /* callArgumentInt32 */
 			return InstructionKind::Operation;
-		case 503: /* callArgumentInt64 */
+		case 499: /* callArgumentInt64 */
 			return InstructionKind::Operation;
-		case 504: /* callArgumentPointer */
+		case 500: /* callArgumentPointer */
 			return InstructionKind::Operation;
-		case 505: /* callArgumentStructure */
+		case 501: /* callArgumentStructure */
 			return InstructionKind::Operation;
-		case 506: /* callArgumentFloat32 */
+		case 502: /* callArgumentFloat32 */
 			return InstructionKind::Operation;
-		case 507: /* callArgumentFloat64 */
+		case 503: /* callArgumentFloat64 */
 			return InstructionKind::Operation;
-		case 508: /* performCallInt32 */
+		case 504: /* performCallInt32 */
 			return InstructionKind::Operation;
-		case 509: /* performCallInt64 */
+		case 505: /* performCallInt64 */
 			return InstructionKind::Operation;
-		case 510: /* performCallPointer */
+		case 506: /* performCallPointer */
 			return InstructionKind::Operation;
-		case 511: /* performCallFloat32 */
+		case 507: /* performCallStructure */
 			return InstructionKind::Operation;
-		case 512: /* performCallFloat64 */
+		case 508: /* performCallFloat32 */
 			return InstructionKind::Operation;
-		case 513: /* performCallIndirectInt32 */
+		case 509: /* performCallFloat64 */
 			return InstructionKind::Operation;
-		case 514: /* performCallIndirectInt64 */
+		case 510: /* performCallIndirectInt32 */
 			return InstructionKind::Operation;
-		case 515: /* performCallIndirectPointer */
+		case 511: /* performCallIndirectInt64 */
 			return InstructionKind::Operation;
-		case 516: /* performCallIndirectFloat32 */
+		case 512: /* performCallIndirectPointer */
 			return InstructionKind::Operation;
-		case 517: /* performCallIndirectFloat64 */
+		case 513: /* performCallIndirectStructure */
 			return InstructionKind::Operation;
-		case 518: /* endCall */
+		case 514: /* performCallIndirectFloat32 */
 			return InstructionKind::Operation;
-		case 519: /* endCallNoCleanup */
+		case 515: /* performCallIndirectFloat64 */
 			return InstructionKind::Operation;
-		case 520: /* plaftormCode */
+		case 516: /* endCall */
 			return InstructionKind::Operation;
-		case 521: /* lockRegisters */
+		case 517: /* endCallNoCleanup */
 			return InstructionKind::Operation;
-		case 522: /* unlockRegisters */
+		case 518: /* plaftormCode */
 			return InstructionKind::Operation;
-		case 523: /* moveInt32ToPhysical */
+		case 519: /* lockRegisters */
 			return InstructionKind::Operation;
-		case 524: /* moveInt64ToPhysical */
+		case 520: /* unlockRegisters */
 			return InstructionKind::Operation;
-		case 525: /* movePointerToPhysical */
+		case 521: /* moveInt32ToPhysical */
 			return InstructionKind::Operation;
-		case 526: /* moveFloat32ToPhysical */
+		case 522: /* moveInt64ToPhysical */
 			return InstructionKind::Operation;
-		case 527: /* moveFloat64ToPhysical */
+		case 523: /* movePointerToPhysical */
 			return InstructionKind::Operation;
-		case 528: /* pushPhysicalInt32 */
+		case 524: /* moveFloat32ToPhysical */
 			return InstructionKind::Operation;
-		case 529: /* pushPhysicalInt64 */
+		case 525: /* moveFloat64ToPhysical */
 			return InstructionKind::Operation;
-		case 530: /* pushPhysicalPointer */
+		case 526: /* pushPhysicalInt32 */
 			return InstructionKind::Operation;
-		case 531: /* pushPhysicalFloat32 */
+		case 527: /* pushPhysicalInt64 */
 			return InstructionKind::Operation;
-		case 532: /* pushPhysicalFloat64 */
+		case 528: /* pushPhysicalPointer */
 			return InstructionKind::Operation;
-		case 533: /* callPhysical */
+		case 529: /* pushPhysicalFloat32 */
 			return InstructionKind::Operation;
-		case 534: /* callInstruction */
+		case 530: /* pushPhysicalFloat64 */
+			return InstructionKind::Operation;
+		case 531: /* callPhysical */
+			return InstructionKind::Operation;
+		case 532: /* callInstruction */
 			return InstructionKind::Operation;
 	default:		return InstructionKind::Operation;	}}// Sista extended byte code validationbool SistaExtendedInstruction::validate(LowcodeValidationStack &stack){	switch(getOpcode())	{	/* pushReceiverVariableSmallIndex */
 	case 0:
@@ -1105,7 +1101,7 @@
 		stack.pushInt64();
 		return true;
 	case 324: /* signExtend64From32 */
-		if(!stack.popInt64()) return false;
+		if(!stack.popInt32()) return false;
 		stack.pushInt64();
 		return true;
 	case 325: /* zeroExtend32From8 */
@@ -1125,7 +1121,7 @@
 		stack.pushInt64();
 		return true;
 	case 329: /* zeroExtend64From32 */
-		if(!stack.popInt64()) return false;
+		if(!stack.popInt32()) return false;
 		stack.pushInt64();
 		return true;
 	case 330: /* truncate32To8 */
@@ -1138,15 +1134,15 @@
 		return true;
 	case 332: /* truncate64To8 */
 		if(!stack.popInt64()) return false;
-		stack.pushInt64();
+		stack.pushInt32();
 		return true;
 	case 333: /* truncate64To16 */
 		if(!stack.popInt64()) return false;
-		stack.pushInt64();
+		stack.pushInt32();
 		return true;
 	case 334: /* truncate64To32 */
 		if(!stack.popInt64()) return false;
-		stack.pushInt64();
+		stack.pushInt32();
 		return true;
 	case 335: /* uint32ToFloat32 */
 		if(!stack.popInt32()) return false;
@@ -1196,757 +1192,760 @@
 		if(!stack.popFloat64()) return false;
 		stack.pushInt64();
 		return true;
-	case 347: /* pointerToInt32 */
+	case 347: /* float32ToUInt32 */
+		if(!stack.popFloat32()) return false;
+		stack.pushInt32();
+		return true;
+	case 348: /* float64ToUInt32 */
+		if(!stack.popFloat64()) return false;
+		stack.pushInt32();
+		return true;
+	case 349: /* float32ToUInt64 */
+		if(!stack.popFloat32()) return false;
+		stack.pushInt64();
+		return true;
+	case 350: /* float64ToUInt64 */
+		if(!stack.popFloat64()) return false;
+		stack.pushInt64();
+		return true;
+	case 351: /* float32ToFloat64 */
+		if(!stack.popFloat32()) return false;
+		stack.pushFloat64();
+		return true;
+	case 352: /* float64ToFloat32 */
+		if(!stack.popFloat64()) return false;
+		stack.pushFloat32();
+		return true;
+	case 353: /* pointerToInt32 */
 		if(!stack.popPointer()) return false;
 		stack.pushInt32();
 		return true;
-	case 348: /* pointerToInt64 */
+	case 354: /* pointerToInt64 */
 		if(!stack.popPointer()) return false;
 		stack.pushInt64();
 		return true;
-	case 349: /* int32ToPointer */
+	case 355: /* int32ToPointer */
 		if(!stack.popInt32()) return false;
 		stack.pushPointer();
 		return true;
-	case 350: /* int64ToPointer */
+	case 356: /* int64ToPointer */
 		if(!stack.popInt64()) return false;
 		stack.pushPointer();
 		return true;
-	case 351: /* add32 */
+	case 357: /* add32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 352: /* sub32 */
+	case 358: /* sub32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 353: /* neg32 */
+	case 359: /* neg32 */
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 354: /* mul32 */
-		if(!stack.popInt32()) return false;
-		if(!stack.popInt32()) return false;
-		stack.pushInt32();
-		return true;
-	case 355: /* umul32 */
+	case 360: /* mul32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 356: /* div32 */
+	case 361: /* umul32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 357: /* udiv32 */
+	case 362: /* div32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 358: /* rem32 */
+	case 363: /* udiv32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 359: /* urem32 */
+	case 364: /* rem32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 360: /* add64 */
-		if(!stack.popInt64()) return false;
-		if(!stack.popInt64()) return false;
-		stack.pushInt64();
-		return true;
-	case 361: /* sub64 */
-		if(!stack.popInt64()) return false;
-		if(!stack.popInt64()) return false;
-		stack.pushInt64();
-		return true;
-	case 362: /* neg64 */
-		if(!stack.popInt64()) return false;
-		stack.pushInt64();
-		return true;
-	case 363: /* mul64 */
-		if(!stack.popInt64()) return false;
-		if(!stack.popInt64()) return false;
-		stack.pushInt64();
-		return true;
-	case 364: /* umul64 */
-		if(!stack.popInt64()) return false;
-		if(!stack.popInt64()) return false;
-		stack.pushInt64();
-		return true;
-	case 365: /* div64 */
-		if(!stack.popInt64()) return false;
-		if(!stack.popInt64()) return false;
-		stack.pushInt64();
-		return true;
-	case 366: /* udiv64 */
-		if(!stack.popInt64()) return false;
-		if(!stack.popInt64()) return false;
-		stack.pushInt64();
-		return true;
-	case 367: /* rem64 */
-		if(!stack.popInt64()) return false;
-		if(!stack.popInt64()) return false;
-		stack.pushInt64();
-		return true;
-	case 368: /* urem64 */
-		if(!stack.popInt64()) return false;
-		if(!stack.popInt64()) return false;
-		stack.pushInt64();
-		return true;
-	case 369: /* not32 */
-		if(!stack.popInt32()) return false;
-		stack.pushInt32();
-		return true;
-	case 370: /* and32 */
+	case 365: /* urem32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 371: /* or32 */
+	case 366: /* add64 */
+		if(!stack.popInt64()) return false;
+		if(!stack.popInt64()) return false;
+		stack.pushInt64();
+		return true;
+	case 367: /* sub64 */
+		if(!stack.popInt64()) return false;
+		if(!stack.popInt64()) return false;
+		stack.pushInt64();
+		return true;
+	case 368: /* neg64 */
+		if(!stack.popInt64()) return false;
+		stack.pushInt64();
+		return true;
+	case 369: /* mul64 */
+		if(!stack.popInt64()) return false;
+		if(!stack.popInt64()) return false;
+		stack.pushInt64();
+		return true;
+	case 370: /* umul64 */
+		if(!stack.popInt64()) return false;
+		if(!stack.popInt64()) return false;
+		stack.pushInt64();
+		return true;
+	case 371: /* div64 */
+		if(!stack.popInt64()) return false;
+		if(!stack.popInt64()) return false;
+		stack.pushInt64();
+		return true;
+	case 372: /* udiv64 */
+		if(!stack.popInt64()) return false;
+		if(!stack.popInt64()) return false;
+		stack.pushInt64();
+		return true;
+	case 373: /* rem64 */
+		if(!stack.popInt64()) return false;
+		if(!stack.popInt64()) return false;
+		stack.pushInt64();
+		return true;
+	case 374: /* urem64 */
+		if(!stack.popInt64()) return false;
+		if(!stack.popInt64()) return false;
+		stack.pushInt64();
+		return true;
+	case 375: /* not32 */
+		if(!stack.popInt32()) return false;
+		stack.pushInt32();
+		return true;
+	case 376: /* and32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 372: /* xor32 */
+	case 377: /* or32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 373: /* leftShift32 */
+	case 378: /* xor32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 374: /* rightShift32 */
+	case 379: /* leftShift32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 375: /* arithmeticRightShift32 */
+	case 380: /* rightShift32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 376: /* not64 */
+	case 381: /* arithmeticRightShift32 */
+		if(!stack.popInt32()) return false;
+		if(!stack.popInt32()) return false;
+		stack.pushInt32();
+		return true;
+	case 382: /* not64 */
 		if(!stack.popInt64()) return false;
 		stack.pushInt64();
 		return true;
-	case 377: /* and64 */
-		if(!stack.popInt64()) return false;
-		if(!stack.popInt64()) return false;
-		stack.pushInt64();
-		return true;
-	case 378: /* or64 */
-		if(!stack.popInt64()) return false;
-		if(!stack.popInt64()) return false;
-		stack.pushInt64();
-		return true;
-	case 379: /* xor64 */
+	case 383: /* and64 */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt64();
 		return true;
-	case 380: /* leftShift64 */
+	case 384: /* or64 */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt64();
 		return true;
-	case 381: /* rightShift64 */
+	case 385: /* xor64 */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt64();
 		return true;
-	case 382: /* arithmeticRightShift64 */
+	case 386: /* leftShift64 */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt64();
 		return true;
-	case 383: /* float32Add */
+	case 387: /* rightShift64 */
+		if(!stack.popInt64()) return false;
+		if(!stack.popInt64()) return false;
+		stack.pushInt64();
+		return true;
+	case 388: /* arithmeticRightShift64 */
+		if(!stack.popInt64()) return false;
+		if(!stack.popInt64()) return false;
+		stack.pushInt64();
+		return true;
+	case 389: /* float32Add */
 		if(!stack.popFloat32()) return false;
 		if(!stack.popFloat32()) return false;
 		stack.pushFloat32();
 		return true;
-	case 384: /* float32Sub */
+	case 390: /* float32Sub */
 		if(!stack.popFloat32()) return false;
 		if(!stack.popFloat32()) return false;
 		stack.pushFloat32();
 		return true;
-	case 385: /* float32Mul */
+	case 391: /* float32Mul */
 		if(!stack.popFloat32()) return false;
 		if(!stack.popFloat32()) return false;
 		stack.pushFloat32();
 		return true;
-	case 386: /* float32Div */
+	case 392: /* float32Div */
 		if(!stack.popFloat32()) return false;
 		if(!stack.popFloat32()) return false;
 		stack.pushFloat32();
 		return true;
-	case 387: /* float64Add */
+	case 393: /* float64Add */
 		if(!stack.popFloat64()) return false;
 		if(!stack.popFloat64()) return false;
 		stack.pushFloat64();
 		return true;
-	case 388: /* float64Sub */
+	case 394: /* float64Sub */
 		if(!stack.popFloat64()) return false;
 		if(!stack.popFloat64()) return false;
 		stack.pushFloat64();
 		return true;
-	case 389: /* float64Mul */
+	case 395: /* float64Mul */
 		if(!stack.popFloat64()) return false;
 		if(!stack.popFloat64()) return false;
 		stack.pushFloat64();
 		return true;
-	case 390: /* float64Div */
+	case 396: /* float64Div */
 		if(!stack.popFloat64()) return false;
 		if(!stack.popFloat64()) return false;
 		stack.pushFloat64();
 		return true;
-	case 391: /* pin */
+	case 397: /* pin */
 		if(!stack.popOop()) return false;
 		return true;
-	case 392: /* unpin */
+	case 398: /* unpin */
 		if(!stack.popOop()) return false;
 		return true;
-	case 393: /* oopToPointer */
+	case 399: /* oopToPointer */
 		if(!stack.popOop()) return false;
 		stack.pushPointer();
 		return true;
-	case 394: /* oopToPointerReinterpret */
+	case 400: /* oopToPointerReinterpret */
 		if(!stack.popOop()) return false;
 		stack.pushPointer();
 		return true;
-	case 395: /* pointerToOop */
+	case 401: /* pointerToOop */
 		if(!stack.popPointer()) return false;
 		stack.pushOop();
 		return true;
-	case 396: /* pointerToOopReinterprer */
+	case 402: /* pointerToOopReinterprer */
 		if(!stack.popPointer()) return false;
 		stack.pushOop();
 		return true;
-	case 397: /* instantiateOop */
+	case 403: /* instantiateOop */
 		if(!stack.popOop()) return false;
 		stack.pushOop();
 		return true;
-	case 398: /* instantiateIndexableOop */
+	case 404: /* instantiateIndexableOop */
 		if(!stack.popOop()) return false;
 		stack.pushOop();
 		return true;
-	case 399: /* instantiateIndexable32Oop */
+	case 405: /* instantiateIndexable32Oop */
 		if(!stack.popInt32()) return false;
 		if(!stack.popOop()) return false;
 		stack.pushOop();
 		return true;
-	case 400: /* oopToBoolean32 */
+	case 406: /* oopToBoolean32 */
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 401: /* oopToBoolean64 */
+	case 407: /* oopToBoolean64 */
 		if(!stack.popOop()) return false;
 		stack.pushInt64();
 		return true;
-	case 402: /* oopSmallIntegerToInt32 */
+	case 408: /* oopSmallIntegerToInt32 */
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 403: /* oopToInt32 */
+	case 409: /* oopToInt32 */
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 404: /* oopToUInt32 */
+	case 410: /* oopToUInt32 */
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 405: /* oopSmallIntegerToInt64 */
+	case 411: /* oopSmallIntegerToInt64 */
 		if(!stack.popOop()) return false;
 		stack.pushInt64();
 		return true;
-	case 406: /* oopToInt64 */
+	case 412: /* oopToInt64 */
 		if(!stack.popOop()) return false;
 		stack.pushInt64();
 		return true;
-	case 407: /* oopToUInt64 */
+	case 413: /* oopToUInt64 */
 		if(!stack.popOop()) return false;
 		stack.pushInt64();
 		return true;
-	case 408: /* oopToFloat32 */
+	case 414: /* oopToFloat32 */
 		if(!stack.popOop()) return false;
 		stack.pushFloat32();
 		return true;
-	case 409: /* oopToFloat64 */
+	case 415: /* oopToFloat64 */
 		if(!stack.popOop()) return false;
 		stack.pushFloat64();
 		return true;
-	case 410: /* boolean32ToOop */
+	case 416: /* boolean32ToOop */
 		if(!stack.popInt32()) return false;
 		stack.pushOop();
 		return true;
-	case 411: /* boolean64ToOop */
+	case 417: /* boolean64ToOop */
 		if(!stack.popInt64()) return false;
 		stack.pushOop();
 		return true;
-	case 412: /* smallInt32ToOop */
+	case 418: /* smallInt32ToOop */
 		if(!stack.popInt32()) return false;
 		stack.pushOop();
 		return true;
-	case 413: /* int32ToOop */
+	case 419: /* int32ToOop */
 		if(!stack.popInt32()) return false;
 		stack.pushOop();
 		return true;
-	case 414: /* uint32ToOop */
+	case 420: /* uint32ToOop */
 		if(!stack.popInt32()) return false;
 		stack.pushOop();
 		return true;
-	case 415: /* int64ToOop */
+	case 421: /* int64ToOop */
 		if(!stack.popInt64()) return false;
 		stack.pushOop();
 		return true;
-	case 416: /* uint64ToOop */
+	case 422: /* uint64ToOop */
 		if(!stack.popInt64()) return false;
 		stack.pushOop();
 		return true;
-	case 417: /* float32ToOop */
+	case 423: /* float32ToOop */
 		if(!stack.popFloat32()) return false;
 		stack.pushOop();
 		return true;
-	case 418: /* float64ToOop */
+	case 424: /* float64ToOop */
 		if(!stack.popFloat64()) return false;
 		stack.pushOop();
 		return true;
-	case 419: /* loadObjectField */
+	case 425: /* loadObjectField */
 		if(!stack.popOop()) return false;
 		stack.pushOop();
 		return true;
-	case 420: /* storeObjectField */
+	case 426: /* storeObjectField */
 		if(!stack.popOop()) return false;
 		if(!stack.popOop()) return false;
 		return true;
-	case 421: /* loadObjectAt */
+	case 427: /* loadObjectAt */
 		if(!stack.popInt32()) return false;
 		if(!stack.popOop()) return false;
 		stack.pushOop();
 		return true;
-	case 422: /* storeObjectFieldAt */
+	case 428: /* storeObjectFieldAt */
 		if(!stack.popOop()) return false;
 		if(!stack.popInt32()) return false;
 		if(!stack.popOop()) return false;
 		return true;
-	case 423: /* firstFieldPointer */
+	case 429: /* firstFieldPointer */
 		if(!stack.popOop()) return false;
 		stack.pushPointer();
 		return true;
-	case 424: /* firstIndexableFieldPointer */
+	case 430: /* firstIndexableFieldPointer */
 		if(!stack.popOop()) return false;
 		stack.pushPointer();
 		return true;
-	case 425: /* byteSizeOf */
+	case 431: /* byteSizeOf */
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 426: /* isBytes */
+	case 432: /* isBytes */
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 427: /* isFloatObject */
+	case 433: /* isFloatObject */
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 428: /* isIndexable */
+	case 434: /* isIndexable */
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 429: /* isIntegerObject */
+	case 435: /* isIntegerObject */
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 430: /* isWords */
+	case 436: /* isWords */
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 431: /* isWordsOrBytes */
+	case 437: /* isWordsOrBytes */
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 432: /* isPointers */
+	case 438: /* isPointers */
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 433: /* pointerEqual */
+	case 439: /* pointerEqual */
 		if(!stack.popPointer()) return false;
 		if(!stack.popPointer()) return false;
 		stack.pushInt32();
 		return true;
-	case 434: /* pointerNotEqual */
+	case 440: /* pointerNotEqual */
 		if(!stack.popPointer()) return false;
 		if(!stack.popPointer()) return false;
 		stack.pushInt32();
 		return true;
-	case 435: /* oopEqual */
+	case 441: /* oopEqual */
 		if(!stack.popOop()) return false;
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 436: /* oopNotEqual */
+	case 442: /* oopNotEqual */
 		if(!stack.popOop()) return false;
 		if(!stack.popOop()) return false;
 		stack.pushInt32();
 		return true;
-	case 437: /* int32Equal */
+	case 443: /* int32Equal */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 438: /* int32NotEqual */
+	case 444: /* int32NotEqual */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 439: /* int32Less */
+	case 445: /* int32Less */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 440: /* int32LessEqual */
+	case 446: /* int32LessEqual */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 441: /* int32Great */
+	case 447: /* int32Great */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 442: /* int32GreatEqual */
+	case 448: /* int32GreatEqual */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 443: /* uint32Less */
+	case 449: /* uint32Less */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 444: /* uint32LessEqual */
+	case 450: /* uint32LessEqual */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 445: /* uint32Great */
+	case 451: /* uint32Great */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 446: /* uint32GreatEqual */
+	case 452: /* uint32GreatEqual */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 447: /* int64Equal */
+	case 453: /* int64Equal */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt32();
 		return true;
-	case 448: /* int64NotEqual */
+	case 454: /* int64NotEqual */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		stack.pushInt32();
 		return true;
-	case 449: /* int64Less */
+	case 455: /* int64Less */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt32();
 		return true;
-	case 450: /* int64LessEqual */
+	case 456: /* int64LessEqual */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt32();
 		return true;
-	case 451: /* int64Great */
+	case 457: /* int64Great */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt32();
 		return true;
-	case 452: /* int64GreatEqual */
+	case 458: /* int64GreatEqual */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt32();
 		return true;
-	case 453: /* uint64Less */
+	case 459: /* uint64Less */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt32();
 		return true;
-	case 454: /* uint64LessEqual */
+	case 460: /* uint64LessEqual */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt32();
 		return true;
-	case 455: /* uint64Great */
+	case 461: /* uint64Great */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt32();
 		return true;
-	case 456: /* uint64GreatEqual */
+	case 462: /* uint64GreatEqual */
 		if(!stack.popInt64()) return false;
 		if(!stack.popInt64()) return false;
 		stack.pushInt32();
 		return true;
-	case 457: /* float32Equal */
+	case 463: /* float32Equal */
 		if(!stack.popFloat32()) return false;
 		if(!stack.popFloat32()) return false;
 		stack.pushInt32();
 		return true;
-	case 458: /* float32NotEqual */
+	case 464: /* float32NotEqual */
 		if(!stack.popFloat32()) return false;
 		if(!stack.popFloat32()) return false;
 		stack.pushInt32();
 		return true;
-	case 459: /* float32Less */
+	case 465: /* float32Less */
 		if(!stack.popFloat32()) return false;
 		if(!stack.popFloat32()) return false;
 		stack.pushInt32();
 		return true;
-	case 460: /* float32LessEqual */
+	case 466: /* float32LessEqual */
 		if(!stack.popFloat32()) return false;
 		if(!stack.popFloat32()) return false;
 		stack.pushInt32();
 		return true;
-	case 461: /* float32Great */
+	case 467: /* float32Great */
 		if(!stack.popFloat32()) return false;
 		if(!stack.popFloat32()) return false;
 		stack.pushInt32();
 		return true;
-	case 462: /* float32GreatEqual */
+	case 468: /* float32GreatEqual */
 		if(!stack.popFloat32()) return false;
 		if(!stack.popFloat32()) return false;
 		stack.pushInt32();
 		return true;
-	case 463: /* float64Equal */
+	case 469: /* float64Equal */
 		if(!stack.popFloat64()) return false;
 		if(!stack.popFloat64()) return false;
 		stack.pushInt32();
 		return true;
-	case 464: /* float64NotEqual */
+	case 470: /* float64NotEqual */
 		if(!stack.popFloat64()) return false;
 		if(!stack.popFloat64()) return false;
 		stack.pushInt32();
 		return true;
-	case 465: /* float64Less */
+	case 471: /* float64Less */
 		if(!stack.popFloat64()) return false;
 		if(!stack.popFloat64()) return false;
 		stack.pushInt32();
 		return true;
-	case 466: /* float64LessEqual */
+	case 472: /* float64LessEqual */
 		if(!stack.popFloat64()) return false;
 		if(!stack.popFloat64()) return false;
 		stack.pushInt32();
 		return true;
-	case 467: /* float64Great */
+	case 473: /* float64Great */
 		if(!stack.popFloat64()) return false;
 		if(!stack.popFloat64()) return false;
 		stack.pushInt32();
 		return true;
-	case 468: /* float64GreatEqual */
+	case 474: /* float64GreatEqual */
 		if(!stack.popFloat64()) return false;
 		if(!stack.popFloat64()) return false;
 		stack.pushInt32();
 		return true;
-	case 469: /* jump */
+	case 475: /* jump */
 		return true;
-	case 470: /* branchTrue32 */
+	case 476: /* branchTrue32 */
 		if(!stack.popInt32()) return false;
 		return true;
-	case 471: /* branchFalse32 */
+	case 477: /* branchFalse32 */
 		if(!stack.popInt32()) return false;
 		return true;
-	case 472: /* branchTrue64 */
+	case 478: /* branchTrue64 */
 		if(!stack.popInt64()) return false;
 		return true;
-	case 473: /* branchFalse64 */
+	case 479: /* branchFalse64 */
 		if(!stack.popInt32()) return false;
 		return true;
-	case 478: /* returnSmallInteger */
-		if(!stack.popInt32()) return false;
+	case 484: /* fail */
 		return true;
-	case 479: /* returnBoolean32AsOop */
-		if(!stack.popInt32()) return false;
+	case 485: /* failWithCode */
 		return true;
-	case 480: /* returnBoolean64AsOop */
-		if(!stack.popInt64()) return false;
+	case 486: /* lockVM */
 		return true;
-	case 481: /* returnInt32AsOop */
-		if(!stack.popInt32()) return false;
+	case 487: /* unlockVM */
 		return true;
-	case 482: /* returnInt64AsOop */
-		if(!stack.popInt64()) return false;
-		return true;
-	case 483: /* returnUInt32AsOop */
-		if(!stack.popInt32()) return false;
-		return true;
-	case 484: /* returnUInt64AsOop */
-		if(!stack.popInt64()) return false;
-		return true;
-	case 485: /* returnPointerAsOop */
-		if(!stack.popPointer()) return false;
-		return true;
-	case 486: /* returnFloat32AsOop */
-		if(!stack.popFloat32()) return false;
-		return true;
-	case 487: /* returnFloat64AsOop */
-		if(!stack.popFloat64()) return false;
-		return true;
-	case 488: /* fail */
-		return true;
-	case 489: /* failWithCode */
-		return true;
-	case 490: /* lockVM */
-		return true;
-	case 491: /* unlockVM */
-		return true;
-	case 492: /* compareAndSwap32 */
+	case 488: /* compareAndSwap32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popInt32()) return false;
 		if(!stack.popPointer()) return false;
 		stack.pushInt32();
 		return true;
-	case 493: /* alloca32 */
+	case 489: /* alloca32 */
 		if(!stack.popInt32()) return false;
 		stack.pushPointer();
 		return true;
-	case 494: /* alloca64 */
+	case 490: /* alloca64 */
 		if(!stack.popInt64()) return false;
 		stack.pushPointer();
 		return true;
-	case 495: /* malloc32 */
+	case 491: /* malloc32 */
 		if(!stack.popInt32()) return false;
 		stack.pushPointer();
 		return true;
-	case 496: /* malloc64 */
+	case 492: /* malloc64 */
 		if(!stack.popInt64()) return false;
 		stack.pushPointer();
 		return true;
-	case 497: /* free */
+	case 493: /* free */
 		if(!stack.popPointer()) return false;
 		return true;
-	case 498: /* memcpyFixed */
+	case 494: /* memcpyFixed */
 		if(!stack.popPointer()) return false;
 		if(!stack.popPointer()) return false;
 		return true;
-	case 499: /* memcpy32 */
+	case 495: /* memcpy32 */
 		if(!stack.popInt32()) return false;
 		if(!stack.popPointer()) return false;
 		if(!stack.popPointer()) return false;
 		return true;
-	case 500: /* memcpy64 */
+	case 496: /* memcpy64 */
 		if(!stack.popInt64()) return false;
 		if(!stack.popPointer()) return false;
 		if(!stack.popPointer()) return false;
 		return true;
-	case 501: /* beginCall */
+	case 497: /* beginCall */
 		return true;
-	case 502: /* callArgumentInt32 */
+	case 498: /* callArgumentInt32 */
 		if(!stack.popInt32()) return false;
 		return true;
-	case 503: /* callArgumentInt64 */
+	case 499: /* callArgumentInt64 */
 		if(!stack.popInt32()) return false;
 		return true;
-	case 504: /* callArgumentPointer */
+	case 500: /* callArgumentPointer */
 		if(!stack.popPointer()) return false;
 		return true;
-	case 505: /* callArgumentStructure */
+	case 501: /* callArgumentStructure */
 		if(!stack.popPointer()) return false;
 		return true;
-	case 506: /* callArgumentFloat32 */
+	case 502: /* callArgumentFloat32 */
 		if(!stack.popFloat32()) return false;
 		return true;
-	case 507: /* callArgumentFloat64 */
+	case 503: /* callArgumentFloat64 */
 		if(!stack.popFloat64()) return false;
 		return true;
-	case 508: /* performCallInt32 */
+	case 504: /* performCallInt32 */
 		stack.pushInt32();
 		return true;
-	case 509: /* performCallInt64 */
+	case 505: /* performCallInt64 */
 		stack.pushInt64();
 		return true;
-	case 510: /* performCallPointer */
+	case 506: /* performCallPointer */
 		stack.pushPointer();
 		return true;
-	case 511: /* performCallFloat32 */
+	case 507: /* performCallStructure */
+		if(!stack.popPointer()) return false;
+		stack.pushPointer();
+		return true;
+	case 508: /* performCallFloat32 */
 		stack.pushFloat32();
 		return true;
-	case 512: /* performCallFloat64 */
+	case 509: /* performCallFloat64 */
 		stack.pushFloat64();
 		return true;
-	case 513: /* performCallIndirectInt32 */
+	case 510: /* performCallIndirectInt32 */
 		if(!stack.popPointer()) return false;
 		stack.pushInt32();
 		return true;
-	case 514: /* performCallIndirectInt64 */
+	case 511: /* performCallIndirectInt64 */
 		if(!stack.popPointer()) return false;
 		stack.pushInt64();
 		return true;
-	case 515: /* performCallIndirectPointer */
+	case 512: /* performCallIndirectPointer */
 		if(!stack.popPointer()) return false;
 		stack.pushPointer();
 		return true;
-	case 516: /* performCallIndirectFloat32 */
+	case 513: /* performCallIndirectStructure */
+		if(!stack.popPointer()) return false;
+		if(!stack.popPointer()) return false;
+		stack.pushPointer();
+		return true;
+	case 514: /* performCallIndirectFloat32 */
 		if(!stack.popPointer()) return false;
 		stack.pushFloat32();
 		return true;
-	case 517: /* performCallIndirectFloat64 */
+	case 515: /* performCallIndirectFloat64 */
 		if(!stack.popPointer()) return false;
 		stack.pushFloat64();
 		return true;
-	case 518: /* endCall */
+	case 516: /* endCall */
 		return true;
-	case 519: /* endCallNoCleanup */
+	case 517: /* endCallNoCleanup */
 		return true;
-	case 520: /* plaftormCode */
+	case 518: /* plaftormCode */
 		stack.pushInt32();
 		return true;
-	case 521: /* lockRegisters */
+	case 519: /* lockRegisters */
 		return true;
-	case 522: /* unlockRegisters */
+	case 520: /* unlockRegisters */
 		return true;
-	case 523: /* moveInt32ToPhysical */
+	case 521: /* moveInt32ToPhysical */
 		if(!stack.popInt32()) return false;
 		return true;
-	case 524: /* moveInt64ToPhysical */
+	case 522: /* moveInt64ToPhysical */
 		if(!stack.popInt64()) return false;
 		return true;
-	case 525: /* movePointerToPhysical */
+	case 523: /* movePointerToPhysical */
 		if(!stack.popPointer()) return false;
 		return true;
-	case 526: /* moveFloat32ToPhysical */
+	case 524: /* moveFloat32ToPhysical */
 		if(!stack.popFloat32()) return false;
 		return true;
-	case 527: /* moveFloat64ToPhysical */
+	case 525: /* moveFloat64ToPhysical */
 		if(!stack.popFloat64()) return false;
 		return true;
-	case 528: /* pushPhysicalInt32 */
+	case 526: /* pushPhysicalInt32 */
 		stack.pushInt32();
 		return true;
-	case 529: /* pushPhysicalInt64 */
+	case 527: /* pushPhysicalInt64 */
 		stack.pushInt64();
 		return true;
-	case 530: /* pushPhysicalPointer */
+	case 528: /* pushPhysicalPointer */
 		stack.pushPointer();
 		return true;
-	case 531: /* pushPhysicalFloat32 */
+	case 529: /* pushPhysicalFloat32 */
 		stack.pushFloat32();
 		return true;
-	case 532: /* pushPhysicalFloat64 */
+	case 530: /* pushPhysicalFloat64 */
 		stack.pushFloat64();
 		return true;
-	case 533: /* callPhysical */
+	case 531: /* callPhysical */
 		return true;
-	case 534: /* callInstruction */
+	case 532: /* callInstruction */
 		return true;
 	}}// Sista extended bytecode set compilation.void SistaExtendedInstruction::compile(LowcodeValueStack &stack, llvm::IRBuilder<> &builder){ 	switch(getOpcode())	{	/* pushReceiverVariableSmallIndex */
 	case 0:
@@ -2723,9 +2722,9 @@ abort();
 		break;
 	case 324: /* signExtend64From32 */
 		{
-			llvm::Value *value = stack.popInt64();
+			llvm::Value *value = stack.popInt32();
 			llvm::Value *result = NULL;
-            llvm::Value *small = builder.CreateTrunc(value, builder.getInt32Ty());            result = builder.CreateSExt(small, builder.getInt64Ty());        
+            result = builder.CreateSExt(value, builder.getInt64Ty());        
 			stack.pushInt64(result);
 		}
 		break;
@@ -2763,9 +2762,9 @@ abort();
 		break;
 	case 329: /* zeroExtend64From32 */
 		{
-			llvm::Value *value = stack.popInt64();
+			llvm::Value *value = stack.popInt32();
 			llvm::Value *result = NULL;
-            llvm::Value *small = builder.CreateTrunc(value, builder.getInt32Ty());            result = builder.CreateZExt(small, builder.getInt64Ty());        
+            result = builder.CreateZExt(value, builder.getInt64Ty());        
 			stack.pushInt64(result);
 		}
 		break;
@@ -2789,24 +2788,24 @@ abort();
 		{
 			llvm::Value *value = stack.popInt64();
 			llvm::Value *result = NULL;
-            result = builder.CreateAnd(value, 0xFF);        
-			stack.pushInt64(result);
+            result = builder.CreateAnd(builder.CreateTrunc(value, builder.getInt32Ty()), 0xFF);        
+			stack.pushInt32(result);
 		}
 		break;
 	case 333: /* truncate64To16 */
 		{
 			llvm::Value *value = stack.popInt64();
 			llvm::Value *result = NULL;
-            result = builder.CreateAnd(value, 0xFFFF);        
-			stack.pushInt64(result);
+            result = builder.CreateAnd(builder.CreateTrunc(value, builder.getInt32Ty()), 0xFFFF);        
+			stack.pushInt32(result);
 		}
 		break;
 	case 334: /* truncate64To32 */
 		{
 			llvm::Value *value = stack.popInt64();
 			llvm::Value *result = NULL;
-            result = builder.CreateAnd(value, 0xFFFFFFFF);        
-			stack.pushInt64(result);
+            result = builder.CreateTrunc(value, builder.getInt32Ty());        
+			stack.pushInt32(result);
 		}
 		break;
 	case 335: /* uint32ToFloat32 */
@@ -2905,7 +2904,55 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 347: /* pointerToInt32 */
+	case 347: /* float32ToUInt32 */
+		{
+			llvm::Value *value = stack.popFloat32();
+			llvm::Value *result = NULL;
+            result = builder.CreateFPToUI(value, builder.getInt32Ty());        
+			stack.pushInt32(result);
+		}
+		break;
+	case 348: /* float64ToUInt32 */
+		{
+			llvm::Value *value = stack.popFloat64();
+			llvm::Value *result = NULL;
+            result = builder.CreateFPToUI(value, builder.getInt32Ty());        
+			stack.pushInt32(result);
+		}
+		break;
+	case 349: /* float32ToUInt64 */
+		{
+			llvm::Value *value = stack.popFloat32();
+			llvm::Value *result = NULL;
+            result = builder.CreateFPToUI(value, builder.getInt64Ty());        
+			stack.pushInt64(result);
+		}
+		break;
+	case 350: /* float64ToUInt64 */
+		{
+			llvm::Value *value = stack.popFloat64();
+			llvm::Value *result = NULL;
+            result = builder.CreateFPToUI(value, builder.getInt64Ty());        
+			stack.pushInt64(result);
+		}
+		break;
+	case 351: /* float32ToFloat64 */
+		{
+			llvm::Value *value = stack.popFloat32();
+			llvm::Value *result = NULL;
+            result = builder.CreateFPCast(value, builder.getDoubleTy());        
+			stack.pushFloat64(result);
+		}
+		break;
+	case 352: /* float64ToFloat32 */
+		{
+			llvm::Value *value = stack.popFloat64();
+			llvm::Value *result = NULL;
+            result = builder.CreateFPCast(value, builder.getFloatTy());        
+			stack.pushFloat32(result);
+		}
+		break;
+	case 353: /* pointerToInt32 */
 		{
 			llvm::Value *pointer = stack.popPointer();
 			llvm::Value *result = NULL;
@@ -2913,7 +2960,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 348: /* pointerToInt64 */
+	case 354: /* pointerToInt64 */
 		{
 			llvm::Value *pointer = stack.popPointer();
 			llvm::Value *result = NULL;
@@ -2921,7 +2968,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 349: /* int32ToPointer */
+	case 355: /* int32ToPointer */
 		{
 			llvm::Value *value = stack.popInt32();
 			llvm::Value *result = NULL;
@@ -2929,7 +2976,7 @@ abort();
 			stack.pushPointer(result);
 		}
 		break;
-	case 350: /* int64ToPointer */
+	case 356: /* int64ToPointer */
 		{
 			llvm::Value *value = stack.popInt64();
 			llvm::Value *result = NULL;
@@ -2937,7 +2984,7 @@ abort();
 			stack.pushPointer(result);
 		}
 		break;
-	case 351: /* add32 */
+	case 357: /* add32 */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -2946,7 +2993,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 352: /* sub32 */
+	case 358: /* sub32 */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -2955,7 +3002,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 353: /* neg32 */
+	case 359: /* neg32 */
 		{
 			llvm::Value *value = stack.popInt32();
 			llvm::Value *result = NULL;
@@ -2963,7 +3010,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 354: /* mul32 */
+	case 360: /* mul32 */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -2972,7 +3019,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 355: /* umul32 */
+	case 361: /* umul32 */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -2981,7 +3028,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 356: /* div32 */
+	case 362: /* div32 */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -2990,7 +3037,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 357: /* udiv32 */
+	case 363: /* udiv32 */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -2999,7 +3046,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 358: /* rem32 */
+	case 364: /* rem32 */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3008,7 +3055,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 359: /* urem32 */
+	case 365: /* urem32 */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3017,7 +3064,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 360: /* add64 */
+	case 366: /* add64 */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3026,7 +3073,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 361: /* sub64 */
+	case 367: /* sub64 */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3035,7 +3082,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 362: /* neg64 */
+	case 368: /* neg64 */
 		{
 			llvm::Value *value = stack.popInt64();
 			llvm::Value *result = NULL;
@@ -3043,7 +3090,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 363: /* mul64 */
+	case 369: /* mul64 */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3052,7 +3099,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 364: /* umul64 */
+	case 370: /* umul64 */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3061,7 +3108,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 365: /* div64 */
+	case 371: /* div64 */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3070,7 +3117,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 366: /* udiv64 */
+	case 372: /* udiv64 */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3079,7 +3126,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 367: /* rem64 */
+	case 373: /* rem64 */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3088,7 +3135,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 368: /* urem64 */
+	case 374: /* urem64 */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3097,7 +3144,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 369: /* not32 */
+	case 375: /* not32 */
 		{
 			llvm::Value *value = stack.popInt32();
 			llvm::Value *result = NULL;
@@ -3105,7 +3152,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 370: /* and32 */
+	case 376: /* and32 */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3114,7 +3161,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 371: /* or32 */
+	case 377: /* or32 */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3123,7 +3170,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 372: /* xor32 */
+	case 378: /* xor32 */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3132,7 +3179,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 373: /* leftShift32 */
+	case 379: /* leftShift32 */
 		{
 			llvm::Value *shiftAmount = stack.popInt32();
 			llvm::Value *value = stack.popInt32();
@@ -3141,7 +3188,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 374: /* rightShift32 */
+	case 380: /* rightShift32 */
 		{
 			llvm::Value *shiftAmount = stack.popInt32();
 			llvm::Value *value = stack.popInt32();
@@ -3150,7 +3197,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 375: /* arithmeticRightShift32 */
+	case 381: /* arithmeticRightShift32 */
 		{
 			llvm::Value *shiftAmount = stack.popInt32();
 			llvm::Value *value = stack.popInt32();
@@ -3159,7 +3206,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 376: /* not64 */
+	case 382: /* not64 */
 		{
 			llvm::Value *value = stack.popInt64();
 			llvm::Value *result = NULL;
@@ -3167,7 +3214,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 377: /* and64 */
+	case 383: /* and64 */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3176,7 +3223,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 378: /* or64 */
+	case 384: /* or64 */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3185,7 +3232,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 379: /* xor64 */
+	case 385: /* xor64 */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3194,7 +3241,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 380: /* leftShift64 */
+	case 386: /* leftShift64 */
 		{
 			llvm::Value *shiftAmount = stack.popInt64();
 			llvm::Value *value = stack.popInt64();
@@ -3203,7 +3250,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 381: /* rightShift64 */
+	case 387: /* rightShift64 */
 		{
 			llvm::Value *shiftAmount = stack.popInt64();
 			llvm::Value *value = stack.popInt64();
@@ -3212,7 +3259,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 382: /* arithmeticRightShift64 */
+	case 388: /* arithmeticRightShift64 */
 		{
 			llvm::Value *shiftAmount = stack.popInt64();
 			llvm::Value *value = stack.popInt64();
@@ -3221,7 +3268,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 383: /* float32Add */
+	case 389: /* float32Add */
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
@@ -3230,7 +3277,7 @@ abort();
 			stack.pushFloat32(result);
 		}
 		break;
-	case 384: /* float32Sub */
+	case 390: /* float32Sub */
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
@@ -3239,7 +3286,7 @@ abort();
 			stack.pushFloat32(result);
 		}
 		break;
-	case 385: /* float32Mul */
+	case 391: /* float32Mul */
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
@@ -3248,7 +3295,7 @@ abort();
 			stack.pushFloat32(result);
 		}
 		break;
-	case 386: /* float32Div */
+	case 392: /* float32Div */
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
@@ -3257,7 +3304,7 @@ abort();
 			stack.pushFloat32(result);
 		}
 		break;
-	case 387: /* float64Add */
+	case 393: /* float64Add */
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
@@ -3266,7 +3313,7 @@ abort();
 			stack.pushFloat64(result);
 		}
 		break;
-	case 388: /* float64Sub */
+	case 394: /* float64Sub */
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
@@ -3275,7 +3322,7 @@ abort();
 			stack.pushFloat64(result);
 		}
 		break;
-	case 389: /* float64Mul */
+	case 395: /* float64Mul */
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
@@ -3284,7 +3331,7 @@ abort();
 			stack.pushFloat64(result);
 		}
 		break;
-	case 390: /* float64Div */
+	case 396: /* float64Div */
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
@@ -3293,19 +3340,19 @@ abort();
 			stack.pushFloat64(result);
 		}
 		break;
-	case 391: /* pin */
+	case 397: /* pin */
 		{
 			llvm::Value *object = stack.popOop();
 abort();
 		}
 		break;
-	case 392: /* unpin */
+	case 398: /* unpin */
 		{
 			llvm::Value *object = stack.popOop();
 abort();
 		}
 		break;
-	case 393: /* oopToPointer */
+	case 399: /* oopToPointer */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *pointer = NULL;
@@ -3313,7 +3360,7 @@ abort();
 			stack.pushPointer(pointer);
 		}
 		break;
-	case 394: /* oopToPointerReinterpret */
+	case 400: /* oopToPointerReinterpret */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *pointer = NULL;
@@ -3321,7 +3368,7 @@ abort();
 			stack.pushPointer(pointer);
 		}
 		break;
-	case 395: /* pointerToOop */
+	case 401: /* pointerToOop */
 		{
 			llvm::Value *pointerClassLiteral = getLiteralAt(getExtendA());
 			llvm::Value *pointer = stack.popPointer();
@@ -3330,7 +3377,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 396: /* pointerToOopReinterprer */
+	case 402: /* pointerToOopReinterprer */
 		{
 			llvm::Value *pointer = stack.popPointer();
 			llvm::Value *object = NULL;
@@ -3338,7 +3385,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 397: /* instantiateOop */
+	case 403: /* instantiateOop */
 		{
 			llvm::Value *classOop = stack.popOop();
 			llvm::Value *object = NULL;
@@ -3346,7 +3393,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 398: /* instantiateIndexableOop */
+	case 404: /* instantiateIndexableOop */
 		{
 			uint64_t indexableSize = getExtendA();
 			llvm::Value *classOop = stack.popOop();
@@ -3355,7 +3402,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 399: /* instantiateIndexable32Oop */
+	case 405: /* instantiateIndexable32Oop */
 		{
 			llvm::Value *indexableSize = stack.popInt32();
 			llvm::Value *classOop = stack.popOop();
@@ -3364,7 +3411,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 400: /* oopToBoolean32 */
+	case 406: /* oopToBoolean32 */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3372,7 +3419,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 401: /* oopToBoolean64 */
+	case 407: /* oopToBoolean64 */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3380,7 +3427,7 @@ abort();
 			stack.pushInt64(value);
 		}
 		break;
-	case 402: /* oopSmallIntegerToInt32 */
+	case 408: /* oopSmallIntegerToInt32 */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3388,7 +3435,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 403: /* oopToInt32 */
+	case 409: /* oopToInt32 */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3396,7 +3443,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 404: /* oopToUInt32 */
+	case 410: /* oopToUInt32 */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3404,7 +3451,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 405: /* oopSmallIntegerToInt64 */
+	case 411: /* oopSmallIntegerToInt64 */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3412,7 +3459,7 @@ abort();
 			stack.pushInt64(value);
 		}
 		break;
-	case 406: /* oopToInt64 */
+	case 412: /* oopToInt64 */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3420,7 +3467,7 @@ abort();
 			stack.pushInt64(value);
 		}
 		break;
-	case 407: /* oopToUInt64 */
+	case 413: /* oopToUInt64 */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3428,7 +3475,7 @@ abort();
 			stack.pushInt64(value);
 		}
 		break;
-	case 408: /* oopToFloat32 */
+	case 414: /* oopToFloat32 */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3436,7 +3483,7 @@ abort();
 			stack.pushFloat32(value);
 		}
 		break;
-	case 409: /* oopToFloat64 */
+	case 415: /* oopToFloat64 */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3444,7 +3491,7 @@ abort();
 			stack.pushFloat64(value);
 		}
 		break;
-	case 410: /* boolean32ToOop */
+	case 416: /* boolean32ToOop */
 		{
 			llvm::Value *value = stack.popInt32();
 			llvm::Value *object = NULL;
@@ -3452,7 +3499,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 411: /* boolean64ToOop */
+	case 417: /* boolean64ToOop */
 		{
 			llvm::Value *value = stack.popInt64();
 			llvm::Value *object = NULL;
@@ -3460,7 +3507,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 412: /* smallInt32ToOop */
+	case 418: /* smallInt32ToOop */
 		{
 			llvm::Value *value = stack.popInt32();
 			llvm::Value *object = NULL;
@@ -3468,7 +3515,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 413: /* int32ToOop */
+	case 419: /* int32ToOop */
 		{
 			llvm::Value *value = stack.popInt32();
 			llvm::Value *object = NULL;
@@ -3476,7 +3523,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 414: /* uint32ToOop */
+	case 420: /* uint32ToOop */
 		{
 			llvm::Value *value = stack.popInt32();
 			llvm::Value *object = NULL;
@@ -3484,7 +3531,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 415: /* int64ToOop */
+	case 421: /* int64ToOop */
 		{
 			llvm::Value *value = stack.popInt64();
 			llvm::Value *object = NULL;
@@ -3492,7 +3539,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 416: /* uint64ToOop */
+	case 422: /* uint64ToOop */
 		{
 			llvm::Value *value = stack.popInt64();
 			llvm::Value *object = NULL;
@@ -3500,7 +3547,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 417: /* float32ToOop */
+	case 423: /* float32ToOop */
 		{
 			llvm::Value *value = stack.popFloat32();
 			llvm::Value *object = NULL;
@@ -3508,7 +3555,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 418: /* float64ToOop */
+	case 424: /* float64ToOop */
 		{
 			llvm::Value *value = stack.popFloat64();
 			llvm::Value *object = NULL;
@@ -3516,7 +3563,7 @@ abort();
 			stack.pushOop(object);
 		}
 		break;
-	case 419: /* loadObjectField */
+	case 425: /* loadObjectField */
 		{
 			uint64_t fieldIndex = getExtendA();
 			llvm::Value *object = stack.popOop();
@@ -3525,7 +3572,7 @@ abort();
 			stack.pushOop(field);
 		}
 		break;
-	case 420: /* storeObjectField */
+	case 426: /* storeObjectField */
 		{
 			uint64_t fieldIndex = getExtendA();
 			llvm::Value *value = stack.popOop();
@@ -3533,7 +3580,7 @@ abort();
             getLlvmInterpreterProxy()->storePointerofObjectwithValue(fieldIndex, object, value);        
 		}
 		break;
-	case 421: /* loadObjectAt */
+	case 427: /* loadObjectAt */
 		{
 			llvm::Value *fieldIndex = stack.popInt32();
 			llvm::Value *object = stack.popOop();
@@ -3542,7 +3589,7 @@ abort();
 			stack.pushOop(field);
 		}
 		break;
-	case 422: /* storeObjectFieldAt */
+	case 428: /* storeObjectFieldAt */
 		{
 			llvm::Value *value = stack.popOop();
 			llvm::Value *fieldIndex = stack.popInt32();
@@ -3550,7 +3597,7 @@ abort();
             getLlvmInterpreterProxy()->storePointerofObjectwithValue(fieldIndex, object, value);        
 		}
 		break;
-	case 423: /* firstFieldPointer */
+	case 429: /* firstFieldPointer */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *pointer = NULL;
@@ -3558,7 +3605,7 @@ abort();
 			stack.pushPointer(pointer);
 		}
 		break;
-	case 424: /* firstIndexableFieldPointer */
+	case 430: /* firstIndexableFieldPointer */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *pointer = NULL;
@@ -3566,7 +3613,7 @@ abort();
 			stack.pushPointer(pointer);
 		}
 		break;
-	case 425: /* byteSizeOf */
+	case 431: /* byteSizeOf */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3574,7 +3621,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 426: /* isBytes */
+	case 432: /* isBytes */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3582,7 +3629,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 427: /* isFloatObject */
+	case 433: /* isFloatObject */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3590,7 +3637,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 428: /* isIndexable */
+	case 434: /* isIndexable */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3598,7 +3645,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 429: /* isIntegerObject */
+	case 435: /* isIntegerObject */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3606,7 +3653,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 430: /* isWords */
+	case 436: /* isWords */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3614,7 +3661,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 431: /* isWordsOrBytes */
+	case 437: /* isWordsOrBytes */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3622,7 +3669,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 432: /* isPointers */
+	case 438: /* isPointers */
 		{
 			llvm::Value *object = stack.popOop();
 			llvm::Value *value = NULL;
@@ -3630,7 +3677,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 433: /* pointerEqual */
+	case 439: /* pointerEqual */
 		{
 			llvm::Value *second = stack.popPointer();
 			llvm::Value *first = stack.popPointer();
@@ -3639,7 +3686,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 434: /* pointerNotEqual */
+	case 440: /* pointerNotEqual */
 		{
 			llvm::Value *second = stack.popPointer();
 			llvm::Value *first = stack.popPointer();
@@ -3648,7 +3695,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 435: /* oopEqual */
+	case 441: /* oopEqual */
 		{
 			llvm::Value *second = stack.popOop();
 			llvm::Value *first = stack.popOop();
@@ -3657,7 +3704,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 436: /* oopNotEqual */
+	case 442: /* oopNotEqual */
 		{
 			llvm::Value *second = stack.popOop();
 			llvm::Value *first = stack.popOop();
@@ -3666,7 +3713,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 437: /* int32Equal */
+	case 443: /* int32Equal */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3675,7 +3722,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 438: /* int32NotEqual */
+	case 444: /* int32NotEqual */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3684,7 +3731,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 439: /* int32Less */
+	case 445: /* int32Less */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3693,7 +3740,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 440: /* int32LessEqual */
+	case 446: /* int32LessEqual */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3702,7 +3749,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 441: /* int32Great */
+	case 447: /* int32Great */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3711,7 +3758,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 442: /* int32GreatEqual */
+	case 448: /* int32GreatEqual */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3720,7 +3767,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 443: /* uint32Less */
+	case 449: /* uint32Less */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3729,7 +3776,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 444: /* uint32LessEqual */
+	case 450: /* uint32LessEqual */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3738,7 +3785,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 445: /* uint32Great */
+	case 451: /* uint32Great */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3747,7 +3794,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 446: /* uint32GreatEqual */
+	case 452: /* uint32GreatEqual */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3756,7 +3803,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 447: /* int64Equal */
+	case 453: /* int64Equal */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3765,7 +3812,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 448: /* int64NotEqual */
+	case 454: /* int64NotEqual */
 		{
 			llvm::Value *second = stack.popInt32();
 			llvm::Value *first = stack.popInt32();
@@ -3774,7 +3821,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 449: /* int64Less */
+	case 455: /* int64Less */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3783,7 +3830,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 450: /* int64LessEqual */
+	case 456: /* int64LessEqual */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3792,7 +3839,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 451: /* int64Great */
+	case 457: /* int64Great */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3801,7 +3848,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 452: /* int64GreatEqual */
+	case 458: /* int64GreatEqual */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3810,7 +3857,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 453: /* uint64Less */
+	case 459: /* uint64Less */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3819,7 +3866,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 454: /* uint64LessEqual */
+	case 460: /* uint64LessEqual */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3828,7 +3875,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 455: /* uint64Great */
+	case 461: /* uint64Great */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3837,7 +3884,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 456: /* uint64GreatEqual */
+	case 462: /* uint64GreatEqual */
 		{
 			llvm::Value *second = stack.popInt64();
 			llvm::Value *first = stack.popInt64();
@@ -3846,7 +3893,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 457: /* float32Equal */
+	case 463: /* float32Equal */
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
@@ -3855,7 +3902,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 458: /* float32NotEqual */
+	case 464: /* float32NotEqual */
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
@@ -3864,7 +3911,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 459: /* float32Less */
+	case 465: /* float32Less */
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
@@ -3873,7 +3920,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 460: /* float32LessEqual */
+	case 466: /* float32LessEqual */
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
@@ -3882,7 +3929,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 461: /* float32Great */
+	case 467: /* float32Great */
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
@@ -3891,7 +3938,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 462: /* float32GreatEqual */
+	case 468: /* float32GreatEqual */
 		{
 			llvm::Value *second = stack.popFloat32();
 			llvm::Value *first = stack.popFloat32();
@@ -3900,7 +3947,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 463: /* float64Equal */
+	case 469: /* float64Equal */
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
@@ -3909,7 +3956,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 464: /* float64NotEqual */
+	case 470: /* float64NotEqual */
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
@@ -3918,7 +3965,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 465: /* float64Less */
+	case 471: /* float64Less */
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
@@ -3927,7 +3974,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 466: /* float64LessEqual */
+	case 472: /* float64LessEqual */
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
@@ -3936,7 +3983,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 467: /* float64Great */
+	case 473: /* float64Great */
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
@@ -3945,7 +3992,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 468: /* float64GreatEqual */
+	case 474: /* float64GreatEqual */
 		{
 			llvm::Value *second = stack.popFloat64();
 			llvm::Value *first = stack.popFloat64();
@@ -3954,118 +4001,57 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 469: /* jump */
+	case 475: /* jump */
 		{
             builder.CreateBr(getJumpBlock()->getLlvmBasicBlock());        
 		}
 		break;
-	case 470: /* branchTrue32 */
+	case 476: /* branchTrue32 */
 		{
 			llvm::Value *cond = stack.popInt32();
             llvm::Value *boolCond = builder.CreateICmpNE(cond, builder.getInt32(0));            builder.CreateCondBr(boolCond, getBranchBlock()->getLlvmBasicBlock(),                                    getNextBlock()->getLlvmBasicBlock());        
 		}
 		break;
-	case 471: /* branchFalse32 */
+	case 477: /* branchFalse32 */
 		{
 			llvm::Value *cond = stack.popInt32();
             llvm::Value *boolCond = builder.CreateICmpEQ(cond, builder.getInt32(0));            builder.CreateCondBr(boolCond, getBranchBlock()->getLlvmBasicBlock(),                                    getNextBlock()->getLlvmBasicBlock());        
 		}
 		break;
-	case 472: /* branchTrue64 */
+	case 478: /* branchTrue64 */
 		{
 			llvm::Value *cond = stack.popInt64();
             llvm::Value *boolCond = builder.CreateICmpNE(cond, builder.getInt64(0));            builder.CreateCondBr(boolCond, getBranchBlock()->getLlvmBasicBlock(),                                    getNextBlock()->getLlvmBasicBlock());        
 		}
 		break;
-	case 473: /* branchFalse64 */
+	case 479: /* branchFalse64 */
 		{
 			llvm::Value *cond = stack.popInt32();
             llvm::Value *boolCond = builder.CreateICmpEQ(cond, builder.getInt64(0));            builder.CreateCondBr(boolCond, getBranchBlock()->getLlvmBasicBlock(),                                    getNextBlock()->getLlvmBasicBlock());        
 		}
 		break;
-	case 478: /* returnSmallInteger */
-		{
-			llvm::Value *value = stack.popInt32();
-            llvm::Value *smallInteger = builder.CreateOr(builder.CreateShl(value, 1), builder.getInt32(1));            returnOop(smallInteger);        
-		}
-		break;
-	case 479: /* returnBoolean32AsOop */
-		{
-			llvm::Value *value = stack.popInt32();
-            llvm::Value *cond = builder.CreateICmpNE(value, builder.getInt32(0));            llvm::Value *oop = builder.CreateSelect(cond, getTrueOopValue(), getFalseOopValue());            returnOop(oop);        
-		}
-		break;
-	case 480: /* returnBoolean64AsOop */
-		{
-			llvm::Value *value = stack.popInt64();
-            llvm::Value *cond = builder.CreateICmpNE(value, builder.getInt64(0));            llvm::Value *oop = builder.CreateSelect(cond, getTrueOopValue(), getFalseOopValue());            returnOop(oop);        
-		}
-		break;
-	case 481: /* returnInt32AsOop */
-		{
-			llvm::Value *value = stack.popInt32();
-            returnOop(getLlvmInterpreterProxy()->signed32BitIntegerFor(value));        
-		}
-		break;
-	case 482: /* returnInt64AsOop */
-		{
-			llvm::Value *value = stack.popInt64();
-            returnOop(getLlvmInterpreterProxy()->signed64BitIntegerFor(value));        
-		}
-		break;
-	case 483: /* returnUInt32AsOop */
-		{
-			llvm::Value *value = stack.popInt32();
-            returnOop(getLlvmInterpreterProxy()->positive32BitIntegerFor(value));        
-		}
-		break;
-	case 484: /* returnUInt64AsOop */
-		{
-			llvm::Value *value = stack.popInt64();
-            returnOop(getLlvmInterpreterProxy()->positive64BitIntegerFor(value));        
-		}
-		break;
-	case 485: /* returnPointerAsOop */
-		{
-			llvm::Value *pointerClassLiteral = getLiteralAt(getExtendA());
-			llvm::Value *pointer = stack.popPointer();
-            // Instantiate the object.            llvm::Value *object = getLlvmInterpreterProxy()->instantiateClassindexableSize(pointerClassLiteral, sizeof(void*));            checkFailed();                        // Get the field pointer.            llvm::Value *firstFieldPtr = getLlvmInterpreterProxy()->firstIndexableField(object);            checkFailed();            // Store the pointer value.            llvm::Type *pointerType = llvm::PointerType::getUnqual(builder.getInt8PtrTy());            builder.CreateStore(pointer, builder.CreatePointerCast(firstFieldPtr, pointerType));            // Return the object.            returnOop(object);        
-		}
-		break;
-	case 486: /* returnFloat32AsOop */
-		{
-			llvm::Value *value = stack.popFloat32();
-            llvm::Value *float64Value = builder.CreateFPCast(value, builder.getDoubleTy());            returnOop(getLlvmInterpreterProxy()->floatObjectOf(float64Value));        
-		}
-		break;
-	case 487: /* returnFloat64AsOop */
-		{
-			llvm::Value *value = stack.popFloat64();
-            returnOop(getLlvmInterpreterProxy()->floatObjectOf(value));        
-		}
-		break;
-	case 488: /* fail */
+	case 484: /* fail */
 		{
             builder.CreateRet(getLlvmInterpreterProxy()->primitiveFail());        
 		}
 		break;
-	case 489: /* failWithCode */
+	case 485: /* failWithCode */
 		{
 			uint64_t errorCode = getExtendA();
             builder.CreateRet(getLlvmInterpreterProxy()->primitiveFailFor(errorCode));        
 		}
 		break;
-	case 490: /* lockVM */
+	case 486: /* lockVM */
 		{
 abort();
 		}
 		break;
-	case 491: /* unlockVM */
+	case 487: /* unlockVM */
 		{
 abort();
 		}
 		break;
-	case 492: /* compareAndSwap32 */
+	case 488: /* compareAndSwap32 */
 		{
 			llvm::Value *newValue = stack.popInt32();
 			llvm::Value *oldValue = stack.popInt32();
@@ -4075,7 +4061,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 493: /* alloca32 */
+	case 489: /* alloca32 */
 		{
 			llvm::Value *size = stack.popInt32();
 			llvm::Value *pointer = NULL;
@@ -4083,7 +4069,7 @@ abort();
 			stack.pushPointer(pointer);
 		}
 		break;
-	case 494: /* alloca64 */
+	case 490: /* alloca64 */
 		{
 			llvm::Value *size = stack.popInt64();
 			llvm::Value *pointer = NULL;
@@ -4091,7 +4077,7 @@ abort();
 			stack.pushPointer(pointer);
 		}
 		break;
-	case 495: /* malloc32 */
+	case 491: /* malloc32 */
 		{
 			llvm::Value *size = stack.popInt32();
 			llvm::Value *pointer = NULL;
@@ -4099,7 +4085,7 @@ abort();
 			stack.pushPointer(pointer);
 		}
 		break;
-	case 496: /* malloc64 */
+	case 492: /* malloc64 */
 		{
 			llvm::Value *size = stack.popInt64();
 			llvm::Value *pointer = NULL;
@@ -4107,13 +4093,13 @@ abort();
 			stack.pushPointer(pointer);
 		}
 		break;
-	case 497: /* free */
+	case 493: /* free */
 		{
 			llvm::Value *pointer = stack.popPointer();
             builder.CreateCall(getFreeFunction(), pointer);        
 		}
 		break;
-	case 498: /* memcpyFixed */
+	case 494: /* memcpyFixed */
 		{
 			uint64_t size = getExtendA();
 			llvm::Value *source = stack.popPointer();
@@ -4121,7 +4107,7 @@ abort();
             builder.CreateMemCpy(dest, source, size, 1);        
 		}
 		break;
-	case 499: /* memcpy32 */
+	case 495: /* memcpy32 */
 		{
 			llvm::Value *size = stack.popInt32();
 			llvm::Value *source = stack.popPointer();
@@ -4129,7 +4115,7 @@ abort();
             builder.CreateMemCpy(dest, source, size, 1);        
 		}
 		break;
-	case 500: /* memcpy64 */
+	case 496: /* memcpy64 */
 		{
 			llvm::Value *size = stack.popInt64();
 			llvm::Value *source = stack.popPointer();
@@ -4137,50 +4123,50 @@ abort();
             builder.CreateMemCpy(dest, source, size, 1);        
 		}
 		break;
-	case 501: /* beginCall */
+	case 497: /* beginCall */
 		{
 			uint64_t alignment = getExtendA();
             beginCall(alignment);        
 		}
 		break;
-	case 502: /* callArgumentInt32 */
+	case 498: /* callArgumentInt32 */
 		{
 			llvm::Value *value = stack.popInt32();
             callArgumentInt32(value);        
 		}
 		break;
-	case 503: /* callArgumentInt64 */
+	case 499: /* callArgumentInt64 */
 		{
 			llvm::Value *value = stack.popInt32();
             callArgumentInt64(value);        
 		}
 		break;
-	case 504: /* callArgumentPointer */
+	case 500: /* callArgumentPointer */
 		{
 			llvm::Value *value = stack.popPointer();
             callArgumentPointer(value);        
 		}
 		break;
-	case 505: /* callArgumentStructure */
+	case 501: /* callArgumentStructure */
 		{
 			uint64_t structureSize = getExtendA();
 			llvm::Value *structurePointer = stack.popPointer();
             callArgumentStructure(structureSize, structurePointer);        
 		}
 		break;
-	case 506: /* callArgumentFloat32 */
+	case 502: /* callArgumentFloat32 */
 		{
 			llvm::Value *value = stack.popFloat32();
             callArgumentFloat32(value);        
 		}
 		break;
-	case 507: /* callArgumentFloat64 */
+	case 503: /* callArgumentFloat64 */
 		{
 			llvm::Value *value = stack.popFloat64();
             callArgumentFloat64(value);        
 		}
 		break;
-	case 508: /* performCallInt32 */
+	case 504: /* performCallInt32 */
 		{
 			uint64_t function = getExtendA();
 			llvm::Value *result = NULL;
@@ -4188,7 +4174,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 509: /* performCallInt64 */
+	case 505: /* performCallInt64 */
 		{
 			uint64_t function = getExtendA();
 			llvm::Value *result = NULL;
@@ -4196,7 +4182,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 510: /* performCallPointer */
+	case 506: /* performCallPointer */
 		{
 			uint64_t function = getExtendA();
 			llvm::Value *result = NULL;
@@ -4204,7 +4190,17 @@ abort();
 			stack.pushPointer(result);
 		}
 		break;
-	case 511: /* performCallFloat32 */
+	case 507: /* performCallStructure */
+		{
+			uint64_t function = getExtendA();
+			uint64_t structureSize = getExtendB();
+			llvm::Value *result = stack.popPointer();
+			llvm::Value *resultPointer = NULL;
+            resultPointer = performCallStructure(result, structureSize, function);        
+			stack.pushPointer(resultPointer);
+		}
+		break;
+	case 508: /* performCallFloat32 */
 		{
 			uint64_t function = getExtendA();
 			llvm::Value *result = NULL;
@@ -4212,7 +4208,7 @@ abort();
 			stack.pushFloat32(result);
 		}
 		break;
-	case 512: /* performCallFloat64 */
+	case 509: /* performCallFloat64 */
 		{
 			uint64_t function = getExtendA();
 			llvm::Value *result = NULL;
@@ -4220,7 +4216,7 @@ abort();
 			stack.pushFloat64(result);
 		}
 		break;
-	case 513: /* performCallIndirectInt32 */
+	case 510: /* performCallIndirectInt32 */
 		{
 			llvm::Value *function = stack.popPointer();
 			llvm::Value *result = NULL;
@@ -4228,7 +4224,7 @@ abort();
 			stack.pushInt32(result);
 		}
 		break;
-	case 514: /* performCallIndirectInt64 */
+	case 511: /* performCallIndirectInt64 */
 		{
 			llvm::Value *function = stack.popPointer();
 			llvm::Value *result = NULL;
@@ -4236,7 +4232,7 @@ abort();
 			stack.pushInt64(result);
 		}
 		break;
-	case 515: /* performCallIndirectPointer */
+	case 512: /* performCallIndirectPointer */
 		{
 			llvm::Value *function = stack.popPointer();
 			llvm::Value *result = NULL;
@@ -4244,7 +4240,17 @@ abort();
 			stack.pushPointer(result);
 		}
 		break;
-	case 516: /* performCallIndirectFloat32 */
+	case 513: /* performCallIndirectStructure */
+		{
+			uint64_t structureSize = getExtendA();
+			llvm::Value *result = stack.popPointer();
+			llvm::Value *function = stack.popPointer();
+			llvm::Value *resultPointer = NULL;
+            resultPointer = performCallIndirectStructure(result, structureSize, function);        
+			stack.pushPointer(resultPointer);
+		}
+		break;
+	case 514: /* performCallIndirectFloat32 */
 		{
 			llvm::Value *function = stack.popPointer();
 			llvm::Value *result = NULL;
@@ -4252,7 +4258,7 @@ abort();
 			stack.pushFloat32(result);
 		}
 		break;
-	case 517: /* performCallIndirectFloat64 */
+	case 515: /* performCallIndirectFloat64 */
 		{
 			llvm::Value *function = stack.popPointer();
 			llvm::Value *result = NULL;
@@ -4260,69 +4266,69 @@ abort();
 			stack.pushFloat64(result);
 		}
 		break;
-	case 518: /* endCall */
+	case 516: /* endCall */
 		{
             endCall();        
 		}
 		break;
-	case 519: /* endCallNoCleanup */
+	case 517: /* endCallNoCleanup */
 		{
             endCallNoCleanup();        
 		}
 		break;
-	case 520: /* plaftormCode */
+	case 518: /* plaftormCode */
 		{
 			llvm::Value *code = NULL;
 abort();
 			stack.pushInt32(code);
 		}
 		break;
-	case 521: /* lockRegisters */
+	case 519: /* lockRegisters */
 		{
 abort();
 		}
 		break;
-	case 522: /* unlockRegisters */
+	case 520: /* unlockRegisters */
 		{
 abort();
 		}
 		break;
-	case 523: /* moveInt32ToPhysical */
+	case 521: /* moveInt32ToPhysical */
 		{
 			uint64_t registerID = getExtendA();
 			llvm::Value *value = stack.popInt32();
 abort();
 		}
 		break;
-	case 524: /* moveInt64ToPhysical */
+	case 522: /* moveInt64ToPhysical */
 		{
 			uint64_t registerID = getExtendA();
 			llvm::Value *value = stack.popInt64();
 abort();
 		}
 		break;
-	case 525: /* movePointerToPhysical */
+	case 523: /* movePointerToPhysical */
 		{
 			uint64_t registerID = getExtendA();
 			llvm::Value *value = stack.popPointer();
 abort();
 		}
 		break;
-	case 526: /* moveFloat32ToPhysical */
+	case 524: /* moveFloat32ToPhysical */
 		{
 			uint64_t registerID = getExtendA();
 			llvm::Value *value = stack.popFloat32();
 abort();
 		}
 		break;
-	case 527: /* moveFloat64ToPhysical */
+	case 525: /* moveFloat64ToPhysical */
 		{
 			uint64_t registerID = getExtendA();
 			llvm::Value *value = stack.popFloat64();
 abort();
 		}
 		break;
-	case 528: /* pushPhysicalInt32 */
+	case 526: /* pushPhysicalInt32 */
 		{
 			uint64_t registerID = getExtendA();
 			llvm::Value *value = NULL;
@@ -4330,7 +4336,7 @@ abort();
 			stack.pushInt32(value);
 		}
 		break;
-	case 529: /* pushPhysicalInt64 */
+	case 527: /* pushPhysicalInt64 */
 		{
 			uint64_t registerID = getExtendA();
 			llvm::Value *value = NULL;
@@ -4338,7 +4344,7 @@ abort();
 			stack.pushInt64(value);
 		}
 		break;
-	case 530: /* pushPhysicalPointer */
+	case 528: /* pushPhysicalPointer */
 		{
 			uint64_t registerID = getExtendA();
 			llvm::Value *value = NULL;
@@ -4346,7 +4352,7 @@ abort();
 			stack.pushPointer(value);
 		}
 		break;
-	case 531: /* pushPhysicalFloat32 */
+	case 529: /* pushPhysicalFloat32 */
 		{
 			uint64_t registerID = getExtendA();
 			llvm::Value *value = NULL;
@@ -4354,7 +4360,7 @@ abort();
 			stack.pushFloat32(value);
 		}
 		break;
-	case 532: /* pushPhysicalFloat64 */
+	case 530: /* pushPhysicalFloat64 */
 		{
 			uint64_t registerID = getExtendA();
 			llvm::Value *value = NULL;
@@ -4362,13 +4368,13 @@ abort();
 			stack.pushFloat64(value);
 		}
 		break;
-	case 533: /* callPhysical */
+	case 531: /* callPhysical */
 		{
 			uint64_t registerID = getExtendA();
 abort();
 		}
 		break;
-	case 534: /* callInstruction */
+	case 532: /* callInstruction */
 		{
 			uint64_t function = getExtendA();
 abort();

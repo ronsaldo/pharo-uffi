@@ -347,6 +347,22 @@ llvm::Value *LowcodeMethod::performCall(llvm::Type* returnType, uintptr_t functi
     return performCallIndirect(returnType, functionPointerValue);
 }
 
+llvm::Value *LowcodeMethod::performCallStructure(llvm::Value *resultPointer, size_t structureSize, uintptr_t function)
+{
+    callArgumentPointer(resultPointer);
+    llvm::Value *res = performCall(builder.getVoidTy(), function);
+    currentCallInst->addAttribute(1, llvm::Attributes::get(builder.getContext(), llvm::Attributes::StructRet));
+    return res;
+}
+
+llvm::Value *LowcodeMethod::performCallIndirectStructure(llvm::Value *resultPointer, size_t structureSize, llvm::Value *functionPointer)
+{
+    callArgumentPointer(resultPointer);
+    llvm::Value *res = performCallIndirect(builder.getVoidTy(), functionPointer);
+    currentCallInst->addAttribute(1, llvm::Attributes::get(builder.getContext(), llvm::Attributes::StructRet));
+    return res;
+}
+
 llvm::Value *LowcodeMethod::performCallIndirect(llvm::Type* returnType, llvm::Value *functionPointer)
 {
     // Get the actual arguments in the right order.
